@@ -1,0 +1,44 @@
+<!-- Wellness Product Placeholder SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="product-placeholder">
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#productGradient)"/>
+  
+  <!-- Product Shape (Generic Wellness Device) -->
+  <g transform="translate(200,150)">
+    <!-- Main Device Body -->
+    <rect x="-80" y="-50" width="160" height="100" rx="20" fill="#FFFFFF" opacity="0.9" stroke="#0033A0" stroke-width="2"/>
+    
+    <!-- Screen/Display Area -->
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#0033A0" opacity="0.8"/>
+    
+    <!-- Control Elements -->
+    <circle cx="-30" cy="0" r="8" fill="#FFD500" opacity="0.9"/>
+    <circle cx="0" cy="0" r="8" fill="#EF3340" opacity="0.9"/>
+    <circle cx="30" cy="0" r="8" fill="#FFD500" opacity="0.9"/>
+    
+    <!-- Wellness Waves -->
+    <path d="M-70,-20 Q-50,-35 -30,-20 Q-10,-5 10,-20 Q30,-35 50,-20 Q70,-5 90,-20" 
+          stroke="#FFD500" stroke-width="3" fill="none" opacity="0.6">
+      <animate attributeName="d" 
+               values="M-70,-20 Q-50,-35 -30,-20 Q-10,-5 10,-20 Q30,-35 50,-20 Q70,-5 90,-20;
+                       M-70,-20 Q-50,-5 -30,-20 Q-10,-35 10,-20 Q30,-5 50,-20 Q70,-35 90,-20;
+                       M-70,-20 Q-50,-35 -30,-20 Q-10,-5 10,-20 Q30,-35 50,-20 Q70,-5 90,-20" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Brand Text -->
+  <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#0033A0" opacity="0.8">
+    EDUP Wellness Device
+  </text>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD500;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0033A0;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+</svg>
