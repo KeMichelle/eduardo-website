@@ -692,21 +692,35 @@ const validateForm = (): boolean => {
   return Object.keys(errors.value).length === 0;
 };
 
-// EmailJS configuration from environment variables
-const config = useRuntimeConfig();
-const EMAILJS_SERVICE_ID = config.public.emailjsServiceId;
-const EMAILJS_TEMPLATE_ID = config.public.emailjsTemplateId;
-const EMAILJS_PUBLIC_KEY = config.public.emailjsPublicKey;
-
 // Form submission
 const submitForm = async () => {
   if (!validateForm()) {
     return;
   }
 
+  // Guard against SSR
+  if (typeof window === 'undefined' || !(window as any).emailjs) {
+    console.error('EmailJS not loaded or running on server');
+    alert('Form service not loaded. Please refresh the page and try again.');
+    return;
+  }
+
   isSubmitting.value = true;
 
   try {
+    // Get runtime config on client side
+    const config = useRuntimeConfig();
+
+    const EMAILJS_SERVICE_ID = config.public.emailjsServiceId;
+    const EMAILJS_TEMPLATE_ID = config.public.emailjsTemplateId;
+    const EMAILJS_PUBLIC_KEY = config.public.emailjsPublicKey;
+
+    // Validate env variables are loaded
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error('EmailJS environment variables are missing');
+      throw new Error('EmailJS configuration is missing');
+    }
+
     // Send email using EmailJS
     const templateParams = {
       from_name: `${form.value.firstName} ${form.value.lastName}`,
@@ -720,8 +734,7 @@ const submitForm = async () => {
       to_email: 'eduardo.p.gflex@outlook.com',
     };
 
-    // @ts-ignore - EmailJS loaded via CDN
-    await window.emailjs.send(
+    await (window as any).emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       templateParams,
