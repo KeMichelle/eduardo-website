@@ -29,8 +29,8 @@
             style="animation-delay: 0.2s"
           >
             Discover Eduardo's comprehensive range of authentic Nipponflex
-            wellness products. As your authorised UK distributor, EDUP
-            GlobalFlex brings you genuine Nipponflex innovations designed with
+            wellness products. As your authorised UK distributor, EDUP Global
+            Flex brings you genuine Nipponflex innovations designed with
             cutting-edge technology to enhance your quality of life and promote
             personalised wellbeing.
           </p>

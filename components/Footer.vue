@@ -26,15 +26,15 @@
               </div>
             </div>
             <div>
-              <h3 class="text-xl font-display font-bold">EDUP GlobalFlex</h3>
+              <h3 class="text-xl font-display font-bold">EDUP Global Flex</h3>
               <p class="text-gray-400 text-sm">
-                Authorized Nipponflex Distributor
+                Authorised Nipponflex Distributor
               </p>
             </div>
           </div>
 
           <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
-            Eduardo Penafiel's authorized Nipponflex distribution business in
+            Eduardo Penafiel's authorised Nipponflex distribution business in
             the UK. Bringing you authentic Nipponflex wellness technologies and
             products designed for personalised wellbeing directly from the
             manufacturer.
@@ -182,7 +182,7 @@
           class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
         >
           <div class="text-sm text-gray-400">
-            © {{ currentYear }} EDUP GlobalFlex. All rights reserved.
+            © {{ currentYear }} EDUP Global Flex. All rights reserved.
           </div>
 
           <div class="flex items-center space-x-6 text-sm text-gray-400">

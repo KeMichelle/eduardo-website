@@ -31,7 +31,7 @@
             class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
             As an authorised Nipponflex distributor, Eduardo Penafiel through
-            EDUP GlobalFlex brings you genuine, proven Nipponflex wellness
+            EDUP Global Flex brings you genuine, proven Nipponflex wellness
             solutions that are accessible, effective, and integrate seamlessly
             into your daily life. All products are authentic Nipponflex
             innovations, combining cutting-edge technology with time-tested
@@ -228,7 +228,7 @@ const stats: Stat[] = [
   { number: '30+', label: 'Nipponflex Products' },
   { number: '100%', label: 'Authentic Guarantee' },
   { number: 'UK', label: 'London Based' },
-  { number: '1', label: 'Authorized Distributor' },
+  { number: '1', label: 'Authorised Distributor' },
 ];
 </script>
 

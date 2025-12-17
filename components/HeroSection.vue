@@ -22,7 +22,7 @@
             <div class="flex justify-center">
               <img
                 src="/assets/images/logo/edulogohorizontal.png"
-                alt="EDUP GlobalFlex"
+                alt="EDUP Global Flex"
                 class="h-48 md:h-64 lg:h-80 xl:h-96 object-contain filter drop-shadow-2xl animate-bounce-subtle"
                 @error="handleLogoError"
               />

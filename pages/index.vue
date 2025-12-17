@@ -10,6 +10,11 @@
       <WellnessSection />
     </section>
 
+    <!-- Health Test Section -->
+    <section id="health-test">
+      <HealthTestSection />
+    </section>
+
     <!-- Product Gallery -->
     <section id="gallery">
       <GallerySection />
@@ -31,7 +36,7 @@
 // Meta data for the home page
 useHead({
   title:
-    'EDUP GlobalFlex - Authorised Nipponflex Distributor UK | Eduardo Penafiel',
+    'EDUP Global Flex - Authorised Nipponflex Distributor UK | Eduardo Penafiel',
   meta: [
     {
       name: 'description',
@@ -40,7 +45,7 @@ useHead({
     },
     {
       property: 'og:title',
-      content: 'EDUP GlobalFlex - Authorised Nipponflex Distributor UK',
+      content: 'EDUP Global Flex - Authorised Nipponflex Distributor UK',
     },
     {
       property: 'og:description',

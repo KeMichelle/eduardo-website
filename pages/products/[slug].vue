@@ -543,7 +543,7 @@
           <p
             class="text-xl md:text-2xl text-white/95 mb-12 font-medium leading-relaxed"
           >
-            Contact Eduardo Penafiel, your authorized Nipponflex distributor in
+            Contact Eduardo Penafiel, your authorised Nipponflex distributor in
             the UK, to learn more about this authentic Nipponflex product and
             how it can transform your wellness journey into something
             extraordinary.

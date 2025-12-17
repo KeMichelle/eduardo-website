@@ -39,20 +39,19 @@ export default defineNuxtConfig({
       emailjsServiceId: process.env.NUXT_PUBLIC_EMAILJS_SERVICE_ID || '',
       emailjsTemplateId: process.env.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
       emailjsPublicKey: process.env.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
-      recaptchaSiteKey: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
     },
   },
 
   app: {
     head: {
-      title: 'EDUP GlobalFlex - Wellness Made Simple',
+      title: 'EDUP Global Flex - Wellness Made Simple',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
-            'EDUP GlobalFlex - Leading provider of wellness technologies and products for personalised wellbeing.',
+            'EDUP Global Flex - Leading provider of wellness technologies and products for personalised wellbeing.',
         },
       ],
       link: [
@@ -63,11 +62,6 @@ export default defineNuxtConfig({
         {
           src: 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js',
           type: 'text/javascript',
-        },
-        {
-          src: 'https://www.google.com/recaptcha/api.js?render=explicit',
-          async: true,
-          defer: true,
         },
       ],
     },

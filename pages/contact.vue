@@ -369,7 +369,7 @@
                         for="company"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Company/Organization
+                        Company/Organisation
                       </label>
                       <input
                         id="company"
@@ -697,35 +697,6 @@ const config = useRuntimeConfig();
 const EMAILJS_SERVICE_ID = config.public.emailjsServiceId;
 const EMAILJS_TEMPLATE_ID = config.public.emailjsTemplateId;
 const EMAILJS_PUBLIC_KEY = config.public.emailjsPublicKey;
-const RECAPTCHA_SITE_KEY = config.public.recaptchaSiteKey;
-
-// reCAPTCHA v3 token generation
-const getRecaptchaToken = async (): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    try {
-      // @ts-ignore - grecaptcha loaded via CDN
-      if (typeof grecaptcha === 'undefined') {
-        reject(new Error('reCAPTCHA not loaded'));
-        return;
-      }
-
-      // @ts-ignore
-      grecaptcha.ready(() => {
-        // @ts-ignore
-        grecaptcha
-          .execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
-          .then((token: string) => {
-            resolve(token);
-          })
-          .catch((error: any) => {
-            reject(error);
-          });
-      });
-    } catch (error) {
-      reject(error);
-    }
-  });
-};
 
 // Form submission
 const submitForm = async () => {
@@ -736,16 +707,6 @@ const submitForm = async () => {
   isSubmitting.value = true;
 
   try {
-    // Get reCAPTCHA token
-    let recaptchaToken = '';
-    if (RECAPTCHA_SITE_KEY) {
-      try {
-        recaptchaToken = await getRecaptchaToken();
-      } catch (error) {
-        console.warn('reCAPTCHA failed, continuing without it:', error);
-      }
-    }
-
     // Send email using EmailJS
     const templateParams = {
       from_name: `${form.value.firstName} ${form.value.lastName}`,
@@ -757,7 +718,6 @@ const submitForm = async () => {
       message: form.value.message,
       newsletter: form.value.newsletter ? 'Yes' : 'No',
       to_email: 'eduardo.p.gflex@outlook.com',
-      'g-recaptcha-response': recaptchaToken,
     };
 
     // @ts-ignore - EmailJS loaded via CDN

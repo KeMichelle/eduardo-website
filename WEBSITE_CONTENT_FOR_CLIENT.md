@@ -25,7 +25,7 @@ Welcome to :
 **Your Business Description:**
 
 ```
-Your Authorized Nipponflex Distributor in the UK
+Your authorised Nipponflex Distributor in the UK
 Eduardo Penafiel • EDUP Global Flex
 ```
 
@@ -42,7 +42,7 @@ Wellness Made Simple
 **Main Description:**
 
 ```
-As an authorized Nipponflex distributor, Eduardo Penafiel through EDUP Global Flex brings you authentic, proven Nipponflex wellness solutions that are accessible, effective, and integrate seamlessly into your daily life. All products are genuine Nipponflex innovations combining cutting-edge technology with time-tested wellness principles.
+As an authorised Nipponflex distributor, Eduardo Penafiel through EDUP Global Flex brings you authentic, proven Nipponflex wellness solutions that are accessible, effective, and integrate seamlessly into your daily life. All products are genuine Nipponflex innovations combining cutting-edge technology with time-tested wellness principles.
 ```
 
 **Subsection Title:**
@@ -54,7 +54,7 @@ Revolutionizing Personal Wellness
 **Subsection Description:**
 
 ```
-As your trusted authorized distributor, Eduardo Penafiel provides access to Nipponflex's comprehensive wellness ecosystem, designed to support your journey toward optimal health and wellbeing. These authentic Nipponflex products, developed through advanced materials science and innovative design, work with your body's natural processes.
+As your trusted authorised distributor, Eduardo Penafiel provides access to Nipponflex's comprehensive wellness ecosystem, designed to support your journey toward optimal health and wellbeing. These authentic Nipponflex products, developed through advanced materials science and innovative design, work with your body's natural processes.
 ```
 
 **Key Benefits (4 Points):**
@@ -65,10 +65,10 @@ As your trusted authorized distributor, Eduardo Penafiel provides access to Nipp
 Genuine cutting-edge materials like FIR Bioceramic® and Rabatan® for enhanced wellness benefits.
 ```
 
-2. **Authorized Distribution**
+2. **authorised Distribution**
 
 ```
-Direct access to authentic Nipponflex products through Eduardo's authorized distributorship.
+Direct access to authentic Nipponflex products through Eduardo's authorised distributorship.
 ```
 
 3. **Scientific Approach**
@@ -119,13 +119,13 @@ Discover the vision and passion behind EDUP Global Flex through the eyes of Edua
 
 ```
 "Wellness is not a destination, but a journey. My mission is to help you find the right Nipponflex products and technologies that make this journey not just possible, but enjoyable and transformative."
-— Eduardo Penafiel, Authorized Nipponflex Distributor
+— Eduardo Penafiel, authorised Nipponflex Distributor
 ```
 
 **Your Professional Background:**
 
 ```
-- Authorized Nipponflex distributor based in London, UK
+- authorised Nipponflex distributor based in London, UK
 - Expert in Nipponflex FIR Bioceramic® and wellness technologies
 - Experienced in helping customers find the right Nipponflex solutions
 - Focused on bringing quality Nipponflex products to international markets
@@ -166,7 +166,7 @@ Ready for Personalised Wellbeing?
 **Main Description:**
 
 ```
-Transform your daily wellness routine with authentic Nipponflex technologies. As your authorized UK distributor, Eduardo Penafiel through EDUP Global Flex brings you genuine Nipponflex products - from advanced FIR Bioceramic® materials to cutting-edge ion therapy solutions.
+Transform your daily wellness routine with authentic Nipponflex technologies. As your authorised UK distributor, Eduardo Penafiel through EDUP Global Flex brings you genuine Nipponflex products - from advanced FIR Bioceramic® materials to cutting-edge ion therapy solutions.
 ```
 
 **Three Key Benefits:**
@@ -219,7 +219,7 @@ Contact Eduardo Penafiel
 **Page Description:**
 
 ```
-Ready to start your wellness journey with authentic Nipponflex products? Get in touch with Eduardo Penafiel, your authorized UK distributor, to learn more about genuine Nipponflex solutions, schedule a consultation, or discuss your wellness needs.
+Ready to start your wellness journey with authentic Nipponflex products? Get in touch with Eduardo Penafiel, your authorised UK distributor, to learn more about genuine Nipponflex solutions, schedule a consultation, or discuss your wellness needs.
 ```
 
 ### **Your Contact Information**
@@ -286,7 +286,7 @@ Our Products
 **Page Description:**
 
 ```
-Discover Eduardo's comprehensive range of authentic Nipponflex wellness products. As your authorized UK distributor, EDUP Global Flex brings you genuine Nipponflex innovations designed with cutting-edge technology to enhance your quality of life and promote personalized wellbeing.
+Discover Eduardo's comprehensive range of authentic Nipponflex wellness products. As your authorised UK distributor, EDUP Global Flex brings you genuine Nipponflex innovations designed with cutting-edge technology to enhance your quality of life and promote personalized wellbeing.
 ```
 
 **Statistics:**
@@ -320,7 +320,7 @@ Nipponflex Technology
 **Page Description:**
 
 ```
-Discover the innovative Nipponflex technologies that Eduardo offers through his authorized distribution. Each technology represents years of research and development, combining traditional wellness wisdom with cutting-edge scientific advances.
+Discover the innovative Nipponflex technologies that Eduardo offers through his authorised distribution. Each technology represents years of research and development, combining traditional wellness wisdom with cutting-edge scientific advances.
 ```
 
 **Overview Stats:**
@@ -433,13 +433,13 @@ EDUP Global Flex
 **Business Description:**
 
 ```
-Authorized Nipponflex Distributor
+authorised Nipponflex Distributor
 ```
 
 **Detailed Description:**
 
 ```
-Eduardo Penafiel's authorized Nipponflex distribution business in the UK. Bringing you authentic Nipponflex wellness technologies and products designed for personalized wellbeing directly from the manufacturer.
+Eduardo Penafiel's authorised Nipponflex distribution business in the UK. Bringing you authentic Nipponflex wellness technologies and products designed for personalized wellbeing directly from the manufacturer.
 ```
 
 ### **Quick Links Section**
@@ -493,13 +493,13 @@ London Based
 **Page Title:**
 
 ```
-EDUP Global Flex - Authorized Nipponflex Distributor UK | Eduardo Penafiel
+EDUP Global Flex - authorised Nipponflex Distributor UK | Eduardo Penafiel
 ```
 
 **Meta Description:**
 
 ```
-Eduardo Penafiel's authorized Nipponflex distribution business in the UK. Authentic Nipponflex wellness technologies featuring FIR Bioceramic®, Rabatan®, and advanced ion therapy solutions.
+Eduardo Penafiel's authorised Nipponflex distribution business in the UK. Authentic Nipponflex wellness technologies featuring FIR Bioceramic®, Rabatan®, and advanced ion therapy solutions.
 ```
 
 **Keywords:**
@@ -523,7 +523,7 @@ wellness, FIR Bioceramic, Rabatan, ion therapy, magnetic therapy, wellness produ
 ### **Important Notes:**
 
 - ✅ **You CAN change:** All text content, descriptions, contact info
-- ❌ **Please DON'T change:** Section titles in **bold** (these are for organization)
+- ❌ **Please DON'T change:** Section titles in **bold** (these are for organisation)
 - 📧 **Contact info:** Make sure email and phone are correct
 - 🏢 **Business hours:** Update if needed
 - 📝 **Personal info:** Add your photo, update your story

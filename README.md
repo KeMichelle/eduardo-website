@@ -106,7 +106,7 @@ eduardo-website/
 ### Products Page (`/products`)
 
 - Product grid with search and filters
-- Category-based organization
+- Category-based organisation
 - Detailed product modals
 - Pagination support
 

@@ -51,30 +51,89 @@
           <p class="text-xl md:text-2xl text-gray-100 leading-relaxed mb-8">
             Transform your daily wellness routine with authentic Nipponflex
             technologies. As your authorised UK distributor, Eduardo Penafiel
-            through EDUP GlobalFlex brings you genuine Nipponflex products —
+            through EDUP Global Flex brings you genuine Nipponflex products -
             from advanced FIR Bioceramic® materials to cutting-edge ion therapy
             solutions.
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div
-              v-for="(benefit, index) in benefits"
-              :key="index"
-              class="animate-slide-in-left"
-              :style="{ animationDelay: `${index * 150 + 400}ms` }"
-            >
+            <div class="animate-slide-in-left" style="animation-delay: 400ms">
               <div
                 class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
               >
-                <component
-                  :is="benefit.icon"
+                <svg
                   class="w-8 h-8 text-ecuador-yellow"
-                />
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
               </div>
               <h3 class="text-lg font-semibold text-white mb-2">
-                {{ benefit.title }}
+                Personalised Approach
               </h3>
-              <p class="text-gray-300 text-sm">{{ benefit.description }}</p>
+              <p class="text-gray-300 text-sm">
+                Tailored Nipponflex solutions designed specifically for your
+                wellness needs.
+              </p>
+            </div>
+            <div class="animate-slide-in-left" style="animation-delay: 550ms">
+              <div
+                class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-ecuador-yellow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">
+                Proven Technology
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Nipponflex cutting-edge materials and innovative designs backed
+                by scientific research.
+              </p>
+            </div>
+            <div class="animate-slide-in-left" style="animation-delay: 700ms">
+              <div
+                class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-ecuador-yellow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">
+                Quality Assurance
+              </h3>
+              <p class="text-gray-300 text-sm">
+                Eduardo ensures every Nipponflex product meets the highest
+                wellness standards.
+              </p>
             </div>
           </div>
         </div>
@@ -187,19 +246,50 @@
             class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/20"
           >
             <div
-              v-for="(indicator, index) in trustIndicators"
-              :key="index"
               class="text-center animate-slide-in-right"
-              :style="{ animationDelay: `${index * 100 + 1000}ms` }"
+              style="animation-delay: 1000ms"
             >
               <div
                 class="text-2xl md:text-3xl font-bold text-ecuador-yellow mb-1"
               >
-                {{ indicator.value }}
+                3
               </div>
               <div class="text-white/80 text-sm font-medium">
-                {{ indicator.label }}
+                Core Technologies
               </div>
+            </div>
+            <div
+              class="text-center animate-slide-in-right"
+              style="animation-delay: 1100ms"
+            >
+              <div
+                class="text-2xl md:text-3xl font-bold text-ecuador-yellow mb-1"
+              >
+                5+
+              </div>
+              <div class="text-white/80 text-sm font-medium">Product Lines</div>
+            </div>
+            <div
+              class="text-center animate-slide-in-right"
+              style="animation-delay: 1200ms"
+            >
+              <div
+                class="text-2xl md:text-3xl font-bold text-ecuador-yellow mb-1"
+              >
+                UK
+              </div>
+              <div class="text-white/80 text-sm font-medium">London Based</div>
+            </div>
+            <div
+              class="text-center animate-slide-in-right"
+              style="animation-delay: 1300ms"
+            >
+              <div
+                class="text-2xl md:text-3xl font-bold text-ecuador-yellow mb-1"
+              >
+                100%
+              </div>
+              <div class="text-white/80 text-sm font-medium">Quality Focus</div>
             </div>
           </div>
         </div>
