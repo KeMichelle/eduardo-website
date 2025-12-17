@@ -731,7 +731,6 @@ const submitForm = async () => {
       subject: form.value.subject,
       message: form.value.message,
       newsletter: form.value.newsletter ? 'Yes' : 'No',
-      to_email: 'eduardo.p.gflex@outlook.com',
     };
 
     await (window as any).emailjs.send(
