@@ -15,7 +15,7 @@
             <h1
               class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-black drop-shadow-lg"
             >
-              Welcome to :
+              {{ t('hero.welcome') }} :
             </h1>
 
             <!-- Much Bigger Logo -->
@@ -48,7 +48,7 @@
           <p
             class="text-xl md:text-2xl lg:text-3xl text-black font-medium drop-shadow-md"
           >
-            Your Authorised Nipponflex Distributor in the UK
+            {{ t('hero.subtitle') }}
           </p>
           <p
             class="text-lg md:text-xl text-black/80 font-normal drop-shadow-md mt-4"
@@ -63,14 +63,14 @@
           style="animation-delay: 0.6s"
         >
           <NuxtLink
-            to="/products"
+            :to="localePath('/products')"
             class="btn-primary px-8 py-4 text-lg font-semibold"
           >
-            Explore Products
+            {{ t('hero.cta.explore') }}
           </NuxtLink>
 
           <NuxtLink
-            to="/technology"
+            :to="localePath('/technology')"
             class="btn-secondary px-8 py-4 text-lg font-semibold"
           >
             Nipponflex Technology
@@ -95,7 +95,7 @@
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <span>Download Catalog (PDF)</span>
+            <span>{{ t('hero.cta.downloadCatalog') }}</span>
           </a>
         </div>
 
@@ -127,6 +127,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+const localePath = useLocalePath();
 const logoLoaded = ref(true);
 const parallaxY = ref(0);
 

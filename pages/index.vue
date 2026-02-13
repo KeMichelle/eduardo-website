@@ -10,6 +10,11 @@
       <WellnessSection />
     </section>
 
+    <!-- Video Section -->
+    <section id="video">
+      <VideoSection />
+    </section>
+
     <!-- Health Test Section -->
     <section id="health-test">
       <HealthTestSection />
@@ -41,7 +46,7 @@ useHead({
     {
       name: 'description',
       content:
-        "Eduardo Penafiel's authorised Nipponflex distribution business in the UK. Authentic Nipponflex wellness technologies featuring FIR Bioceramic®, MFP Magnetic FIR Power® and Rabatan® advanced therapy solutions.",
+        "Eduardo Penafiel's authorised Nipponflex distributor in the UK. Authentic Nipponflex wellness technologies featuring FIR Bioceramic®, MFP Magnetic FIR Power® and Rabatan® advanced therapy solutions.",
     },
     {
       property: 'og:title',

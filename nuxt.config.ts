@@ -10,7 +10,18 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxt/image',
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-GB', name: 'English' },
+      { code: 'es', iso: 'es-ES', name: 'Español' },
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
+  },
 
   tailwindcss: {
     cssPath: './assets/css/main.css',

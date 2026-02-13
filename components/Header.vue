@@ -3,7 +3,7 @@
     class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-ecuador-blue/20 transition-all duration-300"
   >
     <nav class="container mx-auto px-4 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
+      <div class="relative flex items-center justify-between h-16 md:h-20">
         <!-- Modern EDUP Logo -->
         <NuxtLink to="/" class="flex items-center space-x-3 group">
           <div
@@ -28,8 +28,10 @@
           </div>
         </NuxtLink>
 
-        <!-- Desktop Navigation with Icons -->
-        <div class="hidden lg:flex items-center space-x-8">
+        <!-- Desktop Navigation with Icons (perfectly centered) -->
+        <div
+          class="hidden lg:flex items-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
           <NuxtLink
             v-for="(link, index) in navigationLinks"
             :key="link.to"
@@ -90,8 +92,78 @@
           </NuxtLink>
         </div>
 
-        <!-- Modern CTA Button -->
-        <div class="hidden md:flex">
+        <!-- Language Switcher + CTA on the right -->
+        <div class="hidden md:flex items-center space-x-4">
+          <!-- Language Switcher -->
+          <div class="relative">
+            <button
+              @click="toggleLanguageDropdown"
+              class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-gray-300 hover:text-white px-4 py-2 rounded-full font-medium hover:bg-white/20 transition-all duration-300 group border border-white/20"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                />
+              </svg>
+              <span class="uppercase text-sm font-bold">{{
+                currentLocale
+              }}</span>
+              <svg
+                class="w-3 h-3 transition-transform duration-300"
+                :class="{ 'rotate-180': languageDropdownOpen }"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+
+            <!-- Language Dropdown -->
+            <Transition name="dropdown">
+              <div
+                v-if="languageDropdownOpen"
+                class="absolute right-0 mt-2 w-40 bg-gray-900 border border-ecuador-blue/30 rounded-xl shadow-2xl overflow-hidden z-50"
+              >
+                <button
+                  v-for="locale in availableLocales"
+                  :key="locale.code"
+                  @click="switchLanguage(locale.code)"
+                  class="w-full px-4 py-3 text-left text-gray-300 hover:bg-ecuador-blue/20 hover:text-white transition-colors duration-200 flex items-center justify-between"
+                  :class="{
+                    'bg-ecuador-blue/20 text-white':
+                      currentLocale === locale.code,
+                  }"
+                >
+                  <span>{{ locale.name }}</span>
+                  <svg
+                    v-if="currentLocale === locale.code"
+                    class="w-4 h-4 text-ecuador-yellow"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </Transition>
+          </div>
+
           <NuxtLink
             to="/contact"
             class="flex items-center space-x-2 bg-gradient-to-r from-ecuador-blue to-ecuador-red text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 group"
@@ -109,7 +181,7 @@
                 d="M13 7l5 5m0 0l-5 5m5-5H6"
               />
             </svg>
-            <span>Get Started</span>
+            <span>{{ t('header.getStarted') }}</span>
           </NuxtLink>
         </div>
 
@@ -207,7 +279,30 @@
               </svg>
               <span>{{ link.name }}</span>
             </NuxtLink>
+            <!-- Mobile Language Switcher -->
             <div class="pt-4 mt-4 border-t border-ecuador-blue/20">
+              <p class="text-xs text-gray-400 mb-2">
+                {{ t('header.language') || 'Language' }}
+              </p>
+              <div class="flex space-x-2 mb-4">
+                <button
+                  v-for="localeOption in availableLocales"
+                  :key="localeOption.code"
+                  @click="
+                    switchLanguage(localeOption.code);
+                    closeMobileMenu();
+                  "
+                  class="px-3 py-1 rounded-full text-xs font-semibold border transition-colors duration-200"
+                  :class="
+                    currentLocale === localeOption.code
+                      ? 'bg-ecuador-blue text-white border-ecuador-blue'
+                      : 'bg-white/5 text-gray-300 border-gray-600 hover:bg-ecuador-blue/20'
+                  "
+                >
+                  {{ localeOption.name }}
+                </button>
+              </div>
+
               <NuxtLink
                 to="/contact"
                 @click="closeMobileMenu"
@@ -226,7 +321,7 @@
                     d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
-                <span>Get Started</span>
+                <span>{{ t('header.getStarted') }}</span>
               </NuxtLink>
             </div>
           </div>
@@ -237,20 +332,32 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { locale, locales, setLocale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+const localePath = useLocalePath();
+
 interface NavigationLink {
   name: string;
   to: string;
 }
 
-const navigationLinks: NavigationLink[] = [
-  { name: 'Home', to: '/' },
-  { name: 'Products', to: '/products' },
-  { name: 'Technology', to: '/technology' },
-  { name: 'Contact', to: '/contact' },
-];
+const { t } = useI18n();
+
+const navigationLinks = computed(() => [
+  { name: t('header.home'), to: localePath('/') },
+  { name: t('header.products'), to: localePath('/products') },
+  { name: t('header.technology'), to: localePath('/technology') },
+  { name: t('header.contact'), to: localePath('/contact') },
+]);
 
 const mobileMenuOpen = ref(false);
 const logoLoaded = ref(true);
+const languageDropdownOpen = ref(false);
+
+const currentLocale = computed(() => locale.value);
+const availableLocales = computed(() => locales.value);
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;
@@ -258,6 +365,22 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
   mobileMenuOpen.value = false;
+};
+
+const toggleLanguageDropdown = () => {
+  languageDropdownOpen.value = !languageDropdownOpen.value;
+};
+
+const switchLanguage = async (newLocale: string) => {
+  const targetPath = switchLocalePath(newLocale as 'en' | 'es');
+
+  if (targetPath) {
+    await navigateTo(targetPath);
+  } else {
+    await setLocale(newLocale as 'en' | 'es');
+  }
+
+  languageDropdownOpen.value = false;
 };
 
 const handleImageError = () => {
@@ -269,8 +392,18 @@ watch(
   () => useRoute().path,
   () => {
     closeMobileMenu();
-  }
+  },
 );
+
+// Close language dropdown when clicking outside
+onMounted(() => {
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.relative')) {
+      languageDropdownOpen.value = false;
+    }
+  });
+});
 </script>
 
 <style scoped>
@@ -283,5 +416,16 @@ watch(
 .mobile-menu-leave-to {
   opacity: 0;
   transform: translateY(-10px);
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.2s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
 }
 </style>

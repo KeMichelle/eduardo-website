@@ -31,38 +31,25 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <span class="font-bold text-ecuador-blue text-sm"
-              >Free Health Test Available</span
-            >
+            <span class="font-bold text-ecuador-blue text-sm">
+              {{ t('healthTest.badgeLabel') }}
+            </span>
           </div>
 
           <h2
             class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4 leading-tight"
           >
-            Are you in good health but suspect
-            <span class="text-ecuador-blue">something is missing?</span>
+            {{ t('healthTest.sectionTitle') }}
           </h2>
         </div>
 
-        <!-- Bilingual Content Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <!-- English Card -->
+        <!-- Localised Content Card (single language based on current locale) -->
+        <div class="grid grid-cols-1 gap-6 mb-8">
           <div
-            class="bg-gradient-to-br from-ecuador-blue/5 via-white to-ecuador-blue/10 rounded-xl shadow-md p-6 border-2 border-ecuador-blue/20 hover:border-ecuador-blue/40 animate-fade-in-up transition-all duration-300"
+            class="bg-gradient-to-br from-ecuador-blue/5 via-white to-ecuador-yellow/10 rounded-xl shadow-md p-6 border-2 border-ecuador-blue/20 hover:border-ecuador-blue/40 animate-fade-in-up transition-all duration-300"
           >
-            <div class="flex items-start space-x-2 mb-3">
-              <span
-                class="text-xs font-bold text-white bg-ecuador-blue px-3 py-1 rounded-full shadow-sm"
-                >EN</span
-              >
-            </div>
             <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-              A simple test will confirm your suspicions. Nipponflex's
-              <span
-                class="font-semibold text-ecuador-blue px-1 py-0.5 bg-ecuador-blue/10 rounded"
-                >eEnergy® technology</span
-              >
-              is here to improve your well-being.
+              {{ t('healthTest.lead') }}
             </p>
 
             <div
@@ -81,51 +68,9 @@
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span class="text-sm md:text-base font-semibold"
-                >Contact for free test</span
-              >
-            </div>
-          </div>
-
-          <!-- Spanish Card -->
-          <div
-            class="bg-gradient-to-br from-ecuador-yellow/5 via-white to-ecuador-yellow/10 rounded-xl shadow-md p-6 border-2 border-ecuador-yellow/30 hover:border-ecuador-yellow/50 animate-fade-in-up transition-all duration-300"
-            style="animation-delay: 0.1s"
-          >
-            <div class="flex items-start space-x-2 mb-3">
-              <span
-                class="text-xs font-bold text-gray-900 bg-ecuador-yellow px-3 py-1 rounded-full shadow-sm"
-                >ES</span
-              >
-            </div>
-            <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
-              Una sencilla prueba confirmará sus sospechas. La tecnología
-              <span
-                class="font-semibold text-ecuador-blue px-1 py-0.5 bg-ecuador-blue/10 rounded"
-                >eEnergy® de Nipponflex</span
-              >
-              está aquí para mejorar su bienestar.
-            </p>
-
-            <div
-              class="flex items-center space-x-2 text-gray-900 bg-gradient-to-r from-ecuador-yellow to-ecuador-yellow/80 rounded-lg px-3 py-2 shadow-sm"
-            >
-              <svg
-                class="w-4 h-4 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span class="text-sm md:text-base font-semibold"
-                >Prueba gratuita</span
-              >
+              <span class="text-sm md:text-base font-semibold">
+                {{ t('healthTest.ctaLabel') }}
+              </span>
             </div>
           </div>
         </div>
@@ -218,6 +163,12 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+</script>
 
 <style scoped>
 /* Component uses global animations from Nuxt config */

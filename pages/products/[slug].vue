@@ -22,10 +22,10 @@
       <div class="container mx-auto px-4 lg:px-8">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
-            {{ product.name }}
+            {{ displayName }}
           </h1>
           <p class="text-xl md:text-2xl font-medium opacity-90 mb-4">
-            {{ product.shortDescription }}
+            {{ displayShortDescription }}
           </p>
           <div
             class="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold"
@@ -37,7 +37,7 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            Authentic Nipponflex Product
+            {{ t('productDetail.authenticBadge') }}
           </div>
         </div>
       </div>
@@ -59,11 +59,31 @@
                 >
                   <img
                     :src="product.images[0]"
-                    :alt="product.name"
+                    :alt="displayName"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     @error="handleImageError"
                   />
                   <div class="absolute inset-0"></div>
+                </div>
+
+                <!-- Image Disclaimer -->
+                <div
+                  class="flex items-center justify-center bg-gradient-to-r from-ecuador-blue/10 to-ecuador-yellow/10 border border-ecuador-blue/20 rounded-2xl px-4 py-3"
+                >
+                  <svg
+                    class="w-4 h-4 text-ecuador-blue mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <p class="text-sm text-gray-700 font-medium">
+                    {{ t('productDetail.imageDisclaimer') }}
+                  </p>
                 </div>
 
                 <!-- Additional Images -->
@@ -103,7 +123,7 @@
                         clip-rule="evenodd"
                       ></path>
                     </svg>
-                    {{ product.category }}
+                    {{ displayCategory }}
                   </div>
                   <div class="flex items-center space-x-1">
                     <svg
@@ -117,9 +137,9 @@
                         d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                       ></path>
                     </svg>
-                    <span class="text-sm font-semibold text-gray-600 ml-2"
-                      >(Premium Quality)</span
-                    >
+                    <span class="text-sm font-semibold text-gray-600 ml-2">
+                      ({{ t('productDetail.premiumQuality') }})
+                    </span>
                   </div>
                 </div>
 
@@ -143,10 +163,10 @@
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       ></path>
                     </svg>
-                    About This Product
+                    {{ t('productDetail.aboutTitle') }}
                   </h2>
                   <p class="text-gray-700 leading-relaxed text-lg font-medium">
-                    {{ product.fullDescription }}
+                    {{ displayFullDescription }}
                   </p>
                 </div>
 
@@ -166,7 +186,7 @@
                         clip-rule="evenodd"
                       ></path>
                     </svg>
-                    Product Tags
+                    {{ t('productDetail.tagsTitle') }}
                   </h3>
                   <div class="flex flex-wrap gap-3">
                     <span
@@ -183,7 +203,7 @@
                 <div class="flex flex-col sm:flex-row gap-6">
                   <a
                     href="/assets/pdf/catalog.pdf"
-                    download="EDUP-Global-Flex-Catalog.pdf"
+                    download="EDUP-Global-Flex-Catalogue.pdf"
                     target="_blank"
                     class="group relative bg-gradient-to-r from-ecuador-red to-red-600 text-white rounded-2xl hover:from-red-600 hover:to-red-700 transition-all duration-300 px-10 py-5 text-lg font-bold text-center shadow-xl hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
                   >
@@ -203,7 +223,7 @@
                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                         ></path>
                       </svg>
-                      Download Catalog
+                      {{ t('productDetail.downloadCatalog') }}
                     </span>
                     <div
                       class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
@@ -227,7 +247,7 @@
                           d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                         ></path>
                       </svg>
-                      Contact Eduardo Penafiel
+                      {{ t('productDetail.contactEduardo') }}
                     </span>
                   </NuxtLink>
                 </div>
@@ -263,12 +283,12 @@
                 </div>
                 <span
                   class="bg-gradient-to-r from-ecuador-blue to-blue-600 bg-clip-text text-transparent"
-                  >Key Features</span
+                  >{{ t('productDetail.featuresTitle') }}</span
                 >
               </h2>
               <ul class="space-y-4">
                 <li
-                  v-for="feature in product.features"
+                  v-for="feature in displayFeatures"
                   :key="feature"
                   class="flex items-start"
                 >
@@ -314,12 +334,12 @@
                 </div>
                 <span
                   class="bg-gradient-to-r from-ecuador-red to-red-600 bg-clip-text text-transparent"
-                  >Benefits</span
+                  >{{ t('productDetail.benefitsTitle') }}</span
                 >
               </h2>
               <ul class="space-y-4">
                 <li
-                  v-for="benefit in product.benefits"
+                  v-for="benefit in displayBenefits"
                   :key="benefit"
                   class="flex items-start"
                 >
@@ -368,7 +388,7 @@
               </div>
               <span
                 class="bg-gradient-to-r from-ecuador-blue to-blue-600 bg-clip-text text-transparent"
-                >Technical Specifications</span
+                >{{ t('productDetail.specsTitle') }}</span
               >
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -392,7 +412,7 @@
           <!-- Warnings -->
           <div
             v-if="product.warnings && product.warnings.length > 0"
-            class="bg-gradient-to-br from-red-50 to-orange-50 border border-red-200 rounded-3xl p-10 mb-20 shadow-xl"
+            class="bg-gradient-to-br from-red-50 to-orange-50 border border-red-200 rounded-3xl p-10 mb-10 shadow-xl"
           >
             <h2 class="text-2xl font-bold text-red-800 mb-6 flex items-center">
               <div
@@ -412,11 +432,11 @@
                   ></path>
                 </svg>
               </div>
-              Important Safety Information
+              {{ t('productDetail.warningsTitle') }}
             </h2>
             <ul class="space-y-2 text-red-700">
               <li
-                v-for="warning in product.warnings"
+                v-for="warning in displayWarnings"
                 :key="warning"
                 class="flex items-start"
               >
@@ -434,6 +454,31 @@
                 <span>{{ warning }}</span>
               </li>
             </ul>
+          </div>
+
+          <!-- General Health & Legal Disclaimer -->
+          <div
+            class="bg-yellow-50 border border-yellow-200 rounded-3xl p-8 mb-20 shadow-sm"
+          >
+            <h2
+              class="text-xl font-bold text-yellow-900 mb-4 flex items-center"
+            >
+              <svg
+                class="w-6 h-6 text-yellow-600 mr-2 flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              {{ t('productDetail.generalDisclaimerTitle') }}
+            </h2>
+            <p class="text-sm text-yellow-900 leading-relaxed">
+              {{ t('productDetail.generalDisclaimerText') }}
+            </p>
           </div>
 
           <!-- Related Products -->
@@ -460,7 +505,7 @@
               </div>
               <span
                 class="bg-gradient-to-r from-ecuador-blue to-blue-600 bg-clip-text text-transparent"
-                >You Might Also Like</span
+                >{{ t('productDetail.relatedTitle') }}</span
               >
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -492,7 +537,9 @@
                 <div
                   class="mt-4 flex items-center text-ecuador-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 >
-                  <span class="text-sm font-semibold">View Details</span>
+                  <span class="text-sm font-semibold">
+                    {{ t('productDetail.relatedViewDetails') }}
+                  </span>
                   <svg
                     class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
@@ -536,17 +583,14 @@
           <h2
             class="text-4xl md:text-6xl font-bold text-white mb-8 drop-shadow-lg"
           >
-            Ready to Experience
+            {{ t('productDetail.ctaReady') }}
             <span class="text-ecuador-yellow">{{ product.name }}</span
             >?
           </h2>
           <p
             class="text-xl md:text-2xl text-white/95 mb-12 font-medium leading-relaxed"
           >
-            Contact Eduardo Penafiel, your authorised Nipponflex distributor in
-            the UK, to learn more about this authentic Nipponflex product and
-            how it can transform your wellness journey into something
-            extraordinary.
+            {{ t('productDetail.ctaDescription') }}
           </p>
           <div class="flex flex-col sm:flex-row gap-6 justify-center">
             <NuxtLink
@@ -567,12 +611,12 @@
                     d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                   ></path>
                 </svg>
-                Contact Eduardo Penafiel Now
+                {{ t('productDetail.ctaContactNow') }}
               </span>
             </NuxtLink>
             <a
               href="/assets/pdf/catalog.pdf"
-              download="EDUP-Global-Flex-Catalog.pdf"
+              download="EDUP-Global-Flex-Catalogue.pdf"
               target="_blank"
               class="group bg-white/20 backdrop-blur-sm border-2 border-white text-white px-12 py-6 rounded-2xl font-bold text-lg hover:bg-white hover:text-ecuador-blue transition-all duration-300 shadow-2xl hover:shadow-3xl hover:-translate-y-2"
             >
@@ -590,7 +634,7 @@
                     d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   ></path>
                 </svg>
-                Download Full Catalog
+                {{ t('productDetail.ctaDownloadFull') }}
               </span>
             </a>
           </div>
@@ -602,28 +646,57 @@
   <!-- Fallback for when product is not found -->
   <div v-else class="min-h-screen bg-gray-50 flex items-center justify-center">
     <div class="text-center">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        {{ t('productDetail.notFoundTitle') }}
+      </h1>
       <p class="text-gray-600 mb-8">
-        The product "{{ $route.params.slug }}" could not be found.
+        {{ t('productDetail.notFoundText', { slug: $route.params.slug }) }}
       </p>
       <NuxtLink
-        to="/products"
+        :to="localePath('/products')"
         class="bg-ecuador-blue text-white px-6 py-3 rounded-lg"
       >
-        View All Products
+        {{ t('productDetail.notFoundBackToProducts') }}
       </NuxtLink>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { getProductBySlug, getProductsByCategory } from '~/data/products';
 
+const { t, te, locale } = useI18n();
+const localePath = useLocalePath();
 const route = useRoute();
+
+const categoryKeyMap: Record<string, string> = {
+  'Water Filtration': 'waterFiltration',
+  'Wellness Accessories': 'wellnessAccessories',
+  Mattresses: 'Mattresses',
+  Pillows: 'pillows',
+  'Kids Wellness': 'kidsWellness',
+  'Athletic Wear': 'athleticWear',
+  Footwear: 'footwear',
+  'Wellness Apparel': 'wellnessApparel',
+  'Sleep & Recovery': 'sleepRecovery',
+  'Support & Braces': 'supportBraces',
+  'Wellness Kits': 'wellnessKits',
+  Automotive: 'automotive',
+};
 
 // Make product lookup reactive to route changes
 const product = computed(() => {
-  const slug = route.params.slug;
+  const slugParam = route.params.slug as string | string[] | undefined;
+  const slug = Array.isArray(slugParam) ? slugParam[0] : slugParam;
+
+  if (!slug) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Product not found',
+    });
+  }
+
   const foundProduct = getProductBySlug(slug);
 
   if (!foundProduct) {
@@ -636,6 +709,74 @@ const product = computed(() => {
   return foundProduct;
 });
 
+const displayName = computed(() => {
+  if (!product.value) return '';
+  const key = `productsData.${product.value.slug}.name`;
+  return te(key) ? t(key) : product.value.name;
+});
+
+const displayShortDescription = computed(() => {
+  if (!product.value) return '';
+  const key = `productsData.${product.value.slug}.shortDescription`;
+  return te(key) ? t(key) : product.value.shortDescription;
+});
+
+const displayCategory = computed(() => {
+  if (!product.value) return '';
+  const mapKey = categoryKeyMap[product.value.category];
+  return mapKey
+    ? t(`productsPage.categories.${mapKey}`)
+    : product.value.category;
+});
+
+const displayFullDescription = computed(() => {
+  if (!product.value) return '';
+  const currentLocale = locale.value;
+  const translatedFull =
+    product.value.translations?.[currentLocale]?.fullDescription;
+
+  return translatedFull || product.value.fullDescription;
+});
+
+const displayFeatures = computed(() => {
+  if (!product.value) return [] as string[];
+  const currentLocale = locale.value;
+  const translatedFeatures =
+    product.value.translations?.[currentLocale]?.features;
+
+  if (translatedFeatures && translatedFeatures.length > 0) {
+    return translatedFeatures;
+  }
+
+  return product.value.features ?? [];
+});
+
+const displayBenefits = computed(() => {
+  if (!product.value) return [] as string[];
+  const currentLocale = locale.value;
+  const translatedBenefits =
+    product.value.translations?.[currentLocale]?.benefits;
+
+  if (translatedBenefits && translatedBenefits.length > 0) {
+    return translatedBenefits;
+  }
+
+  return product.value.benefits ?? [];
+});
+
+const displayWarnings = computed(() => {
+  if (!product.value) return [] as string[];
+  const currentLocale = locale.value;
+  const translatedWarnings =
+    product.value.translations?.[currentLocale]?.warnings;
+
+  if (translatedWarnings && translatedWarnings.length > 0) {
+    return translatedWarnings;
+  }
+
+  return product.value.warnings ?? [];
+});
+
 // Get related products (same category, excluding current product)
 const relatedProducts = computed(() => {
   if (!product.value) return [];
@@ -646,10 +787,12 @@ const relatedProducts = computed(() => {
 });
 
 // Handle image errors
-const handleImageError = (event) => {
-  const img = event.target;
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement;
   img.src = '/assets/images/logo/edulogohorizontal.png';
-}; // Set page meta
+};
+
+// Set page meta
 watchEffect(() => {
   if (product.value) {
     useHead({

@@ -19,7 +19,7 @@
           <h1
             class="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 animate-fade-in-up"
           >
-            Our Products
+            {{ t('productsPage.title') }}
           </h1>
           <div
             class="w-24 h-1 bg-gradient-to-r from-ecuador-yellow via-ecuador-blue to-ecuador-red mx-auto mb-8"
@@ -28,11 +28,7 @@
             class="text-lg md:text-xl text-gray-600 leading-relaxed animate-fade-in-up"
             style="animation-delay: 0.2s"
           >
-            Discover Eduardo's comprehensive range of authentic Nipponflex
-            wellness products. As your authorised UK distributor, EDUP Global
-            Flex brings you genuine Nipponflex innovations designed with
-            cutting-edge technology to enhance your quality of life and promote
-            personalised wellbeing.
+            {{ t('productsPage.intro') }}
           </p>
 
           <!-- Quick Stats -->
@@ -50,7 +46,9 @@
               >
                 {{ stat.value }}
               </div>
-              <div class="text-sm text-gray-600">{{ stat.label }}</div>
+              <div class="text-sm text-gray-600">
+                {{ t(stat.labelKey) }}
+              </div>
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@
             <input
               v-model="searchQuery"
               type="text"
-              placeholder="Search products..."
+              :placeholder="t('productsPage.searchPlaceholder')"
               class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ecuador-blue/50 focus:border-ecuador-blue transition-colors duration-300"
             />
             <svg
@@ -99,7 +97,16 @@
                   : 'bg-gray-100 text-gray-600 hover:bg-ecuador-blue/10 hover:text-ecuador-blue'
               "
             >
-              {{ category }}
+              <span v-if="category === ALL_CATEGORY">
+                {{ t('productsPage.categories.all') }}
+              </span>
+              <span v-else>
+                {{
+                  categoryKeyMap[category]
+                    ? t(`productsPage.categories.${categoryKeyMap[category]}`)
+                    : category
+                }}
+              </span>
             </button>
           </div>
 
@@ -108,16 +115,20 @@
             v-model="sortBy"
             class="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-ecuador-blue/50 focus:border-ecuador-blue"
           >
-            <option value="name">Sort by Name</option>
-            <option value="rating">Rating</option>
-            <option value="newest">Newest First</option>
+            <option value="name">{{ t('productsPage.sort.name') }}</option>
+            <option value="rating">{{ t('productsPage.sort.rating') }}</option>
+            <option value="newest">{{ t('productsPage.sort.newest') }}</option>
           </select>
         </div>
 
         <!-- Results Info -->
         <div class="mt-4 text-sm text-gray-600">
-          Showing {{ filteredProducts.length }} of
-          {{ allProducts.length }} products
+          {{
+            t('productsPage.resultsInfo', {
+              current: filteredProducts.length,
+              total: allProducts.length,
+            })
+          }}
         </div>
       </div>
     </section>
@@ -175,13 +186,13 @@
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-2">
-            No products found
+            {{ t('productsPage.noResultsTitle') }}
           </h3>
           <p class="text-gray-600 mb-6">
-            Try adjusting your search terms or filters.
+            {{ t('productsPage.noResultsText') }}
           </p>
           <button @click="resetFilters" class="btn-primary">
-            Clear Filters
+            {{ t('productsPage.clearFilters') }}
           </button>
         </div>
 
@@ -253,16 +264,14 @@
       <div class="container mx-auto px-4 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">
-            Get Our Complete Product Catalog
+            {{ t('productsPage.downloadSectionTitle') }}
           </h2>
           <p class="text-lg text-blue-100 mb-8 leading-relaxed">
-            Download our comprehensive product catalog with detailed
-            specifications and ordering information for all our wellness
-            solutions.
+            {{ t('productsPage.downloadSectionText') }}
           </p>
           <a
             href="/assets/pdf/catalog.pdf"
-            download="EDUP-Global-Flex-Catalog.pdf"
+            download="EDUP-Global-Flex-Catalogue.pdf"
             target="_blank"
             class="btn-secondary inline-flex items-center space-x-2 text-lg px-8 py-4"
           >
@@ -279,7 +288,7 @@
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <span>Download Product Catalog (PDF)</span>
+            <span>{{ t('productsPage.downloadButton') }}</span>
           </a>
         </div>
       </div>
@@ -291,10 +300,31 @@
 import { products, getCategories } from '~/data/products';
 import type { EduProduct } from '~/data/products';
 import ProductCard from '~/components/ProductCard.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
+const ALL_CATEGORY = 'all';
+
+const categoryKeyMap: Record<string, string> = {
+  'Water Filtration': 'waterFiltration',
+  'Wellness Accessories': 'wellnessAccessories',
+  Mattresses: 'mattresses',
+  Pillows: 'pillows',
+  'Kids Wellness': 'kidsWellness',
+  'Athletic Wear': 'athleticWear',
+  Footwear: 'footwear',
+  'Wellness Apparel': 'wellnessApparel',
+  'Sleep & Recovery': 'sleepRecovery',
+  'Support & Braces': 'supportBraces',
+  'Wellness Kits': 'wellnessKits',
+  Automotive: 'automotive',
+  "Women's Wellness": 'womensWellness',
+};
 
 interface QuickStat {
   value: string;
-  label: string;
+  labelKey: string;
 }
 
 // Meta data
@@ -311,7 +341,7 @@ useHead({
 
 // Reactive data
 const searchQuery = ref('');
-const selectedCategory = ref('All Products');
+const selectedCategory = ref<string>(ALL_CATEGORY);
 const sortBy = ref('name');
 const currentPage = ref(1);
 const productsPerPage = 9;
@@ -322,14 +352,17 @@ const allProducts: EduProduct[] = products;
 
 // Get categories dynamically from products data
 const categories = computed(() => {
-  return ['All Products', ...getCategories()];
+  return [ALL_CATEGORY, ...getCategories()];
 });
 
 const quickStats: QuickStat[] = [
-  { value: `${allProducts.length}+`, label: 'Products' },
-  { value: `${getCategories().length}`, label: 'Categories' },
-  { value: '100%', label: 'Quality' },
-  { value: '10K+', label: 'Happy Users' },
+  { value: `${allProducts.length}+`, labelKey: 'productsPage.stats.range' },
+  {
+    value: `${getCategories().length}`,
+    labelKey: 'productsPage.stats.technologies',
+  },
+  { value: '100%', labelKey: 'productsPage.stats.customers' },
+  { value: '40+', labelKey: 'productsPage.stats.countries' },
 ];
 
 // Computed properties
@@ -337,9 +370,9 @@ const filteredProducts = computed((): EduProduct[] => {
   let productList = [...allProducts];
 
   // Filter by category
-  if (selectedCategory.value !== 'All Products') {
+  if (selectedCategory.value !== ALL_CATEGORY) {
     productList = productList.filter(
-      (product) => product.category === selectedCategory.value
+      (product) => product.category === selectedCategory.value,
     );
   }
 
@@ -351,7 +384,7 @@ const filteredProducts = computed((): EduProduct[] => {
         product.name.toLowerCase().includes(query) ||
         product.shortDescription.toLowerCase().includes(query) ||
         product.category.toLowerCase().includes(query) ||
-        product.tags.some((tag) => tag.toLowerCase().includes(query))
+        product.tags.some((tag) => tag.toLowerCase().includes(query)),
     );
   }
 
@@ -366,7 +399,7 @@ const filteredProducts = computed((): EduProduct[] => {
 });
 
 const totalPages = computed(() =>
-  Math.ceil(filteredProducts.value.length / productsPerPage)
+  Math.ceil(filteredProducts.value.length / productsPerPage),
 );
 
 const paginatedProducts = computed((): EduProduct[] => {
@@ -378,7 +411,7 @@ const paginatedProducts = computed((): EduProduct[] => {
 // Methods
 const resetFilters = () => {
   searchQuery.value = '';
-  selectedCategory.value = 'All Products';
+  selectedCategory.value = ALL_CATEGORY;
   sortBy.value = 'name';
   currentPage.value = 1;
 };

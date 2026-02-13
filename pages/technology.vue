@@ -19,7 +19,7 @@
           <h1
             class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in-up"
           >
-            Nipponflex Technology
+            {{ t('technology.title') }}
           </h1>
           <div
             class="w-24 h-1 bg-gradient-to-r from-ecuador-yellow to-white mx-auto mb-8"
@@ -28,10 +28,7 @@
             class="text-lg md:text-xl text-blue-100 leading-relaxed animate-fade-in-up"
             style="animation-delay: 0.2s"
           >
-            Discover the innovative Nipponflex technologies that Eduardo offers
-            through his authorised distribution. Each technology represents
-            years of research and development, combining traditional wellness
-            wisdom with cutting-edge scientific advances.
+            {{ t('technology.intro') }}
           </p>
 
           <!-- Technology Overview Stats -->
@@ -49,7 +46,9 @@
               >
                 {{ stat.value }}
               </div>
-              <div class="text-sm text-blue-200">{{ stat.label }}</div>
+              <div class="text-sm text-blue-200">
+                {{ t(stat.labelKey) }}
+              </div>
             </div>
           </div>
         </div>
@@ -64,12 +63,10 @@
           <h2
             class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6"
           >
-            Revolutionary Wellness Technologies
+            {{ t('technology.sectionTitle') }}
           </h2>
           <p class="text-lg text-gray-600 leading-relaxed">
-            Nipponflex technologies work synergistically to provide
-            comprehensive wellness benefits. Each technology has been carefully
-            developed and tested to ensure maximum effectiveness and safety.
+            {{ t('technology.sectionIntro') }}
           </p>
         </div>
 
@@ -93,26 +90,30 @@
           <h3
             class="text-2xl md:text-3xl font-display font-bold text-gray-900 text-center mb-12"
           >
-            Technology Benefits Comparison
+            {{ t('technology.comparisonTitle') }}
           </h3>
 
           <div class="overflow-x-auto">
             <table class="w-full bg-white rounded-xl shadow-lg overflow-hidden">
               <thead class="bg-ecuador-blue text-white">
                 <tr>
-                  <th class="px-6 py-4 text-left font-semibold">Technology</th>
-                  <th class="px-6 py-4 text-center font-semibold">
-                    Relaxation
-                  </th>
-                  <th class="px-6 py-4 text-center font-semibold">Recovery</th>
-                  <th class="px-6 py-4 text-center font-semibold">
-                    Sleep Quality
+                  <th class="px-6 py-4 text-left font-semibold">
+                    {{ t('technology.table.technology') }}
                   </th>
                   <th class="px-6 py-4 text-center font-semibold">
-                    Energy Balance
+                    {{ t('technology.table.relaxation') }}
                   </th>
                   <th class="px-6 py-4 text-center font-semibold">
-                    Pain Relief
+                    {{ t('technology.table.recovery') }}
+                  </th>
+                  <th class="px-6 py-4 text-center font-semibold">
+                    {{ t('technology.table.sleep') }}
+                  </th>
+                  <th class="px-6 py-4 text-center font-semibold">
+                    {{ t('technology.table.energy') }}
+                  </th>
+                  <th class="px-6 py-4 text-center font-semibold">
+                    {{ t('technology.table.pain') }}
                   </th>
                 </tr>
               </thead>
@@ -165,22 +166,20 @@
       <div class="container mx-auto px-4 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">
-            Experience Nipponflex Technology
+            {{ t('technology.ctaTitle') }}
           </h2>
           <p class="text-lg mb-8 opacity-90">
-            Ready to experience the benefits of Nipponflex's revolutionary
-            wellness technologies? Explore the products or get in touch with
-            Eduardo Penafiel to learn more about the right solutions for you.
+            {{ t('technology.ctaText') }}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <NuxtLink to="/products" class="btn-secondary text-center">
-              Browse Products
+              {{ t('technology.browseProducts') }}
             </NuxtLink>
             <NuxtLink
               to="/contact"
               class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-ecuador-blue transition-colors duration-300 text-center"
             >
-              Contact Me
+              {{ t('technology.contactMe') }}
             </NuxtLink>
           </div>
         </div>
@@ -190,6 +189,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n();
 interface Technology {
   id: string;
   title: string;
@@ -211,7 +213,7 @@ interface Technology {
 
 interface TechnologyStat {
   value: string;
-  label: string;
+  labelKey: string;
 }
 
 interface ResearchMilestone {
@@ -232,13 +234,13 @@ useHead({
 });
 
 const technologyStats: TechnologyStat[] = [
-  { value: '8', label: 'Core Technologies' },
-  { value: '15+', label: 'Years Research' },
-  { value: '100+', label: 'Patents' },
-  { value: '25+', label: 'Countries' },
+  { value: '8', labelKey: 'technology.stats.coreTechnologies' },
+  { value: '15+', labelKey: 'technology.stats.yearsResearch' },
+  { value: '100+', labelKey: 'technology.stats.patents' },
+  { value: '40+', labelKey: 'technology.stats.countries' },
 ];
 
-const technologies: Technology[] = [
+const baseTechnologies: Technology[] = [
   {
     id: 'rabatan',
     title: 'Rabatan®',
@@ -512,6 +514,189 @@ const technologies: Technology[] = [
     ],
   },
 ];
+
+const technologies = computed<Technology[]>(() => {
+  const currentLocale = locale.value;
+
+  if (currentLocale === 'en') {
+    return baseTechnologies;
+  }
+
+  if (currentLocale !== 'es') {
+    return baseTechnologies;
+  }
+
+  return baseTechnologies.map((tech) => {
+    switch (tech.id) {
+      case 'rabatan':
+        return {
+          ...tech,
+          title: 'Rabatan®',
+          subtitle: 'Tecnología Avanzada de Materiales',
+          description:
+            'Rabatan®, que compone la capa superior de los productos de descanso de Nipponflex, es una espuma de poliuretano perfilada de alta tecnología, vulcanizada a aproximadamente 182 °C (360 °F). Su estructura con miles de puntos firmes de acupresión imita las yemas de los dedos de un masajista, proporcionando un automasaje relajante. Esta misma característica crea más espacio entre el cuerpo y la superficie de apoyo, favoreciendo una mayor ventilación y confort térmico mientras duermes.',
+          features: [
+            'Estructura molecular avanzada para una óptima transferencia de energía',
+            'Mayor durabilidad y vida útil',
+            'Efectos sinérgicos con otras tecnologías de bienestar',
+            'Propiedades sensibles a la temperatura',
+            'Tratamiento superficial antimicrobiano',
+          ],
+          benefits: [
+            'Mejora de la circulación y del flujo sanguíneo',
+            'Respuesta de relajación potenciada',
+            'Procesos de recuperación acelerados',
+            'Alivio natural del dolor',
+            'Mejor calidad del sueño',
+          ],
+          applications: [
+            'Tapetes de bienestar',
+            'Cojines terapéuticos',
+            'Sistemas de descanso',
+            'Productos de recuperación',
+          ],
+        };
+      case 'fir-bioceramic':
+        return {
+          ...tech,
+          title: 'FIR Bioceramic® & FIR NG®',
+          subtitle: 'Tecnología de Infrarrojo Lejano',
+          description:
+            'Las potentes tecnologías FIR Bioceramic® y FIR NG® tienen la capacidad de absorber y almacenar electrones de la frecuencia electromagnética emitida por la luz. Emiten ondas de 4 a 16 micras y billones de vibraciones. Estas tecnologías son suministradas en exclusiva a Nipponflex por el reconocido científico japonés Dr. Toshio Komuro, con patentes en 27 países. FIR Bioceramic® y FIR NG® están presentes en forma de pastillas aplicadas en el relieve inferior de Rabatan® en los Sistemas de Sueño Científico y en las almohadas Nipponflex.',
+          features: [
+            'Penetración profunda en los tejidos de hasta 4–6 cm',
+            'Rango de longitud de onda óptimo (4–14 micras)',
+            'Composición mineral natural',
+            'Efectividad duradera',
+            'Terapia segura y no invasiva',
+          ],
+          benefits: [
+            'Mejora de la circulación sanguínea',
+            'Mejor entrega de oxígeno a los tejidos',
+            'Apoyo natural a la desintoxicación',
+            'Alivio de la tensión muscular',
+            'Estimulación del metabolismo',
+          ],
+          applications: [
+            'Almohadas terapéuticas',
+            'Almohadillas térmicas',
+            'Tapetes de bienestar',
+            'Productos para el sueño',
+          ],
+        };
+      case 'ion-balls':
+        return {
+          ...tech,
+          title: 'Íon Balls',
+          subtitle: 'Tecnología de Iones Negativos',
+          description:
+            'Esferas producidas con minerales raros de altísima pureza que emiten iones negativos, responsables de la sensación de bienestar y tranquilidad que sentimos al estar en contacto con la naturaleza. Ayudan a neutralizar los iones positivos generados por la vida urbana que perjudican al organismo. Esta tecnología fue desarrollada en Japón por el científico Dr. Toshio Komuro y es suministrada en exclusiva a Nipponflex.',
+          features: [
+            'Generación continua de iones negativos',
+            'Composición mineral natural',
+            'Efectividad prolongada (más de 5 años)',
+            'Sin necesidad de mantenimiento',
+            'Respetuosa con el medio ambiente',
+          ],
+          benefits: [
+            'Percepción mejorada de la calidad del aire',
+            'Mayor claridad mental',
+            'Reducción del estrés',
+            'Mejor equilibrio del estado de ánimo',
+            'Aumento de los niveles de energía',
+          ],
+          applications: [
+            'Esferas terapéuticas',
+            'Accesorios de bienestar',
+            'Productos ambientales',
+            'Artículos de cuidado personal',
+          ],
+        };
+      case 'mfp':
+        return {
+          ...tech,
+          title: 'MFP – Magnetic FIR Power®',
+          subtitle: 'Integración de Terapia Magnética',
+          description:
+            'MFP reúne en un solo inserto las energías del imán y del FIR Power, donde una energía potencia a la otra. La tecnología fue desarrollada por Nipponflex junto con el científico japonés Toshio Komuro y está patentada en más de 40 países. MFP está disponible para todas las líneas ARS.',
+          features: [
+            'Sinergia entre terapia magnética e infrarrojo lejano',
+            'Elementos magnéticos estratégicamente posicionados',
+            'Intensidad de campo y distribución optimizadas',
+            'Efectos potenciados sobre la circulación',
+            'Beneficios de bienestar de doble acción',
+          ],
+          benefits: [
+            'Mejora de la circulación sanguínea',
+            'Reducción de procesos inflamatorios',
+            'Recuperación más rápida',
+            'Apoyo natural al manejo del dolor',
+            'Mejor distribución de nutrientes a los tejidos',
+          ],
+          applications: [
+            'Cojines magnéticos',
+            'Fajas y soportes terapéuticos',
+            'Tapetes de bienestar',
+            'Productos de recuperación',
+          ],
+        };
+      case 'g-zero':
+        return {
+          ...tech,
+          title: 'G-Zero® Densidad Progresiva Avanzada',
+          subtitle: 'Tecnología de Distribución de Presión',
+          description:
+            'La nueva generación de densidad progresiva de Nipponflex proporciona una distribución perfecta del peso corporal, ofreciendo el futuro del confort y la ergonomía. La tecnología G-Zero de Densidad Progresiva Avanzada combina capas de poliuretanos especiales, desarrollados exclusivamente para su aplicación en la composición del núcleo, formando una estructura con etapas de diferentes densidades reales, mayor tamaño y alta resiliencia. Su organización permite máximo confort, soporte postural equilibrado y gran durabilidad.',
+          features: [
+            'Variación de densidad por zonas múltiples',
+            'Distribución adaptativa de la presión',
+            'Optimización de la alineación de la columna',
+            'Reducción de puntos de presión',
+            'Diseño reforzado para mayor durabilidad',
+          ],
+          benefits: [
+            'Alineación óptima de la columna',
+            'Menos puntos de presión',
+            'Mayor confort al descansar',
+            'Mejor calidad de sueño',
+            'Reducción de la rigidez matutina',
+          ],
+          applications: [
+            'Colchones científicos',
+            'Bases de descanso avanzadas',
+            'Sistemas de apoyo postural',
+          ],
+        };
+      case 'g-zero-matrix':
+        return {
+          ...tech,
+          title: 'G-Zero® Matrix',
+          subtitle: 'Matriz de Soporte Inteligente',
+          description:
+            'G-Zero® Matrix es una evolución de la tecnología de densidad progresiva, organizada en una matriz de apoyo que responde de forma aún más precisa a las diferentes regiones del cuerpo. Combina zonas de confort y soporte con un diseño tridimensional que ayuda a mantener la postura alineada durante toda la noche.',
+          features: [
+            'Matriz tridimensional de soporte',
+            'Zonas diferenciadas de confort y firmeza',
+            'Alta resiliencia y recuperación de forma',
+            'Diseño pensado para uso prolongado',
+            'Integración con otras tecnologías Nipponflex',
+          ],
+          benefits: [
+            'Sensación de “peso bien distribuido”',
+            'Menos giros nocturnos por incomodidad',
+            'Soporte uniforme para articulaciones y músculos',
+            'Mayor sensación de descanso al despertar',
+          ],
+          applications: [
+            'Colchones de gama premium',
+            'Sistemas de descanso para uso intensivo',
+          ],
+        };
+      default:
+        return tech;
+    }
+  });
+});
 
 const researchMilestones: ResearchMilestone[] = [
   {

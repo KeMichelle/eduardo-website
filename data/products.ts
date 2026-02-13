@@ -11,7 +11,31 @@ export interface EduProduct {
   specifications?: Record<string, string>;
   images: string[];
   tags: string[];
+  translations?: {
+    [locale: string]: {
+      name?: string;
+      category?: string;
+      shortDescription?: string;
+      fullDescription?: string;
+      features?: string[];
+      benefits?: string[];
+      warnings?: string[];
+    };
+  };
 }
+
+const ES_COMMON_WARNINGS = {
+  magnetsImplants:
+    'Los imanes están contraindicados para personas que usan o tienen: marcapasos, neuroestimuladores, desfibriladores, bombas de insulina, implantes cocleares u otros implantes que funcionen con baterías.',
+  magneticInterference:
+    'El campo magnético puede interferir en el funcionamiento de dispositivos que utilicen baterías.',
+  resultsMayVary:
+    'Los resultados pueden variar de una persona a otra y no están garantizados.',
+  notMedicalTreatment:
+    'Este producto no sustituye ningún tratamiento médico. Consulte siempre a su profesional de salud.',
+  noReturnFinalSale: 'Venta final: este producto no admite devoluciones.',
+  taxesAndFees: 'Los precios no incluyen impuestos ni gastos de envío.',
+};
 
 export const products: EduProduct[] = [
   {
@@ -48,6 +72,30 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/alcineMaxsws.png'],
     tags: ['water filter', 'health', 'wellness', 'antioxidants'],
+    translations: {
+      es: {
+        fullDescription:
+          'Te presentamos Alcaline Max Black: el filtro de agua revolucionario diseñado para mejorar tu bienestar general y elevar tu día a día. Desarrollado por E‑Energy by Nipponflex, este avanzado sistema de filtración está listo para transformar la forma en que te hidratas. Gracias a su tecnología de última generación, Alcaline Max Black ofrece características excepcionales que lo diferencian de los filtros tradicionales.',
+        features: [
+          'Elimina el cloro para ofrecer agua pura y segura',
+          'Mejora el equilibrio de pH del agua',
+          'Aporta antioxidantes que combaten los radicales libres',
+          'Ayuda a desacelerar el proceso de envejecimiento',
+          'Fortalece el sistema inmunológico',
+          'Favorece una piel más luminosa',
+          'Diseño moderno y elegante',
+          'Instalación rápida y sencilla',
+          'Compatible con cualquier base de filtro de agua',
+        ],
+        benefits: [
+          'Hidratación pura y segura',
+          'Propiedades antienvejecimiento',
+          'Sistema inmunológico fortalecido',
+          'Mejor salud y aspecto de la piel',
+          'Uso diario cómodo y práctico',
+        ],
+      },
+    },
   },
   {
     id: '2',
@@ -83,6 +131,30 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/alcalineMaxJar.png'],
     tags: ['water filter', 'jar', 'health', 'wellness'],
+    translations: {
+      es: {
+        fullDescription:
+          'Te presentamos Alcaline Max Jar, la jarra filtrante revolucionaria diseñada para mejorar tu bienestar general y elevar la calidad del agua que bebes a diario. Creada por E‑Energy by Nipponflex, esta solución de filtración avanzada transforma tu hidratación diaria con una combinación de tecnología inteligente y diseño práctico.',
+        features: [
+          'Elimina el cloro para ofrecer agua más pura y segura',
+          'Contribuye a mejorar el pH del agua',
+          'Proporciona antioxidantes que ayudan a combatir los radicales libres',
+          'Apoya el retraso de los signos de envejecimiento',
+          'Fortalece el sistema inmunológico',
+          'Favorece una piel más sana y radiante',
+          'Diseño moderno en formato jarra',
+          'Fácil de usar y mantener',
+          'Compatible con cualquier base de filtro de agua',
+        ],
+        benefits: [
+          'Acceso cómodo a agua limpia y segura',
+          'Apoyo diario a la defensa antioxidante del organismo',
+          'Bienestar general mejorado',
+          'Mantenimiento sencillo y práctico',
+          'Ideal para el uso familiar y cotidiano',
+        ],
+      },
+    },
   },
   {
     id: '3',
@@ -117,8 +189,30 @@ export const products: EduProduct[] = [
       'Ion Balls Composition':
         '27.1% Celsian, 26.2% Clino-Enstatite, 46.7% Photo-Enstatite',
     },
-    images: ['/assets/images/products/waterBottleIonBalls.png'],
+    images: ['/assets/images/products/alkalineMaxWater.png'],
     tags: ['water bottle', 'ion balls', 'magnet', 'wellness'],
+    translations: {
+      es: {
+        fullDescription:
+          'El compañero de bienestar definitivo es el dispositivo ION BALLS, ahora disponible con una elegante botella exprimible. Este increíble conjunto incluye un bastón con ocho Ion Balls y un potente imán de 3400 gauss, todo en un formato portátil y cómodo para el día a día.',
+        features: [
+          '8 Ion Balls para emisión de iones negativos',
+          'Imán de 3400 gauss de alta potencia',
+          'Botella exprimible de 500 ml (16,9 oz)',
+          'Fabricación en plástico libre de BPA',
+          'Ion Balls fabricadas en Japón',
+          'Diseño portátil y práctico',
+          'Estética moderna y funcional',
+        ],
+        benefits: [
+          'Favorece la relajación',
+          'Ayuda a reducir el estrés',
+          'Contribuye al equilibrio natural del organismo',
+          'Apoya los niveles de energía y vitalidad',
+          'Sensación general de mayor bienestar',
+        ],
+      },
+    },
   },
   {
     id: '4',
@@ -159,6 +253,33 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/NipponflexTripleSFirm.png'],
     tags: ['mattress', 'orthopedic', 'FIR POWER', 'magnetic therapy'],
+    translations: {
+      es: {
+        fullDescription:
+          'Te presentamos el colchón Nipponflex Triple S Firm, uno de los colchones ortopédicos más avanzados del mercado. Además de ser el mayor producto con FIR POWER del planeta, está compuesto por 10 capas que combinan confort, soporte ortopédico y beneficios para la salud. A pesar de su nombre, que sugiere firmeza, también puedes elegir la versión más suave, que sigue ofreciendo un soporte ortopédico adaptado a tus necesidades.',
+        features: [
+          'Construcción de 10 capas',
+          'Tecnología FIR POWER integrada',
+          'MFP (terapia magnética)',
+          'Tecnología ION BALLS',
+          'Masajeador vibratorio incorporado con 5 zonas',
+          'Tejido Nipponflex con iones de plata',
+          'Propiedades antiácaros',
+          'Acción antifúngica y antibacteriana',
+          'Fabricado en Estados Unidos',
+          'Opciones de cama dividida disponibles',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea',
+          'Reducción de dolores y molestias',
+          'Mejor calidad de sueño',
+          'Alivio de la tensión muscular',
+          'Recuperación más rápida del cansancio diario',
+          'Sueño más profundo y menor nivel de estrés',
+          'Apoyo adicional al sistema inmunológico',
+        ],
+      },
+    },
   },
   {
     id: '5',
@@ -196,6 +317,30 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/NipponFlexTripleSSpringHybrid.png'],
     tags: ['mattress', 'hybrid', 'spring', 'orthopedic', 'limited edition'],
+    translations: {
+      es: {
+        fullDescription:
+          'Te presentamos el colchón Nipponflex Triple S SPRING, uno de los colchones ortopédicos híbridos más avanzados del mercado. Además de ser uno de los mayores productos con FIR POWER del planeta, cuenta con 10 capas que ofrecen un confort excepcional, soporte ortopédico y beneficios para la salud. La línea Triple S Spring es una edición limitada, por lo que es una oportunidad única para disfrutar de esta combinación exclusiva de tecnologías.',
+        features: [
+          'Estructura híbrida con resortes',
+          'Diseño de 10 capas',
+          'Tecnología FIR POWER',
+          'Tecnología MFP',
+          'Tecnología ION BALLS',
+          'Vibromasajeador incorporado con 5 zonas',
+          'Tejido con iones de plata',
+          'Edición limitada',
+          'Opciones de cama dividida con doble sistema de masaje',
+        ],
+        benefits: [
+          'Confort superior y personalizado',
+          'Soporte ortopédico avanzado',
+          'Beneficios de salud derivados de tecnologías de vanguardia',
+          'Protección frente a ácaros, hongos y bacterias',
+          'Experiencia de masaje personalizable',
+        ],
+      },
+    },
   },
   {
     id: '6',
@@ -234,6 +379,30 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/product-placeholder.svg'],
     tags: ['mattress', 'modular', 'orthopedic', 'portable'],
+    translations: {
+      es: {
+        fullDescription:
+          'El colchón Nipponflex M1 representa la comodidad ortopédica auténtica llevada incluso a los espacios de más difícil acceso. Su diseño modular está formado por 2 secciones tipo pillow top y 2 secciones de base, lo que facilita enormemente el transporte, el montaje y el acceso a lugares donde los colchones tradicionales no llegan con facilidad.',
+        features: [
+          'Diseño modular (2 pillow top + 2 secciones de base)',
+          'Tecnología FIR POWER',
+          'Tecnología MFP (terapia magnética)',
+          'Tecnología ION BALLS',
+          'Tejido con iones de plata',
+          'Masajeador vibratorio con 5 zonas',
+          'Opciones split con doble masajeador',
+          'Garantía de 10 años',
+          'Fabricado en Estados Unidos',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea',
+          'Disminución de dolores y molestias',
+          'Sueño de mayor calidad',
+          'Alivio de la tensión muscular',
+          'Entorno de descanso más higiénico y seguro',
+        ],
+      },
+    },
   },
   {
     id: '7',
@@ -275,6 +444,32 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/SleepCoolPillow.png'],
     tags: ['pillow', 'adjustable', 'FIR POWER', 'magnets'],
+    translations: {
+      es: {
+        fullDescription:
+          'Sleep Cool Pillow de Nipponflex incorpora nuestra exclusiva y potente tecnología japonesa FIR Power junto con imanes especiales. Es una almohada de doble cara (Vulcanplex Soft y espuma viscoelástica) totalmente ventilada gracias a los orificios en todas las capas. Diseñada para adaptarse a diferentes personas, permite regular la altura para que puedas dormir con la comodidad que necesitas.',
+        features: [
+          'Altura regulable (de 5 a 15 cm aproximadamente)',
+          '36 tabletas FIR Power',
+          '36 imanes (800 gauss cada uno)',
+          'Diseño de doble cara',
+          'Puntos de acupresión Vulcanplex Soft',
+          'Espuma viscoelástica',
+          'Ventilación completa con perforaciones en todas las capas',
+          'Capa interior acolchada de poliuretano',
+        ],
+        benefits: [
+          'Sueño profundo y reparador',
+          'Mayor fuerza y recuperación muscular',
+          'Mejor circulación sanguínea',
+          'Alivio de dolores y fiebre',
+          'Ayuda a la prevención del estrés',
+          'Mejor rendimiento físico',
+          'Apoyo a la actividad celular saludable',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '8',
@@ -314,6 +509,33 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/KidsBracelet.png'],
     tags: ['kids', 'bracelet', 'superhero', 'FIR ION'],
+    translations: {
+      es: {
+        fullDescription:
+          'La pulsera FIR ION Kids ha sido diseñada exclusivamente para niños, inspirada en sus superhéroes favoritos. Disponible en versiones para niño y niña, acerca el poder de la tecnología FIR ION a los más pequeños de forma divertida y cómoda.',
+        features: [
+          'Diseños inspirados en superhéroes',
+          'Versiones para niño y para niña',
+          '2 tabletas FIR Power',
+          '2 Ion Balls',
+          '2 tabletas magnéticas',
+          'Materiales seguros para niños',
+          'Favorece la concentración y el equilibrio',
+        ],
+        benefits: [
+          'Mejor enfoque y concentración',
+          'Mejor equilibrio y coordinación',
+          'Apoyo al bienestar general',
+          'Aumento de la energía y la confianza',
+          'Mejor calidad de sueño',
+          'Ayuda a reducir el estrés y la inquietud',
+        ],
+        warnings: [
+          'No se recomienda para niños menores de 3 años',
+          ES_COMMON_WARNINGS.magnetsImplants,
+        ],
+      },
+    },
   },
   {
     id: '9',
@@ -353,6 +575,30 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/bandFirIon.png'],
     tags: ['band', 'FIR ION', 'portable', 'therapy'],
+    translations: {
+      es: {
+        fullDescription:
+          'La banda FIR ION está diseñada para colocarse en prácticamente cualquier parte del cuerpo. Su estuche fue pensado para ser práctico, de modo que puedas llevar las tecnologías FIR Power, Magnetos e Ion Balls directamente a tu hogar y aplicarlas de forma localizada. Incluye 5 tabletas FIR Power, 5 imanes especiales y 3 Ion Balls, diseñados para una mejor aplicación con los adhesivos.',
+        features: [
+          '5 tabletas FIR Power',
+          '5 imanes especiales',
+          '3 Ion Balls',
+          '30 parches adhesivos hipoalergénicos',
+          'Estuche resistente',
+          'Sello protector de seguridad',
+          'Dos llaves para retirar los elementos',
+          'Diseño portátil y compacto',
+        ],
+        benefits: [
+          'Aplicación terapéutica localizada',
+          'Uso cómodo en el hogar',
+          'Posibilidad de uso en diferentes zonas del cuerpo',
+          'Adhesivo hipoalergénico',
+          'Colocación y retirada sencillas',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '10',
@@ -386,6 +632,26 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/wristBand.png'],
     tags: ['wristband', 'wellness', 'daily wear'],
+    translations: {
+      es: {
+        fullDescription:
+          'Experimenta el bienestar en tu muñeca con nuestra WristBand, que integra tecnologías avanzadas pensadas para favorecer la energía, el equilibrio y el bienestar general a lo largo del día.',
+        features: [
+          'Tecnologías de bienestar avanzadas',
+          'Diseñada para el uso diario',
+          'Construcción resistente',
+          'Diseño estilizado',
+          'Fácil de usar',
+        ],
+        benefits: [
+          'Mejora de los niveles de energía',
+          'Mayor sensación de equilibrio corporal',
+          'Apoyo al bienestar general',
+          'Uso diario práctico y cómodo',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '11',
@@ -419,6 +685,26 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/WristBandPower.png'],
     tags: ['wristband', 'power', 'enhanced', 'performance'],
+    translations: {
+      es: {
+        fullDescription:
+          'Lleva tu bienestar al siguiente nivel con nuestra WristBand Power, que incorpora tecnologías reforzadas y mayor intensidad para ofrecer el máximo beneficio de bienestar durante tu estilo de vida activo.',
+        features: [
+          'Tecnologías de potencia mejorada',
+          'Beneficios de bienestar al máximo nivel',
+          'Diseñada para estilos de vida activos',
+          'Construcción duradera',
+          'Diseño avanzado',
+        ],
+        benefits: [
+          'Mayor potenciación de la energía',
+          'Mejora superior del equilibrio',
+          'Rendimiento físico optimizado',
+          'Apoyo integral al bienestar diario',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '12',
@@ -455,6 +741,28 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/BraTopFIR.png'],
     tags: ['bra top', 'athletic wear', 'FIR technology', 'women'],
+    translations: {
+      es: {
+        fullDescription:
+          "Vive el máximo rendimiento deportivo con nuestro Women's Training FIR Bra Top, que incorpora tecnología FIR avanzada para potenciar tu experiencia de entrenamiento mientras ofrece un soporte y una comodidad superiores.",
+        features: [
+          'Integración de tecnología FIR',
+          'Diseño deportivo de alto rendimiento',
+          'Soporte superior',
+          'Tejido que absorbe la humedad',
+          'Ajuste cómodo',
+          'Diseño moderno y estilizado',
+        ],
+        benefits: [
+          'Rendimiento mejorado durante el entrenamiento',
+          'Mejor circulación durante la actividad física',
+          'Confort y soporte superiores',
+          'Mejor recuperación después del ejercicio',
+          'Aspecto deportivo y estilizado',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '13',
@@ -496,6 +804,32 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/abdonimalStrapIon.png'],
     tags: ['abdominal strap', 'back support', 'FIR POWER', 'ion therapy'],
+    translations: {
+      es: {
+        fullDescription:
+          'La faja abdominal Ion está elaborada con las tecnologías avanzadas FIR POWER, Ion Balls y magnetismo. Ayuda a aliviar el dolor de espalda y a mejorar la postura, mientras las Ion Balls integradas emiten iones negativos que revitalizan los niveles de energía, reducen la fatiga y apoyan la resistencia física.',
+        features: [
+          '3 Ion Balls',
+          '4 tabletas FIR Power',
+          '14 imanes de neodimio',
+          '7 varillas de acero flexibles',
+          '100 % neopreno libre de látex',
+          'Cierre ajustable de velcro',
+          'Diseño cómodo de uso diario',
+          'Puede ayudar a mejorar la postura',
+          'Puede comprimir la región lumbar',
+        ],
+        benefits: [
+          'Alivio del dolor de espalda',
+          'Mejora de la postura',
+          'Estimulación de la circulación sanguínea',
+          'Reducción de la fatiga',
+          'Apoyo a la resistencia física',
+          'Soporte adicional para la zona abdominal',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '14',
@@ -530,6 +864,28 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/braCup.png'],
     tags: ['bra cup', 'FIR POWER', "women's health", 'comfort'],
+    translations: {
+      es: {
+        fullDescription:
+          'Te presentamos BRA CUP: la copa de sujetador revolucionaria pensada para ayudar a prevenir molestias y dolores en la zona del pecho. Gracias a la tecnología FIR POWER, contribuye a mejorar la circulación sanguínea y a reducir la sensación de fatiga muscular, ofreciendo confort durante todo el día.',
+        features: [
+          'Tecnología FIR POWER integrada',
+          '3 tabletas FIR POWER por cada lado',
+          'Tejido de algodón que envuelve la copa',
+          'Construcción en espuma',
+          'Diseño anatómico especialmente moldeado',
+          'Disponible en varias tallas',
+          'Práctica y cómoda para el uso diario',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea en la zona del pecho',
+          'Reducción de la sobrecarga muscular',
+          'Confort prolongado durante el día',
+          'Apoyo al bienestar mamario',
+          'Ayuda a prevenir molestias y puntos de presión',
+        ],
+      },
+    },
   },
   {
     id: '15',
@@ -565,6 +921,28 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/womenShorts.png'],
     tags: ['shaper', 'body shaping', 'FIR POWER', "women's wellness"],
+    translations: {
+      es: {
+        fullDescription:
+          'Transforma tu silueta con nuestros Shaper Shorts. Están diseñados para ayudar en la recuperación y tonificación de los músculos pélvicos, al tiempo que disimulan la grasa abdominal no deseada. Integran la tecnología FIR POWER para proporcionar soporte y comodidad óptimos durante todo el día.',
+        features: [
+          '4 tabletas FIR POWER',
+          '7 imanes de neodimio',
+          'Diseño moldeador del cuerpo',
+          'Soporte específico para la musculatura pélvica',
+          'Comodidad para uso prolongado',
+          'Apoyo a la recuperación muscular',
+        ],
+        benefits: [
+          'Recuperación y tonificación de la musculatura pélvica',
+          'Mejora del contorno corporal',
+          'Ayuda a disimular la grasa abdominal',
+          'Apoyo a la recuperación muscular',
+          'Mayor seguridad y confianza en el día a día',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '16',
@@ -600,6 +978,28 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/slipperSlide.png'],
     tags: ['slippers', 'footwear', 'FIR POWER', 'magnets'],
+    translations: {
+      es: {
+        fullDescription:
+          'Las Slipper Slide de e‑Energy/Nipponflex incorporan 6 tabletas FIR Power y 14 imanes especiales para ofrecer confort y bienestar en cada paso.',
+        features: [
+          '6 tabletas FIR Power',
+          '14 imanes especiales',
+          'Diseño tipo slide cómodo',
+          'Beneficios terapéuticos al caminar',
+          'Comodidad para el uso diario',
+        ],
+        benefits: [
+          'Apoyo al sueño profundo y reparador',
+          'Mayor fuerza muscular',
+          'Mejor circulación sanguínea',
+          'Alivio de dolores y molestias',
+          'Prevención del estrés',
+          'Mejor rendimiento físico en el día a día',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '17',
@@ -635,6 +1035,27 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/womenFlipFlops.png'],
     tags: ['flip flops', "women's footwear", 'FIR POWER', 'pink'],
+    translations: {
+      es: {
+        fullDescription:
+          'Las chanclas femeninas Light Pink de E‑Energy/Nipponflex integran 6 tabletas FIR Power y 14 imanes especiales. Combinan confort, durabilidad y bienestar para acompañarte en tu rutina diaria.',
+        features: [
+          '6 tabletas FIR Power',
+          '14 imanes especiales',
+          'Color rosa claro',
+          'Diseño cómodo',
+          'Construcción duradera',
+          'Estilo actual y femenino',
+        ],
+        benefits: [
+          'Soporte de bienestar mientras caminas',
+          'Comodidad para el uso diario',
+          'Opción de calzado con estilo',
+          'Beneficios terapéuticos integrados',
+        ],
+        warnings: [ES_COMMON_WARNINGS.magnetsImplants],
+      },
+    },
   },
   {
     id: '18',
@@ -666,6 +1087,26 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/akalineFilterRefil.png'],
     tags: ['filter refill', 'water filtration', 'replacement', 'maintenance'],
+    translations: {
+      es: {
+        fullDescription:
+          'Cartucho de recambio de alta calidad para los sistemas de filtración de agua Alcaline Max. Diseñado para mantener la calidad óptima del agua y el equilibrio de pH, con una generosa vida útil de hasta 50 galones o 9 meses, lo que ocurra primero.',
+        features: [
+          'Capacidad de 50 galones',
+          'Duración de hasta 9 meses',
+          'Compatible con sistemas Alcaline Max',
+          'Filtración de alta calidad',
+          'Recambio sencillo',
+          'Ayuda a mantener el equilibrio de pH del agua',
+        ],
+        benefits: [
+          'Acceso continuo a agua purificada',
+          'Mantenimiento rentable del sistema',
+          'Rendimiento de filtración optimizado',
+          'Rutina de mantenimiento fácil y rápida',
+        ],
+      },
+    },
   },
   {
     id: '11',
@@ -698,7 +1139,6 @@ export const products: EduProduct[] = [
       'The magnetic field can cause interference in the battery operation',
       'Results may vary and are not guaranteed',
       'This product does not substitute any medical treatment',
-      'Prices does not include tax and delivery fee',
     ],
     specifications: {
       Material: 'Microfiber fabric',
@@ -708,6 +1148,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/tangaPanty.png'],
     tags: ['underwear', 'FIR POWER', 'magnets', 'pelvic health', 'women'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Tanga Panty es una solución innovadora pensada para apoyar la recuperación de la musculatura pélvica. Incorpora la tecnología FIR POWER, que aprovecha los beneficios de los rayos infrarrojos lejanos, ayudando a mejorar la circulación, el flujo de oxígeno y la recuperación muscular en la zona pélvica.',
+        features: [
+          'Infusión de tecnología FIR POWER',
+          'Contiene 4 tabletas FIR Power',
+          '7 imanes especiales de 400 gauss',
+          'Tejido de microfibra',
+          'Soporte dirigido a la musculatura pélvica',
+          'Favorece la circulación sanguínea',
+          'Ayuda a acelerar la recuperación muscular',
+          'Promoción tipo “compra uno y llévate otro”',
+        ],
+        benefits: [
+          'Recuperación pélvica potenciada',
+          'Mejora del flujo sanguíneo',
+          'Mayor oxigenación local',
+          'Alivio focalizado y sensación de confort',
+          'Incremento de la confianza y vitalidad',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+          ES_COMMON_WARNINGS.taxesAndFees,
+        ],
+      },
+    },
   },
   {
     id: '12',
@@ -751,6 +1221,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/underwearBoxer.png'],
     tags: ['underwear', 'FIR POWER', 'magnets', 'men', 'performance'],
+    translations: {
+      es: {
+        fullDescription:
+          'Experimenta el poder de la ropa interior E‑energy. Con la tecnología avanzada FIR POWER y un sistema de magnetismo integrado, este boxer está diseñado para aportar energía, sensación de renovación y mayor disposición para afrontar el día. La tecnología FIR POWER ayuda a regular la temperatura corporal y favorecer la circulación, mientras que el campo magnético apoya el rendimiento físico y mental.',
+        features: [
+          'Incluye 2 unidades por paquete',
+          'Elástico bordado de alta calidad',
+          'Tejido de microfibra',
+          '3 tabletas FIR POWER',
+          '6 imanes',
+          'Material ligero',
+          'Apoyo a la regulación de la temperatura corporal',
+          'Ajuste cómodo y sin costuras agresivas',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea',
+          'Rendimiento físico reforzado',
+          'Apoyo al rendimiento mental',
+          'Máxima comodidad durante todo el día',
+          'Apoyo a la regulación térmica del cuerpo',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.noReturnFinalSale,
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '13',
@@ -795,6 +1295,38 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/leggin.png'],
     tags: ['leggings', 'FIR POWER', 'magnets', 'activewear', 'performance'],
+    translations: {
+      es: {
+        fullDescription:
+          'Nuestras leggings con FIR POWER ofrecen una fusión única de comodidad y tecnología. Diseñadas para optimizar tu rendimiento y acompañar tu estilo de vida activo, incorporan FIR POWER tanto en el tejido como en tabletas integradas, aprovechando los rayos infrarrojos lejanos para estimular la circulación, mejorar el flujo de oxígeno y reducir la fatiga muscular.',
+        features: [
+          'Contiene 7 unidades de FIR Bioceramic',
+          '14 imanes de neodimio',
+          '7 varillas de acero flexibles',
+          'Tejido de alta calidad',
+          'Material transpirable y que absorbe la humedad',
+          'Tejido elástico y adaptable',
+          'Diseño estilizado',
+          'Ajuste favorecedor de la silueta',
+        ],
+        benefits: [
+          'Rendimiento físico mejorado',
+          'Mejor circulación sanguínea',
+          'Reducción de la fatiga muscular',
+          'Mayor flujo de oxígeno a los tejidos',
+          'Sueño más profundo y reparador',
+          'Aumento de la fuerza muscular',
+          'Apoyo en la prevención del estrés',
+          'Alivio del dolor y las molestias',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '14',
@@ -837,6 +1369,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/sleepMask.png'],
     tags: ['sleep mask', 'FIR POWER', 'magnets', 'ion balls', 'sleep'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Energy Super Sleep Mask de e‑Energy/Nipponflex es un antifaz de tamaño único y ajustable que integra 4 Ion Balls, 2 tabletas FIR Power y 1 imán de neodimio. Está pensada para mejorar la calidad del sueño y apoyar los procesos de recuperación durante el descanso.',
+        features: [
+          'Tamaño único y ajustable',
+          '4 Ion Balls',
+          '2 tabletas FIR Power',
+          '1 imán de neodimio',
+          'Diseño cómodo para dormir',
+          'Tecnología específica para mejorar el sueño',
+        ],
+        benefits: [
+          'Sueño profundo y reparador',
+          'Mayor fuerza muscular',
+          'Mayor rendimiento físico',
+          'Apoyo en la gestión del estrés',
+          'Mejor circulación sanguínea',
+          'Alivio de dolores y molestias',
+          'Apoyo a la actividad celular saludable',
+          'Mejor oxigenación de la sangre',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '15',
@@ -864,6 +1426,24 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/anklet.png'],
     tags: ['anklet', 'wellness', 'circulation', 'energy'],
+    translations: {
+      es: {
+        fullDescription:
+          'Tobillera de bienestar diseñada para favorecer la circulación y la energía en la zona del tobillo mediante tecnologías de apoyo al bienestar.',
+        features: [
+          'Ajuste cómodo',
+          'Tecnología de bienestar integrada',
+          'Favorece la circulación',
+          'Apoya los niveles de energía',
+        ],
+        benefits: [
+          'Mejor circulación en la zona del tobillo y pie',
+          'Mayor sensación de energía',
+          'Uso confortable durante el día',
+          'Apoyo general al bienestar',
+        ],
+      },
+    },
   },
   {
     id: '16',
@@ -895,7 +1475,6 @@ export const products: EduProduct[] = [
       'The magnetic field can cause interference in the battery operation',
       'Results may vary and are not guaranteed',
       'This product does not substitute any medical treatment',
-      'Prices does not include tax and delivery fee',
     ],
     specifications: {
       'FIR Power Tablets': '4 units',
@@ -906,6 +1485,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/kneeBrace.png'],
     tags: ['knee brace', 'FIR POWER', 'magnets', 'neoprene', 'support'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Energy Knee BRACE de e‑Energy by Nipponflex contiene 4 tabletas FIR Power y 1 imán de neodimio. Fabricada en neopreno, es ajustable, flexible y anatómica, proporcionando compresión térmica para apoyar la rodilla y los procesos de recuperación.',
+        features: [
+          '4 tabletas FIR Power',
+          '1 imán de neodimio',
+          'Fabricada en neopreno',
+          'Ajuste regulable',
+          'Diseño flexible y anatómico',
+          'Compresión térmica',
+          'Talla única ajustable',
+        ],
+        benefits: [
+          'Mayor soporte para la articulación de la rodilla',
+          'Apoyo en la recuperación',
+          'Beneficios de la compresión térmica',
+          'Permite un movimiento más cómodo',
+          'Ajuste anatómico adaptado a la pierna',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+          ES_COMMON_WARNINGS.taxesAndFees,
+        ],
+      },
+    },
   },
   {
     id: '17',
@@ -946,6 +1554,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/kneePad.png'],
     tags: ['knee pad', 'FIR POWER', 'magnets', 'acupuncture', 'recovery'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Energy Knee Pad está diseñada para potenciar tanto la recuperación como la vitalidad. Combina FIR POWER y magnetismo colocados estratégicamente sobre puntos de acupuntura en la rodilla, siguiendo los principios de los meridianos energéticos para estimular la circulación, aliviar el dolor y favorecer el bienestar general.',
+        features: [
+          '4 tabletas FIR Power',
+          '1 imán de neodimio',
+          'Enfoque en puntos de acupuntura',
+          'Alineación con meridianos de energía',
+          'Diseño innovador',
+          'Enfoque en mejora del rendimiento',
+          'Apoyo a la recuperación acelerada',
+        ],
+        benefits: [
+          'Rendimiento físico potenciado',
+          'Recuperación más rápida',
+          'Mejor circulación alrededor de la rodilla',
+          'Alivio del dolor',
+          'Mayor sensación de bienestar',
+          'Incremento de la energía',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '18',
@@ -978,7 +1615,6 @@ export const products: EduProduct[] = [
       'The magnetic field can cause interference in the battery operation',
       'Results may vary and are not guaranteed',
       'This product does not substitute any medical treatment',
-      'Prices does not include tax and delivery fee',
     ],
     specifications: {
       'FIR Power Tablets': '1 unit',
@@ -988,6 +1624,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/elbowStrap.png'],
     tags: ['elbow strap', 'FIR POWER', 'magnets', 'support', 'adjustable'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Energy Elbow Strap de e‑Energy/Nipponflex es una banda de tamaño único y ajustable para brazo izquierdo o derecho. Incluye 1 tableta FIR Power y 2 imanes de neodimio para ofrecer soporte localizado y ayudar en los procesos de recuperación del codo.',
+        features: [
+          'Tamaño único ajustable',
+          'Compatible con brazo izquierdo y derecho',
+          '1 tableta FIR Power',
+          '2 imanes de neodimio',
+          'Ajuste universal',
+          'Soporte reforzado en la zona del codo',
+        ],
+        benefits: [
+          'Apoyo al sueño más profundo gracias al alivio del dolor',
+          'Aumento de la fuerza muscular',
+          'Mayor comodidad en actividades físicas',
+          'Apoyo en la gestión del estrés físico',
+          'Mejor circulación sanguínea',
+          'Alivio de molestias articulares',
+          'Apoyo a la función celular saludable',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+          ES_COMMON_WARNINGS.taxesAndFees,
+        ],
+      },
+    },
   },
   {
     id: '19',
@@ -1029,6 +1695,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/gloveFit.png'],
     tags: ['gloves', 'FIR POWER', 'magnets', 'gym', 'cycling'],
+    translations: {
+      es: {
+        fullDescription:
+          'Los Energy Glove FIT de e‑Energy/Nipponflex incorporan 2 tabletas FIR Power y 4 imanes de neodimio por par. Con un diseño flexible y anatómico, son ideales para el gimnasio, el ciclismo y el motociclismo, proporcionando protección adicional para dedos y nudillos.',
+        features: [
+          '2 tabletas FIR Power por par',
+          '4 imanes de neodimio por par',
+          'Diseño flexible y anatómico',
+          'Ideales para actividades de gimnasio',
+          'Perfectos para ciclismo',
+          'Aptos para motociclismo',
+          'Protección para los dedos',
+          'Protección para nudillos y dorso de la mano',
+        ],
+        benefits: [
+          'Mejor agarre y desempeño',
+          'Protección de las manos',
+          'Apoyo a la circulación en la zona',
+          'Mayor libertad de movimiento',
+          'Uso versátil en diferentes actividades',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '20',
@@ -1060,7 +1755,6 @@ export const products: EduProduct[] = [
       'The magnetic field can cause interference in the battery operation',
       'Results may vary and are not guaranteed',
       'This product does not substitute any medical treatment',
-      'Prices does not include tax and delivery fee',
     ],
     specifications: {
       Gender: 'Women´s',
@@ -1068,6 +1762,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/shorts.png'],
     tags: ['shorts', 'FIR POWER', 'magnets', 'women', 'wellness'],
+    translations: {
+      es: {
+        fullDescription:
+          'Shorts de bienestar para mujer diseñados con tecnología FIR Power y campo magnético para aportar confort y beneficios durante la actividad diaria.',
+        features: [
+          'Tecnología FIR Power',
+          'Beneficios de campo magnético',
+          'Ajuste cómodo',
+          'Diseño específico para mujer',
+          'Enfoque en el bienestar durante el uso',
+        ],
+        benefits: [
+          'Apoyo al sueño profundo y reparador',
+          'Mayor fuerza muscular',
+          'Mejor rendimiento físico',
+          'Apoyo en la prevención del estrés',
+          'Mejor circulación sanguínea',
+          'Alivio de dolores y molestias',
+          'Apoyo a la actividad celular saludable',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+          ES_COMMON_WARNINGS.taxesAndFees,
+        ],
+      },
+    },
   },
   {
     id: '21',
@@ -1110,6 +1833,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/capriLeggin.png'],
     tags: ['capri leggings', 'FIR POWER', 'magnets', 'fashion', 'wellness'],
+    translations: {
+      es: {
+        fullDescription:
+          'Las Capri Legging con FIR POWER representan una revolución en leggings: combinan moda y tecnología gracias a la integración de FIR POWER en el tejido. Esta tecnología utiliza rayos infrarrojos lejanos para favorecer la circulación y estimular los procesos naturales de recuperación del cuerpo.',
+        features: [
+          'Contiene 7 unidades de FIR Bioceramic',
+          '14 imanes de neodimio',
+          '7 varillas de acero flexibles',
+          'Tejido de alta calidad',
+          'Material transpirable',
+          'Tejido que absorbe la humedad',
+          'Secado rápido',
+          'Diseño tipo capri',
+        ],
+        benefits: [
+          'Circulación mejorada',
+          'Estimulación de los procesos naturales de recuperación',
+          'Reducción de la fatiga muscular',
+          'Mayor rendimiento físico',
+          'Aspecto moderno y estilizado',
+          'Máxima comodidad durante el uso',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '22',
@@ -1149,6 +1902,33 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/powerBracelet.png'],
     tags: ['bracelet', 'FIR POWER', 'leather', 'fashion', 'wellness'],
+    translations: {
+      es: {
+        fullDescription:
+          'La pulsera Young FIR es la combinación perfecta entre estilo y bienestar. Fabricada en cuero genuino, ofrece un aspecto moderno y sofisticado mientras integra la tecnología FIR POWER, que emite rayos infrarrojos lejanos para favorecer la circulación, reducir la tensión muscular y apoyar el bienestar general.',
+        features: [
+          'Construcción en cuero auténtico',
+          'Tecnología FIR POWER integrada',
+          'Emisión de rayos infrarrojos lejanos',
+          'Diseño moderno y sofisticado',
+          'Accesorio versátil para el día a día',
+          'Sensación de calidez suave al uso',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea',
+          'Reducción de la tensión muscular',
+          'Apoyo al bienestar general',
+          'Sensación renovada de vitalidad y energía',
+          'Complemento estético y funcional',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '23',
@@ -1190,49 +1970,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/menFlipFlop.png'],
     tags: ['flip flops', 'FIR POWER', 'magnets', 'reflexology', 'men'],
-  },
-  {
-    id: '24',
-    name: 'Black Magnetic Insole',
-    slug: 'black-magnetic-insole',
-    category: 'Footwear',
-    shortDescription:
-      'Magnetic Insole Black with FIR POWER and Magnetism technologies plus eucalyptus essence.',
-    fullDescription:
-      'Magnetic Insole Black - e-Energy/Nipponflex. Introducing our Magnetic Insole Black – the ultimate in foot relaxation and rejuvenation. With advanced FIR POWER and Magnetism technologies, this insole combines therapeutic benefits with relieving mind and body tension. Experience the soothing power of a self-massage as you walk, with every step stimulating your feet´s acupressure points. Our carefully designed Magnetic Insole harnesses the natural healing energies of FIR POWER and Magnetism, providing you with unparalleled relaxation and comfort.',
-    features: [
-      'Flexible PVC impregnated with FIR NG',
-      '14 Magnetic tablets per pair',
-      '4 FIR NG tablets per pair',
-      'Impregnated with Far Infra-Red Powder',
-      'Eucalyptus essence infusion',
-      'Self-massage stimulation',
-      'Acupressure point targeting',
-    ],
-    benefits: [
-      'Foot relaxation and rejuvenation',
-      'Mind and body tension relief',
-      'Acupressure point stimulation',
-      'Improved blood circulation',
-      'Pressure relief',
-      'Invigorating eucalyptus aroma',
-    ],
-    warnings: [
-      'Magnets are prohibited for persons who use or have: Pacemakers, Neuro-stimulators, Defibrillators, Insulin Pumps, Cochlear Implants, Other implants with batteries',
-      'The magnetic field can cause interference in the battery operation',
-      'Results may vary and are not guaranteed',
-      'This product does not substitute any medical treatment',
-    ],
-    specifications: {
-      Material: 'Flexible PVC with FIR NG',
-      'Magnetic Tablets': '14 per pair',
-      'FIR NG Tablets': '4 per pair',
-      Sizes:
-        'Medium M: 4.5-7.5 or W: 5-9 (Adjustable), Large M: 7.5-12.5 or W: 9-14 (Adjustable)',
-      Essence: 'Eucalyptus',
+    translations: {
+      es: {
+        fullDescription:
+          'Las Men´s Flip Flops de Nipponflex no son unas chanclas cualquiera: integran tecnología FIR POWER avanzada y un sistema de imanes inspirados en la reflexología. Sus plantillas acolchadas con FIR POWER ayudan a mejorar la circulación y ofrecen una sensación de relajación y renovación en cada paso.',
+        features: [
+          '6 tabletas FIR Power',
+          '14 imanes especiales',
+          'Construcción cómoda y duradera',
+          'Diseño inspirado en la reflexología',
+          'Suela acolchada',
+          'Colocación estratégica de los imanes',
+          'Tecnología FIR POWER avanzada',
+        ],
+        benefits: [
+          'Mejor circulación sanguínea',
+          'Sensación de relax y renovación',
+          'Beneficios asociados a la reflexología',
+          'Mayor equilibrio y bienestar general',
+          'Confort superior al caminar',
+          'Bienestar en cada paso',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
     },
-    images: ['/assets/images/products/blackSoles.png'],
-    tags: ['insole', 'FIR POWER', 'magnets', 'eucalyptus', 'acupressure'],
   },
   {
     id: '25',
@@ -1275,6 +2041,34 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/blueSoles.png'],
     tags: ['insole', 'FIR POWER', 'magnets', 'eucalyptus', 'blue'],
+    translations: {
+      es: {
+        fullDescription:
+          'Las plantillas Magnetic Insole Blue son una solución innovadora para el confort y la terapia de los pies. Fabricadas en PVC flexible, se adaptan a la forma del pie proporcionando soporte personalizado. Integran tecnología FIR POWER, magnetismo y una esencia de eucalipto que aporta una sensación de frescor y revitalización a cada paso.',
+        features: [
+          'Construcción en PVC flexible',
+          '4 tabletas FIR Power por pie (8 en total el par)',
+          '18 imanes especiales por pie (36 en total el par)',
+          'Infusión de esencia de eucalipto',
+          'Ajuste confortable',
+          'Diseño que se adapta a la forma del pie',
+        ],
+        benefits: [
+          'Soporte excepcional para los pies',
+          'Mejor circulación sanguínea',
+          'Alivio de puntos de presión',
+          'Estimulación de puntos de acupresión en la planta del pie',
+          'Aroma refrescante a eucalipto',
+          'Confort personalizado durante la marcha',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '26',
@@ -1316,6 +2110,33 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/shoulderStrap.png'],
     tags: ['shoulder strap', 'FIR POWER', 'magnets', 'support', 'adjustable'],
+    translations: {
+      es: {
+        fullDescription:
+          'La Energy Shoulder Strap de e‑Energy/Nipponflex es una banda de tamaño único y ajustable para hombro izquierdo o derecho. Incorpora 3 tabletas FIR Power y 2 imanes de neodimio para ofrecer soporte localizado y beneficios de bienestar en la zona del hombro.',
+        features: [
+          'Talla única ajustable',
+          'Compatible con hombro izquierdo y derecho',
+          '3 tabletas FIR Power',
+          '2 imanes de neodimio',
+          'Ajuste universal para el hombro',
+          'Sistema de soporte reforzado',
+        ],
+        benefits: [
+          'Apoyo al sueño más profundo gracias a la reducción del malestar',
+          'Mayor fuerza muscular en la zona',
+          'Mejor rendimiento físico en actividades cotidianas',
+          'Apoyo en la prevención del estrés físico',
+          'Mejor circulación y alivio del dolor',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '27',
@@ -1331,7 +2152,7 @@ export const products: EduProduct[] = [
       '1x Large FIR ION Bracelet in black color',
       '1 pair of Blue insole',
       '1x e-Energy Button',
-      '1x e-Energy Catalog',
+      '1x e-Energy Catalogue',
       'Complete wellness solution',
       'Advanced FIR Power technology',
     ],
@@ -1352,6 +2173,36 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/wellnessKitPremium.png'],
     tags: ['wellness kit', 'FIR POWER', 'ion balls', 'bracelet', 'complete'],
+    translations: {
+      es: {
+        fullDescription:
+          'El Wellness Kit Premium combina la pulsera FIR Power, las Ion Balls y las plantillas negras para ofrecer un conjunto completo de tecnologías de bienestar. Este kit reúne todo lo necesario para aprovechar las energías FIR, magnética y de iones negativos en diferentes áreas del cuerpo.',
+        features: [
+          '1 botella squeeze con Ion Balls',
+          '1 pulsera FIR ION grande en color negro',
+          '1 par de plantillas azules',
+          '1 botón e‑Energy',
+          '1 catálogo e‑Energy',
+          'Solución de bienestar integral',
+          'Tecnología FIR Power avanzada',
+        ],
+        benefits: [
+          'Mejor circulación',
+          'Mayor relajación',
+          'Apoyo integral al bienestar general',
+          'Mejor percepción de la calidad del aire y del entorno',
+          'Reducción del estrés',
+          'Mayor claridad mental',
+          'Kit energético completo para el hogar',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '28',
@@ -1385,13 +2236,40 @@ export const products: EduProduct[] = [
       'This product does not substitute any medical treatment',
     ],
     specifications: {
-      Technology: 'FIR Power + Magnets',
       Compatibility: 'All car models',
       Purpose: 'Postural correction',
       Installation: 'Universal fit',
     },
     images: ['/assets/images/products/carCover.png'],
     tags: ['car seat', 'FIR POWER', 'magnets', 'posture', 'automotive'],
+    translations: {
+      es: {
+        fullDescription:
+          'El NipponCar Seat de Nipponflex ayuda a mejorar la postura y proporciona una sensación de bienestar al conducir. Incorpora tecnologías FIR Power y Magnetos, y es adaptable a todo tipo de asientos y modelos de vehículos.',
+        features: [
+          'Tecnología FIR Power',
+          'Beneficios del campo magnético',
+          'Apoyo a la corrección postural',
+          'Compatibilidad universal con asientos de coche',
+          'Adaptable a todo tipo de modelos',
+          'Mejora del confort al conducir',
+        ],
+        benefits: [
+          'Corrección de la postura',
+          'Mayor confort al conducir',
+          'Mejor circulación sanguínea',
+          'Reducción del estrés durante la conducción',
+          'Mejora del bienestar general',
+          'Compatibilidad universal',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '29',
@@ -1437,6 +2315,35 @@ export const products: EduProduct[] = [
       '/assets/images/products/firIonTripleEnergy11colorsBraceletKit.png',
     ],
     tags: ['bracelet kit', 'FIR POWER', 'ion balls', 'magnets', '11 colors'],
+    translations: {
+      es: {
+        fullDescription:
+          'El exclusivo Kit de Pulseras FIR ION de E‑Energy está diseñado para elevar tu experiencia de bienestar. Incluye once pulseras FIR ION por el precio de diez. Cada pulsera combina FIR POWER e Ion Balls, creando una sinergia poderosa que favorece la circulación, ayuda a reducir la fatiga muscular y apoya la vitalidad general.',
+        features: [
+          '11 pulseras FIR ION en el kit',
+          '22 tabletas FIR Power en total',
+          '22 Ion Balls en total',
+          '22 tabletas magnéticas en total',
+          'Amplia gama de colores',
+          'Diseño apilable para usar varias pulseras a la vez',
+          'Promoción: paga 10 y recibe 11',
+        ],
+        benefits: [
+          'Apoyo al bienestar en múltiples niveles',
+          'Mejor circulación sanguínea',
+          'Reducción de la sensación de cansancio muscular',
+          'Mayor vitalidad y energía',
+          'Efecto calmante y de equilibrio',
+          'Ideal para compartir con familiares y amigos',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '30',
@@ -1478,6 +2385,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/firIonBlackBracelet.png'],
     tags: ['bracelet', 'FIR POWER', 'ion balls', 'magnets', 'black'],
+    translations: {
+      es: {
+        fullDescription:
+          'La pulsera FIR ION Black de E‑Energy Nipponflex combina las energías de FIR POWER, Ion Balls y magnetos para proporcionar una experiencia de bienestar única. Los imanes se sitúan en puntos de acupuntura, buscando reproducir los beneficios de la acupuntura tradicional, mientras la tecnología FIR ayuda a estimular la circulación y aliviar molestias.',
+        features: [
+          '2 tabletas FIR Power',
+          '2 Ion Balls',
+          '2 tabletas magnéticas',
+          'Enfoque en puntos de acupuntura',
+          'Colocación estratégica de los imanes',
+          'Alta penetración del infrarrojo lejano',
+          'Diseño en color negro',
+        ],
+        benefits: [
+          'Experiencia de bienestar profunda',
+          'Beneficios inspirados en la acupuntura',
+          'Mejor circulación',
+          'Alivio de dolores y molestias',
+          'Armonización de la energía corporal',
+          'Mayor sensación de vitalidad',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '31',
@@ -1519,6 +2455,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/bicolorBracelet.png'],
     tags: ['bracelet', 'FIR POWER', 'ion balls', 'magnets', 'bicolor'],
+    translations: {
+      es: {
+        fullDescription:
+          'La pulsera FIR ION Bicolor de E‑Energy Nipponflex combina FIR POWER, Ion Balls y magnetos en un diseño de dos colores. Está pensada para ofrecer los mismos beneficios inspirados en la acupuntura que el modelo clásico, añadiendo un acabado estético más llamativo.',
+        features: [
+          '2 tabletas FIR Power',
+          '2 Ion Balls',
+          '2 tabletas magnéticas',
+          'Diseño bicolor',
+          'Enfoque en puntos de acupuntura',
+          'Distribución estratégica de los imanes',
+          'Aspecto estético mejorado',
+        ],
+        benefits: [
+          'Experiencia de bienestar intensa',
+          'Beneficios inspirados en la acupuntura',
+          'Mejor circulación',
+          'Alivio del dolor y la tensión',
+          'Armonización energética',
+          'Estilo bicolor elegante y distintivo',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
   {
     id: '32',
@@ -1560,6 +2525,35 @@ export const products: EduProduct[] = [
     },
     images: ['/assets/images/products/grayBicolorBracelet.png'],
     tags: ['bracelet', 'FIR POWER', 'ion balls', 'magnets', 'gray'],
+    translations: {
+      es: {
+        fullDescription:
+          'La pulsera FIR ION Gray Bicolor combina la tecnología FIR POWER, las Ion Balls y los magnetos en un diseño gris bicolor elegante. Al igual que otros modelos FIR ION, está diseñada para trabajar sobre puntos de acupuntura y favorecer la circulación y el equilibrio energético.',
+        features: [
+          '2 tabletas FIR Power',
+          '2 Ion Balls',
+          '2 tabletas magnéticas',
+          'Diseño gris bicolor',
+          'Enfoque en puntos de acupuntura',
+          'Colocación estratégica de los imanes',
+          'Estética sobria y elegante',
+        ],
+        benefits: [
+          'Experiencia de bienestar global',
+          'Beneficios inspirados en la acupuntura',
+          'Mejor circulación',
+          'Alivio del dolor y la tensión',
+          'Armonización de la energía corporal',
+          'Estilo discreto y sofisticado',
+        ],
+        warnings: [
+          ES_COMMON_WARNINGS.magnetsImplants,
+          ES_COMMON_WARNINGS.magneticInterference,
+          ES_COMMON_WARNINGS.resultsMayVary,
+          ES_COMMON_WARNINGS.notMedicalTreatment,
+        ],
+      },
+    },
   },
 ];
 

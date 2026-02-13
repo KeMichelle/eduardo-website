@@ -19,7 +19,7 @@
           <h1
             class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in-up"
           >
-            Contact Eduardo Penafiel
+            {{ t('contact.title') }}
           </h1>
           <div
             class="w-24 h-1 bg-gradient-to-r from-ecuador-yellow to-white mx-auto mb-8"
@@ -28,10 +28,7 @@
             class="text-lg md:text-xl text-blue-100 leading-relaxed animate-fade-in-up"
             style="animation-delay: 0.2s"
           >
-            Ready to start your wellness journey with authentic Nipponflex
-            products? Get in touch with Eduardo Penafiel, your authorised UK
-            distributor, to learn more about genuine Nipponflex solutions,
-            schedule a free consultation, or discuss your wellness needs.
+            {{ t('contact.intro') }}
           </p>
         </div>
       </div>
@@ -50,7 +47,7 @@
                   <h2
                     class="text-2xl font-display font-bold text-gray-900 mb-6"
                   >
-                    Get In Touch
+                    {{ t('contact.getInTouch') }}
                   </h2>
 
                   <div class="space-y-6">
@@ -72,11 +69,13 @@
                       </div>
                       <div>
                         <h3 class="font-semibold text-gray-900 mb-1">
-                          London Office
+                          {{ t('contact.londonOffice') }}
                         </h3>
-                        <p class="text-gray-600 text-sm">Based in London, UK</p>
+                        <p class="text-gray-600 text-sm">
+                          {{ t('contact.basedInLondon') }}
+                        </p>
                         <p class="text-gray-500 text-sm mt-1">
-                          Serving customers worldwide
+                          {{ t('contact.servingWorldwide') }}
                         </p>
                       </div>
                     </div>
@@ -99,7 +98,9 @@
                         </svg>
                       </div>
                       <div>
-                        <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                        <h3 class="font-semibold text-gray-900 mb-1">
+                          {{ t('contact.emailLabel') }}
+                        </h3>
                         <a
                           href="mailto:eduardo.p.gflex@outlook.com"
                           class="text-ecuador-blue hover:text-ecuador-blue/80 transition-colors duration-300"
@@ -107,7 +108,7 @@
                           eduardo.p.gflex@outlook.com
                         </a>
                         <p class="text-gray-500 text-sm mt-1">
-                          I will respond within 24 hours
+                          {{ t('contact.emailResponseTime') }}
                         </p>
                       </div>
                     </div>
@@ -127,7 +128,9 @@
                         </svg>
                       </div>
                       <div>
-                        <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
+                        <h3 class="font-semibold text-gray-900 mb-1">
+                          {{ t('contact.phoneLabel') }}
+                        </h3>
                         <a
                           href="tel:+447305873174"
                           class="text-ecuador-red hover:text-ecuador-red/80 transition-colors duration-300"
@@ -135,7 +138,7 @@
                           +44 7305 873174
                         </a>
                         <p class="text-gray-500 text-sm mt-1">
-                          Mon-Fri, 9 AM - 6 PM GMT
+                          {{ t('contact.phoneHours') }}
                         </p>
                       </div>
                     </div>
@@ -145,12 +148,12 @@
                 <!-- Quick Actions -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg">
                   <h3 class="text-xl font-display font-bold text-gray-900 mb-4">
-                    Quick Actions
+                    {{ t('contact.quickActionsTitle') }}
                   </h3>
                   <div class="space-y-3">
                     <a
                       href="/assets/pdf/catalog.pdf"
-                      download="EDUP-Global-Flex-Catalog.pdf"
+                      download="EDUP-Global-Flex-Catalogue.pdf"
                       target="_blank"
                       class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300 group"
                     >
@@ -167,9 +170,9 @@
                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                         />
                       </svg>
-                      <span class="font-medium text-gray-700"
-                        >Download Catalog</span
-                      >
+                      <span class="font-medium text-gray-700">
+                        {{ t('contact.quickActions.downloadCatalog') }}
+                      </span>
                     </a>
 
                     <NuxtLink
@@ -195,9 +198,9 @@
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                      <span class="font-medium text-gray-700"
-                        >Browse Products</span
-                      >
+                      <span class="font-medium text-gray-700">
+                        {{ t('contact.quickActions.browseProducts') }}
+                      </span>
                     </NuxtLink>
 
                     <NuxtLink
@@ -217,9 +220,9 @@
                           d="M13 10V3L4 14h7v7l9-11h-7z"
                         />
                       </svg>
-                      <span class="font-medium text-gray-700"
-                        >Our Technology</span
-                      >
+                      <span class="font-medium text-gray-700">
+                        {{ t('contact.quickActions.ourTechnology') }}
+                      </span>
                     </NuxtLink>
                   </div>
                 </div>
@@ -227,28 +230,36 @@
                 <!-- Business Hours -->
                 <div class="bg-white rounded-2xl p-8 shadow-lg">
                   <h3 class="text-xl font-display font-bold text-gray-900 mb-4">
-                    Business Hours
+                    {{ t('contact.businessHoursTitle') }}
                   </h3>
                   <div class="space-y-2 text-sm">
                     <div class="flex justify-between">
-                      <span class="text-gray-600">Monday - Friday</span>
-                      <span class="font-medium text-gray-900"
-                        >9:00 AM - 6:00 PM</span
-                      >
+                      <span class="text-gray-600">
+                        {{ t('contact.days.weekday') }}
+                      </span>
+                      <span class="font-medium text-gray-900">
+                        {{ t('contact.days.weekdayHours') }}
+                      </span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600">Saturday</span>
-                      <span class="font-medium text-gray-900"
-                        >10:00 AM - 4:00 PM</span
-                      >
+                      <span class="text-gray-600">
+                        {{ t('contact.days.saturday') }}
+                      </span>
+                      <span class="font-medium text-gray-900">
+                        {{ t('contact.days.saturdayHours') }}
+                      </span>
                     </div>
                     <div class="flex justify-between">
-                      <span class="text-gray-600">Sunday</span>
-                      <span class="font-medium text-gray-900">Closed</span>
+                      <span class="text-gray-600">
+                        {{ t('contact.days.sunday') }}
+                      </span>
+                      <span class="font-medium text-gray-900">
+                        {{ t('contact.days.sundayHours') }}
+                      </span>
                     </div>
                     <div class="mt-3 pt-3 border-t border-gray-100">
                       <p class="text-gray-500 text-xs">
-                        All times Eastern Standard Time (EST)
+                        {{ t('contact.businessHoursNote') }}
                       </p>
                     </div>
                   </div>
@@ -262,7 +273,7 @@
                 <h2
                   class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-8"
                 >
-                  Send me a message
+                  {{ t('contact.formTitle') }}
                 </h2>
 
                 <form @submit.prevent="submitForm" class="space-y-6">
@@ -273,7 +284,7 @@
                         for="firstName"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        First Name *
+                        {{ t('contact.form.firstName') }}
                       </label>
                       <input
                         id="firstName"
@@ -299,7 +310,7 @@
                         for="lastName"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Last Name *
+                        {{ t('contact.form.lastName') }}
                       </label>
                       <input
                         id="lastName"
@@ -328,7 +339,7 @@
                         for="email"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Email Address *
+                        {{ t('contact.form.email') }}
                       </label>
                       <input
                         id="email"
@@ -351,7 +362,7 @@
                         for="phone"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Phone Number
+                        {{ t('contact.form.phone') }}
                       </label>
                       <input
                         id="phone"
@@ -369,7 +380,7 @@
                         for="company"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Company/Organisation
+                        {{ t('contact.form.company') }}
                       </label>
                       <input
                         id="company"
@@ -384,14 +395,16 @@
                         for="country"
                         class="block text-sm font-medium text-gray-700 mb-2"
                       >
-                        Country
+                        {{ t('contact.form.country') }}
                       </label>
                       <select
                         id="country"
                         v-model="form.country"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecuador-blue/50 focus:border-ecuador-blue transition-colors duration-300"
                       >
-                        <option value="">Select Country</option>
+                        <option value="">
+                          {{ t('contact.form.countryPlaceholder') }}
+                        </option>
                         <option
                           v-for="country in countries"
                           :key="country"
@@ -409,7 +422,7 @@
                       for="subject"
                       class="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Subject *
+                      {{ t('contact.form.subject') }}
                     </label>
                     <select
                       id="subject"
@@ -421,22 +434,32 @@
                           errors.subject,
                       }"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="product-inquiry">Product Inquiry</option>
+                      <option value="">
+                        {{ t('contact.form.subjectPlaceholder') }}
+                      </option>
+                      <option value="product-inquiry">
+                        {{ t('contact.form.subjectOptions.productInquiry') }}
+                      </option>
                       <option value="technology-questions">
-                        Technology Questions
+                        {{
+                          t('contact.form.subjectOptions.technologyQuestions')
+                        }}
                       </option>
                       <option value="partnership">
-                        Partnership Opportunities
+                        {{ t('contact.form.subjectOptions.partnership') }}
                       </option>
                       <option value="technical-support">
-                        Technical Support
+                        {{ t('contact.form.subjectOptions.technicalSupport') }}
                       </option>
                       <option value="consultation">
-                        Wellness Consultation
+                        {{ t('contact.form.subjectOptions.consultation') }}
                       </option>
-                      <option value="custom-solutions">Custom Solutions</option>
-                      <option value="other">Other</option>
+                      <option value="custom-solutions">
+                        {{ t('contact.form.subjectOptions.customSolutions') }}
+                      </option>
+                      <option value="other">
+                        {{ t('contact.form.subjectOptions.other') }}
+                      </option>
                     </select>
                     <p v-if="errors.subject" class="mt-1 text-sm text-red-600">
                       {{ errors.subject }}
@@ -449,14 +472,14 @@
                       for="message"
                       class="block text-sm font-medium text-gray-700 mb-2"
                     >
-                      Message *
+                      {{ t('contact.form.message') }}
                     </label>
                     <textarea
                       id="message"
                       v-model="form.message"
                       rows="6"
                       required
-                      placeholder="Tell us about your wellness needs, questions, or how we can help you..."
+                      :placeholder="t('contact.form.messagePlaceholder')"
                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ecuador-blue/50 focus:border-ecuador-blue transition-colors duration-300 resize-none"
                       :class="{
                         'border-red-500 focus:ring-red-500/50 focus:border-red-500':
@@ -466,20 +489,6 @@
                     <p v-if="errors.message" class="mt-1 text-sm text-red-600">
                       {{ errors.message }}
                     </p>
-                  </div>
-
-                  <!-- Newsletter Signup -->
-                  <div class="flex items-center space-x-3">
-                    <input
-                      id="newsletter"
-                      v-model="form.newsletter"
-                      type="checkbox"
-                      class="w-4 h-4 text-ecuador-blue border-gray-300 rounded focus:ring-ecuador-blue/50"
-                    />
-                    <label for="newsletter" class="text-sm text-gray-600">
-                      Subscribe to our newsletter for wellness tips and product
-                      updates
-                    </label>
                   </div>
 
                   <!-- Submit Button -->
@@ -511,7 +520,9 @@
                         ></path>
                       </svg>
                       <span>{{
-                        isSubmitting ? 'Sending...' : 'Send Message'
+                        isSubmitting
+                          ? t('contact.form.sending')
+                          : t('contact.form.submit')
                       }}</span>
                       <svg
                         v-if="!isSubmitting"
@@ -558,9 +569,11 @@
               />
             </svg>
             <div>
-              <div class="font-semibold">Message Sent!</div>
+              <div class="font-semibold">
+                {{ t('contact.toast.title') }}
+              </div>
               <div class="text-sm opacity-90">
-                We'll get back to you within 24 hours.
+                {{ t('contact.toast.body') }}
               </div>
             </div>
             <button @click="showSuccessToast = false" class="ml-4">
@@ -586,6 +599,9 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 interface ContactForm {
   firstName: string;
   lastName: string;
@@ -595,7 +611,6 @@ interface ContactForm {
   country: string;
   subject: string;
   message: string;
-  newsletter: boolean;
 }
 
 interface FormErrors {
@@ -628,7 +643,6 @@ const form = ref<ContactForm>({
   country: '',
   subject: '',
   message: '',
-  newsletter: false,
 });
 
 const errors = ref<FormErrors>({});
@@ -730,14 +744,13 @@ const submitForm = async () => {
       country: form.value.country || 'Not provided',
       subject: form.value.subject,
       message: form.value.message,
-      newsletter: form.value.newsletter ? 'Yes' : 'No',
     };
 
     await (window as any).emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       templateParams,
-      EMAILJS_PUBLIC_KEY
+      EMAILJS_PUBLIC_KEY,
     );
 
     // Reset form
@@ -750,7 +763,6 @@ const submitForm = async () => {
       country: '',
       subject: '',
       message: '',
-      newsletter: false,
     };
 
     // Show success message
@@ -763,7 +775,7 @@ const submitForm = async () => {
   } catch (error) {
     console.error('Form submission error:', error);
     alert(
-      'Failed to send message. Please try again or email directly at eduardo.p.gflex@outlook.com'
+      'Failed to send message. Please try again or email directly at eduardo.p.gflex@outlook.com',
     );
   } finally {
     isSubmitting.value = false;

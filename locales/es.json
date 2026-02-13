@@ -1,0 +1,24 @@
+{
+  "header": {
+    "home": "Inicio",
+    "products": "Productos",
+    "technology": "Tecnología",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "getStarted": "Comenzar"
+  },
+  "hero": {
+    "subtitle": "Distribuidor Autorizado de Nipponflex en el Reino Unido",
+    "cta": {
+      "explore": "Explorar Productos",
+      "downloadCatalog": "Descargar Catálogo (PDF)"
+    }
+  },
+  "footer": {
+    "quickLinks": "Enlaces Rápidos",
+    "contactInfo": "Información de Contacto",
+    "copyright": "© 2026 EDUP Global Flex. Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  }
+}

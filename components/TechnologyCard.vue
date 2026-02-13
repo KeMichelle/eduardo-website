@@ -136,7 +136,9 @@
             v-if="technology.applications && technology.applications.length > 0"
             class="mb-6"
           >
-            <h4 class="font-semibold text-gray-900 mb-3">Applications:</h4>
+            <h4 class="font-semibold text-gray-900 mb-3">
+              {{ t('technology.applicationsTitle') }}
+            </h4>
             <div class="flex flex-wrap gap-2">
               <span
                 v-for="(application, index) in technology.applications"
@@ -158,11 +160,14 @@
               :to="technology.learnMoreUrl"
               class="flex-1 btn-primary text-center"
             >
-              Learn More
+              {{ t('technology.learnMore') }}
             </NuxtLink>
 
-            <NuxtLink to="/products" class="flex-1 btn-secondary text-center">
-              View Products
+            <NuxtLink
+              :to="localePath('/products')"
+              class="flex-1 btn-secondary text-center"
+            >
+              {{ t('technology.browseProducts') }}
             </NuxtLink>
           </div>
         </div>
@@ -172,6 +177,12 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { useLocalePath } from '#imports';
+
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 interface Technology {
   title: string;
   subtitle?: string;

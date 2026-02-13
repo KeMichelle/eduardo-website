@@ -5,7 +5,7 @@
       <div class="relative h-48 md:h-56 overflow-hidden bg-gray-100">
         <img
           :src="product.images[0]"
-          :alt="product.name"
+          :alt="displayName"
           class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           @error="handleImageError"
         />
@@ -49,7 +49,7 @@
           <span
             class="bg-white text-ecuador-blue px-4 py-2 rounded-lg font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-ecuador-blue hover:text-white"
           >
-            Quick View
+            {{ t('productCard.quickView') }}
           </span>
         </div>
       </div>
@@ -61,7 +61,7 @@
           <span
             class="text-xs font-medium text-ecuador-blue bg-ecuador-blue/10 px-2 py-1 rounded-md"
           >
-            {{ product.category }}
+            {{ displayCategory }}
           </span>
         </div>
 
@@ -69,22 +69,19 @@
         <h3
           class="text-lg md:text-xl font-display font-bold text-gray-900 mb-2 group-hover:text-ecuador-blue transition-colors duration-300"
         >
-          {{ product.name }}
+          {{ displayName }}
         </h3>
 
         <!-- Product Description -->
         <p class="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed">
-          {{ product.shortDescription }}
+          {{ displayShortDescription }}
         </p>
 
         <!-- Product Features -->
-        <div
-          v-if="product.features && product.features.length > 0"
-          class="mb-4"
-        >
+        <div v-if="displayFeatures && displayFeatures.length > 0" class="mb-4">
           <ul class="space-y-1">
             <li
-              v-for="feature in product.features.slice(0, 3)"
+              v-for="feature in displayFeatures.slice(0, 3)"
               :key="feature"
               class="flex items-center text-xs text-gray-500"
             >
@@ -111,7 +108,7 @@
             :key="tag"
             class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
           >
-            #{{ tag }}
+            #{{ translateTag(tag) }}
           </span>
         </div>
       </div>
@@ -121,6 +118,11 @@
 
 <script setup lang="ts">
 import type { EduProduct } from '~/data/products';
+import { useI18n } from 'vue-i18n';
+import { useLocalePath } from '#imports';
+
+const { t, te, locale } = useI18n();
+const localePath = useLocalePath();
 
 interface Props {
   product: EduProduct;
@@ -132,8 +134,87 @@ const props = defineProps<Props>();
 
 const imageLoaded = ref(true);
 
+const categoryKeyMap: Record<string, string> = {
+  'Water Filtration': 'waterFiltration',
+  'Wellness Accessories': 'wellnessAccessories',
+  Mattresses: 'mattresses',
+  Pillows: 'pillows',
+  'Kids Wellness': 'kidsWellness',
+  'Athletic Wear': 'athleticWear',
+  Footwear: 'footwear',
+  'Wellness Apparel': 'wellnessApparel',
+  'Sleep & Recovery': 'sleepRecovery',
+  'Support & Braces': 'supportBraces',
+  'Wellness Kits': 'wellnessKits',
+  Automotive: 'automotive',
+  "Women's Wellness": 'womensWellness',
+};
+
+const displayName = computed(() => {
+  const currentLocale = locale.value;
+  const translatedName = props.product.translations?.[currentLocale]?.name;
+
+  if (translatedName) {
+    return translatedName;
+  }
+
+  const key = `productsData.${props.product.slug}.name`;
+  return te(key) ? t(key) : props.product.name;
+});
+
+const displayShortDescription = computed(() => {
+  const currentLocale = locale.value;
+  const translatedShort =
+    props.product.translations?.[currentLocale]?.shortDescription;
+
+  if (translatedShort) {
+    return translatedShort;
+  }
+
+  const key = `productsData.${props.product.slug}.shortDescription`;
+  return te(key) ? t(key) : props.product.shortDescription;
+});
+
+const displayCategory = computed(() => {
+  const mapKey = categoryKeyMap[props.product.category];
+  return mapKey
+    ? t(`productsPage.categories.${mapKey}`)
+    : props.product.category;
+});
+
+const displayFeatures = computed(() => {
+  const currentLocale = locale.value;
+  const translatedFeatures =
+    props.product.translations?.[currentLocale]?.features;
+
+  if (translatedFeatures && translatedFeatures.length > 0) {
+    return translatedFeatures;
+  }
+
+  return props.product.features ?? [];
+});
+
+const tagKeyMap: Record<string, string> = {
+  "women's wellness": 'womensWellness',
+  "women's health": 'womensWellness',
+};
+
+const translateTag = (tag: string): string => {
+  const normalised = tag.toLowerCase();
+  const mappedKey = tagKeyMap[normalised];
+
+  if (mappedKey) {
+    const key = `productTags.${mappedKey}`;
+    if (te(key)) {
+      return t(key);
+    }
+  }
+
+  return tag;
+};
+
 const viewDetailsLink = computed(() => {
-  return `/products/${props.product.slug}`;
+  return localePath(`/products/${props.product.slug}`);
 });
 
 const handleImageError = (event: Event) => {

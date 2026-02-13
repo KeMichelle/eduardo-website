@@ -17,7 +17,7 @@
           <h2
             class="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
           >
-            Meet Eduardo Penafiel
+            {{ t('about.title') }}
           </h2>
           <div
             class="w-24 h-1 bg-gradient-to-r from-ecuador-yellow via-ecuador-blue to-ecuador-red mx-auto mb-8"
@@ -25,8 +25,7 @@
           <p
             class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Discover the vision and passion behind EDUP GlobalFlex through the
-            eyes of Eduardo Penafiel, founder and wellness innovator.
+            {{ t('about.intro') }}
           </p>
         </div>
 
@@ -120,86 +119,29 @@
           <div class="animate-slide-in-right space-y-8">
             <div>
               <h3
-                class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4"
+                class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-6"
               >
-                Your Wellness Technology Partner
+                {{ t('about.story.title') }}
               </h3>
-              <p class="text-gray-600 leading-relaxed">
-                With extensive knowledge of Nipponflex wellness principles and
-                technologies, Eduardo Penafiel is dedicated to helping people
-                find the right wellness solutions for their needs. His
-                commitment to quality customer service and product expertise
-                makes him your trusted partner for premium Nipponflex wellness
-                technology.
-              </p>
-              <p class="text-gray-600 leading-relaxed mt-4">
-                Explore the complete
-                <a
-                  href="https://www.nipponflex.com/produtos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-ecuador-blue hover:text-ecuador-yellow font-medium transition-colors duration-300 inline-flex items-center"
-                >
-                  Nipponflex product range
-                  <svg
-                    class="w-4 h-4 ml-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-                to discover all available wellness solutions.
-              </p>
-            </div>
-
-            <!-- Key Achievements -->
-            <div>
-              <h4 class="text-xl font-semibold text-gray-900 mb-4">
-                Key Achievements
-              </h4>
-              <ul class="space-y-3">
-                <li
-                  v-for="(achievement, index) in achievements"
-                  :key="index"
-                  class="flex items-start space-x-3 animate-fade-in-up"
-                  :style="{ animationDelay: `${index * 200}ms` }"
-                >
-                  <div
-                    class="flex-shrink-0 w-6 h-6 rounded-full bg-ecuador-blue flex items-center justify-center mt-1"
-                  >
-                    <svg
-                      class="w-4 h-4 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <span class="text-gray-700">{{ achievement }}</span>
-                </li>
-              </ul>
+              <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>{{ t('about.story.p1') }}</p>
+                <p>{{ t('about.story.p2') }}</p>
+                <p>{{ t('about.story.p3') }}</p>
+                <p class="font-medium text-gray-900">
+                  {{ t('about.story.highlight') }}
+                </p>
+                <p class="text-xs text-gray-500 mt-4">
+                  {{ t('about.story.disclaimer') }}
+                </p>
+              </div>
             </div>
 
             <!-- Eduardo's Quote -->
             <blockquote
-              class="border-l-4 border-ecuador-yellow pl-6 py-4 bg-gray-50 rounded-r-lg"
+              class="border-l-4 border-ecuador-yellow pl-6 py-4 bg-gradient-to-r from-ecuador-blue/5 to-ecuador-yellow/5 rounded-r-lg"
             >
               <p class="text-lg text-gray-700 italic leading-relaxed mb-4">
-                "Wellness is not a destination, but a journey. My mission is to
-                help you find the right Nipponflex products and technologies
-                that make this journey not just possible, but enjoyable and
-                transformative."
+                "{{ t('about.quote.text') }}"
               </p>
               <footer class="flex items-center space-x-3">
                 <div
@@ -216,7 +158,7 @@
                     Eduardo Penafiel
                   </div>
                   <div class="text-sm text-gray-600">
-                    Authorised Nipponflex Distributor
+                    {{ t('about.quote.role') }}
                   </div>
                 </div>
               </footer>
@@ -228,7 +170,7 @@
                 to="/contact"
                 class="btn-primary flex items-center justify-center space-x-2 w-fit"
               >
-                <span>Connect with Eduardo</span>
+                <span>{{ t('about.connectButton') }}</span>
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -265,9 +207,9 @@
               </div>
             </div>
             <h4 class="text-lg font-semibold text-gray-900 mb-2">
-              {{ info.title }}
+              {{ t(info.titleKey) }}
             </h4>
-            <p class="text-gray-600 text-sm">{{ info.description }}</p>
+            <p class="text-gray-600 text-sm">{{ t(info.descriptionKey) }}</p>
           </div>
         </div>
       </div>
@@ -276,6 +218,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 const portraitLoaded = ref(true);
 
 const handleImageError = () => {
@@ -291,8 +237,8 @@ const achievements = [
 ];
 
 interface AdditionalInfo {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: any;
 }
 
@@ -312,7 +258,7 @@ const ResearchIcon = () =>
         'stroke-width': '2',
         d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
       }),
-    ]
+    ],
   );
 
 const GlobalIcon = () =>
@@ -330,7 +276,7 @@ const GlobalIcon = () =>
         'stroke-width': '2',
         d: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
       }),
-    ]
+    ],
   );
 
 const InnovationIcon = () =>
@@ -348,26 +294,23 @@ const InnovationIcon = () =>
         'stroke-width': '2',
         d: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z',
       }),
-    ]
+    ],
   );
 
 const additionalInfo: AdditionalInfo[] = [
   {
-    title: 'Customer Service',
-    description:
-      'Dedicated to providing excellent support and guidance for Nipponflex products',
+    titleKey: 'about.additionalInfo.experience.title',
+    descriptionKey: 'about.additionalInfo.experience.description',
     icon: ResearchIcon,
   },
   {
-    title: 'Product Expertise',
-    description:
-      'Extensive knowledge of Nipponflex technologies and their wellness benefits',
+    titleKey: 'about.additionalInfo.guidance.title',
+    descriptionKey: 'about.additionalInfo.guidance.description',
     icon: GlobalIcon,
   },
   {
-    title: 'Quality Assurance',
-    description:
-      'Committed to delivering authentic Nipponflex products with guaranteed quality',
+    titleKey: 'about.additionalInfo.support.title',
+    descriptionKey: 'about.additionalInfo.support.description',
     icon: InnovationIcon,
   },
 ];

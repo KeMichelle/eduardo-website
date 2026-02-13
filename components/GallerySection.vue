@@ -24,28 +24,76 @@
         <h2
           class="text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-ecuador-yellow via-white to-ecuador-blue bg-clip-text text-transparent mb-6"
         >
-          Product Gallery
+          {{ t('gallery.title') }}
         </h2>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Discover our innovative wellness technologies crafted with passion in
-          Brazil
+          {{ t('gallery.subtitle') }}
         </p>
       </div>
 
       <!-- Horizontal Scrollable Gallery -->
       <div class="relative mb-24 px-4">
+        <!-- Left Arrow -->
+        <button
+          @click="scrollLeft"
+          :disabled="!canScrollLeft"
+          :class="
+            canScrollLeft ? 'opacity-100' : 'opacity-30 cursor-not-allowed'
+          "
+          class="absolute left-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-gradient-to-r from-ecuador-yellow to-ecuador-blue rounded-full flex items-center justify-center shadow-2xl hover:shadow-ecuador-yellow/50 transition-all duration-300 hover:scale-110"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <!-- Right Arrow -->
+        <button
+          @click="scrollRight"
+          :disabled="!canScrollRight"
+          :class="
+            canScrollRight ? 'opacity-100' : 'opacity-30 cursor-not-allowed'
+          "
+          class="absolute right-0 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-gradient-to-r from-ecuador-blue to-ecuador-red rounded-full flex items-center justify-center shadow-2xl hover:shadow-ecuador-red/50 transition-all duration-300 hover:scale-110"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+
         <div
           ref="galleryContainer"
-          class="horizontal-scroll-container overflow-x-hidden overflow-y-visible cursor-grab active:cursor-grabbing"
+          class="horizontal-scroll-container overflow-y-visible cursor-grab active:cursor-grabbing"
           @wheel.prevent="handleWheel"
-          @mousedown="startDrag"
-          @mousemove="drag"
-          @mouseup="endDrag"
-          @mouseleave="endDrag"
+          @pointerdown="startDrag"
+          @pointermove="drag"
+          @pointerup="endDrag"
+          @pointerleave="endDrag"
+          @pointercancel="endDrag"
         >
           <div
             ref="galleryTrack"
-            class="flex gap-8 py-8 transition-transform duration-300 ease-out"
+            class="flex gap-8 py-8 transition-transform duration-500 ease-out"
             :style="{ transform: `translateX(${scrollPosition}px)` }"
           >
             <div
@@ -74,7 +122,7 @@
                   ></div>
                   <img
                     :src="product.image || '/assets/images/logo/edulogo.png'"
-                    :alt="product.name"
+                    :alt="getDisplayName(product)"
                     class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-125"
                     @error="handleImageError"
                   />
@@ -86,18 +134,18 @@
                     <span
                       class="text-xs font-medium text-ecuador-yellow bg-ecuador-yellow/20 px-3 py-1 rounded-full border border-ecuador-yellow/30"
                     >
-                      {{ product.category }}
+                      {{ getDisplayCategory(product) }}
                     </span>
                   </div>
 
                   <h3
                     class="text-xl font-bold text-white mb-3 group-hover:text-ecuador-yellow transition-colors duration-300"
                   >
-                    {{ product.name }}
+                    {{ getDisplayName(product) }}
                   </h3>
 
                   <p class="text-gray-300 text-sm mb-4 line-clamp-2">
-                    {{ product.description }}
+                    {{ getDisplayDescription(product) }}
                   </p>
 
                   <div class="flex items-center justify-between">
@@ -120,11 +168,13 @@
                     </div>
 
                     <NuxtLink
-                      :to="`/products/${product.slug || product.id}`"
+                      :to="
+                        localePath(`/products/${product.slug || product.id}`)
+                      "
                       class="text-ecuador-blue hover:text-ecuador-yellow font-medium text-sm bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-ecuador-yellow/20"
                       @click.stop
                     >
-                      Explore →
+                      {{ t('gallery.explore') }}
                     </NuxtLink>
                   </div>
                 </div>
@@ -133,35 +183,30 @@
           </div>
         </div>
 
-        <!-- Scroll Indicators -->
-        <div class="flex justify-center mt-8 space-x-2">
-          <button
-            v-for="(dot, index) in totalSections"
-            :key="index"
-            @click="scrollToSection(index)"
-            class="w-3 h-3 rounded-full transition-all duration-300"
-            :class="
-              currentSection === index
-                ? 'bg-ecuador-yellow scale-125'
-                : 'bg-white/30 hover:bg-white/50'
-            "
-          ></button>
+        <!-- Progress Bar -->
+        <div class="flex justify-center mt-8">
+          <div class="w-64 h-1.5 bg-white/20 rounded-full overflow-hidden">
+            <div
+              class="h-full bg-gradient-to-r from-ecuador-yellow via-ecuador-blue to-ecuador-red transition-all duration-500 ease-out rounded-full"
+              :style="{ width: `${scrollProgress}%` }"
+            ></div>
+          </div>
         </div>
       </div>
 
       <!-- Call to Action -->
       <div class="text-center animate-fade-in-up">
         <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">
-          Ready to Transform Your Wellness Journey?
+          {{ t('gallery.ctaTitle') }}
         </h3>
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <NuxtLink
-            to="/products"
+            :to="localePath('/products')"
             class="btn-primary px-8 py-4 text-lg font-semibold"
           >
-            View All Products
+            {{ t('gallery.viewAllProducts') }}
           </NuxtLink>
           <a
             href="/assets/pdf/catalog.pdf"
@@ -182,7 +227,7 @@
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-            <span>Download Catalog</span>
+            <span>{{ t('gallery.downloadCatalog') }}</span>
           </a>
         </div>
       </div>
@@ -223,7 +268,7 @@
           <div class="h-64 bg-gray-200 overflow-hidden rounded-t-2xl">
             <img
               :src="selectedProduct.image || '/assets/images/logo/edulogo.png'"
-              :alt="selectedProduct.name"
+              :alt="getDisplayName(selectedProduct)"
               class="w-full h-full object-cover"
             />
           </div>
@@ -234,12 +279,12 @@
               <span
                 class="text-sm font-medium text-ecuador-blue bg-ecuador-blue/10 px-3 py-1 rounded-full"
               >
-                {{ selectedProduct.category }}
+                {{ getDisplayCategory(selectedProduct) }}
               </span>
             </div>
 
             <h2 class="text-3xl font-bold text-gray-900 mb-4">
-              {{ selectedProduct.name }}
+              {{ getDisplayName(selectedProduct) }}
             </h2>
 
             <div class="flex items-center justify-end mb-6">
@@ -263,20 +308,25 @@
             </div>
 
             <p class="text-gray-600 mb-6 leading-relaxed">
-              {{
-                selectedProduct.fullDescription || selectedProduct.description
-              }}
+              {{ getModalDescription(selectedProduct) }}
             </p>
 
             <div class="flex gap-4">
               <NuxtLink
-                :to="`/products/${selectedProduct.slug || selectedProduct.id}`"
+                :to="
+                  localePath(
+                    `/products/${selectedProduct.slug || selectedProduct.id}`,
+                  )
+                "
                 class="btn-primary flex-1 text-center"
               >
-                Learn More
+                {{ t('gallery.learnMore') }}
               </NuxtLink>
-              <NuxtLink to="/contact" class="btn-secondary flex-1 text-center">
-                Contact Me
+              <NuxtLink
+                :to="localePath('/contact')"
+                class="btn-secondary flex-1 text-center"
+              >
+                {{ t('gallery.contactButton') }}
               </NuxtLink>
             </div>
           </div>
@@ -288,6 +338,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onUnmounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useLocalePath } from '#imports';
+
+const { t, te } = useI18n();
+const localePath = useLocalePath();
 
 // Component state
 const selectedProduct = ref<GalleryProduct | null>(null);
@@ -297,7 +352,6 @@ const dragStartX = ref(0);
 const dragStartScroll = ref(0);
 const galleryContainer = ref<HTMLElement>();
 const galleryTrack = ref<HTMLElement>();
-const currentSection = ref(0);
 
 // Gallery product interface (renamed to avoid conflicts)
 interface GalleryProduct {
@@ -326,7 +380,7 @@ const products: GalleryProduct[] = [
     category: 'Water Systems',
     badge: 'Bestseller',
     rating: 5,
-    slug: 'sws-alcaline-max',
+    slug: 'alcaline-max',
     gradient: 'from-ecuador-blue/20 to-ecuador-yellow/20',
   },
   {
@@ -336,7 +390,7 @@ const products: GalleryProduct[] = [
       'Portable hydration solution with integrated ion therapy technology.',
     fullDescription:
       'Innovative water bottle featuring ion therapy balls that enhance water quality and provide continuous wellness benefits throughout your day.',
-    image: '/assets/images/products/waterBottleIonBalls.png',
+    image: '/assets/images/products/alkalineMaxWater.png',
     category: 'Accessories',
     badge: 'New',
     rating: 4,
@@ -408,7 +462,7 @@ const products: GalleryProduct[] = [
     category: 'Activewear',
     badge: 'Sport',
     rating: 4,
-    slug: 'womens-training-fir-bra',
+    slug: 'womens-training-fir-bra-top',
     gradient: 'from-ecuador-blue/20 to-ecuador-yellow/20',
   },
   {
@@ -426,15 +480,15 @@ const products: GalleryProduct[] = [
   },
   {
     id: 9,
-    name: 'Black Magnetic Insole',
+    name: 'Blue Magnetic Insole',
     description:
       'Therapeutic insoles with magnetic field technology for foot wellness.',
     fullDescription:
       'Advanced magnetic insoles designed to provide therapeutic benefits through targeted magnetic field therapy and improved circulation.',
-    image: '/assets/images/products/blackSoles.png',
+    image: '/assets/images/products/blueSoles.png',
     category: 'Foot Care',
     rating: 4,
-    slug: 'black-magnetic-insole',
+    slug: 'blue-insole',
     gradient: 'from-ecuador-red/20 to-ecuador-blue/20',
   },
   {
@@ -453,103 +507,159 @@ const products: GalleryProduct[] = [
   },
 ];
 
+// Map gallery-specific category labels to productsPage categories for translation
+const galleryCategoryKeyMap: Record<string, string> = {
+  'Water Systems': 'waterFiltration',
+  Accessories: 'wellnessAccessories',
+  'Sleep Solutions': 'sleepRecovery',
+  'Kids Wellness': 'kidsWellness',
+  'Therapy Tools': 'wellnessAccessories',
+  Activewear: 'athleticWear',
+  'Support Wear': 'supportBraces',
+  'Foot Care': 'footwear',
+  'Complete Systems': 'wellnessKits',
+};
+
+const getDisplayCategory = (product: GalleryProduct): string => {
+  const key = galleryCategoryKeyMap[product.category];
+  if (key && te(`productsPage.categories.${key}`)) {
+    return t(`productsPage.categories.${key}`);
+  }
+  return product.category;
+};
+
+const getDisplayName = (product: GalleryProduct): string => {
+  const slug = product.slug;
+  if (!slug) return product.name;
+
+  const nameKey = `productsData.${slug}.name`;
+  if (te(nameKey)) {
+    return t(nameKey);
+  }
+
+  return product.name;
+};
+
+const getDisplayDescription = (product: GalleryProduct): string => {
+  const slug = product.slug;
+  if (!slug) return product.description;
+
+  const descKey = `productsData.${slug}.shortDescription`;
+  if (te(descKey)) {
+    return t(descKey);
+  }
+
+  return product.description;
+};
+
+const getModalDescription = (product: GalleryProduct): string => {
+  const slug = product.slug;
+  if (slug) {
+    const fullKey = `productsData.${slug}.fullDescription`;
+    if (te(fullKey)) {
+      return t(fullKey);
+    }
+
+    const shortKey = `productsData.${slug}.shortDescription`;
+    if (te(shortKey)) {
+      return t(shortKey);
+    }
+  }
+
+  if (product.fullDescription) {
+    return product.fullDescription;
+  }
+
+  return product.description;
+};
+
 // Parallax wheel handling
 const handleWheel = (event: WheelEvent) => {
-  const cardWidth = 320; // 320px per card
-  const gap = 32; // 32px gap (gap-8)
-  const cardWithGap = cardWidth + gap;
-  const maxScroll = -(
-    products.length * cardWithGap -
-    gap -
-    (galleryContainer.value?.clientWidth || 0)
-  );
+  const cardWidth = 320;
+  const gap = 32;
+  const containerWidth = galleryContainer.value?.clientWidth || 0;
+  const totalContentWidth =
+    products.length * cardWidth + (products.length - 1) * gap;
+  const maxScroll = Math.min(0, -(totalContentWidth - containerWidth));
   const scrollSpeed = 2;
 
   scrollPosition.value += event.deltaY * scrollSpeed;
   scrollPosition.value = Math.max(maxScroll, Math.min(0, scrollPosition.value));
-
-  // Update current section based on cards visible
-  updateCurrentSection();
 };
 
 // Drag functionality
-const startDrag = (event: MouseEvent) => {
+const startDrag = (event: MouseEvent | PointerEvent) => {
   isDragging.value = true;
   dragStartX.value = event.clientX;
   dragStartScroll.value = scrollPosition.value;
 };
 
-const drag = (event: MouseEvent) => {
+const drag = (event: MouseEvent | PointerEvent) => {
   if (!isDragging.value) return;
 
   const dragDistance = event.clientX - dragStartX.value;
   const cardWidth = 320;
   const gap = 32;
-  const cardWithGap = cardWidth + gap;
-  const maxScroll = -(
-    products.length * cardWithGap -
-    gap -
-    (galleryContainer.value?.clientWidth || 0)
-  );
+  const containerWidth = galleryContainer.value?.clientWidth || 0;
+  const totalContentWidth =
+    products.length * cardWidth + (products.length - 1) * gap;
+  const maxScroll = Math.min(0, -(totalContentWidth - containerWidth));
 
   scrollPosition.value = dragStartScroll.value + dragDistance;
   scrollPosition.value = Math.max(maxScroll, Math.min(0, scrollPosition.value));
-
-  updateCurrentSection();
 };
 
 const endDrag = () => {
   isDragging.value = false;
 };
 
-// Calculate sections and navigation
-const cardsPerSection = computed(() => {
-  const containerWidth = galleryContainer.value?.clientWidth || 1200;
+// Calculate max scroll and scroll progress
+const maxScrollValue = computed(() => {
   const cardWidth = 320;
   const gap = 32;
-  const cardsVisible = Math.floor((containerWidth + gap) / (cardWidth + gap));
-  return Math.max(1, cardsVisible); // Ensure at least 1 card per section
+  const containerWidth = galleryContainer.value?.clientWidth || 0;
+  const totalContentWidth =
+    products.length * cardWidth + (products.length - 1) * gap;
+  const maxScroll = -(totalContentWidth - containerWidth);
+  return Math.min(0, maxScroll); // Ensure it's never positive
 });
 
-const totalSections = computed(() => {
-  return Math.ceil(products.length / cardsPerSection.value);
+const scrollProgress = computed(() => {
+  if (maxScrollValue.value >= 0) return 100;
+  const progress =
+    (Math.abs(scrollPosition.value) / Math.abs(maxScrollValue.value)) * 100;
+  return Math.min(100, Math.max(0, progress));
 });
 
-const updateCurrentSection = () => {
+const canScrollLeft = computed(() => scrollPosition.value < 0);
+const canScrollRight = computed(
+  () => scrollPosition.value > maxScrollValue.value,
+);
+
+// Scroll left and right functions
+const scrollLeft = () => {
   const cardWidth = 320;
   const gap = 32;
   const cardWithGap = cardWidth + gap;
-  const scrolled = Math.abs(scrollPosition.value);
-  const cardsScrolled = Math.floor(scrolled / cardWithGap);
-  const calculatedSection = Math.floor(cardsScrolled / cardsPerSection.value);
+  const containerWidth = galleryContainer.value?.clientWidth || 0;
+  const cardsToScroll = Math.floor(containerWidth / cardWithGap) || 1;
 
-  // Ensure section is within bounds
-  currentSection.value = Math.max(
+  scrollPosition.value = Math.min(
     0,
-    Math.min(calculatedSection, totalSections.value - 1)
+    scrollPosition.value + cardsToScroll * cardWithGap,
   );
 };
 
-// Scroll to specific section
-const scrollToSection = (section: number) => {
+const scrollRight = () => {
   const cardWidth = 320;
   const gap = 32;
   const cardWithGap = cardWidth + gap;
-  const cardsToScroll = section * cardsPerSection.value;
-  const maxScroll = -(
-    products.length * cardWithGap -
-    gap -
-    (galleryContainer.value?.clientWidth || 0)
-  );
+  const containerWidth = galleryContainer.value?.clientWidth || 0;
+  const cardsToScroll = Math.floor(containerWidth / cardWithGap) || 1;
 
-  // Calculate target scroll position
-  const targetScroll = -cardsToScroll * cardWithGap;
-
-  // Ensure we don't scroll beyond the content
-  scrollPosition.value = Math.max(maxScroll, Math.min(0, targetScroll));
-  currentSection.value = Math.max(
-    0,
-    Math.min(section, totalSections.value - 1)
+  scrollPosition.value = Math.max(
+    maxScrollValue.value,
+    scrollPosition.value - cardsToScroll * cardWithGap,
   );
 };
 
@@ -582,6 +692,8 @@ onUnmounted(() => {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  overflow-x: hidden;
+  touch-action: pan-y;
 }
 
 .line-clamp-2 {

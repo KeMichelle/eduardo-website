@@ -22,7 +22,7 @@
           <h2
             class="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
           >
-            Wellness Made Simple
+            {{ t('wellness.title') }}
           </h2>
           <div
             class="w-24 h-1 bg-gradient-to-r from-ecuador-yellow via-ecuador-blue to-ecuador-red mx-auto mb-8"
@@ -30,12 +30,7 @@
           <p
             class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            As an authorised Nipponflex distributor, Eduardo Penafiel through
-            EDUP Global Flex brings you genuine, proven Nipponflex wellness
-            solutions that are accessible, effective, and integrate seamlessly
-            into your daily life. All products are authentic Nipponflex
-            innovations, combining cutting-edge technology with time-tested
-            wellness principles.
+            {{ t('wellness.intro') }}
           </p>
         </div>
 
@@ -49,16 +44,10 @@
               <h3
                 class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4"
               >
-                Revolutionising Personal Wellness
+                {{ t('wellness.subheading') }}
               </h3>
               <p class="text-gray-600 leading-relaxed mb-6">
-                As your trusted authorised distributor, Eduardo Penafiel
-                provides access to Nipponflex's comprehensive wellness
-                ecosystem, over 60 amazing products designed to support your
-                journey toward optimum health and wellbeing. These authentic
-                Nipponflex products, developed through advanced materials,
-                science and innovative design, work with your body's natural
-                processes.
+                {{ t('wellness.subcopy') }}
               </p>
 
               <!-- Key Points -->
@@ -86,9 +75,11 @@
                   </div>
                   <div>
                     <h4 class="font-semibold text-gray-900 mb-1">
-                      {{ point.title }}
+                      {{ t(point.titleKey) }}
                     </h4>
-                    <p class="text-gray-600 text-sm">{{ point.description }}</p>
+                    <p class="text-gray-600 text-sm">
+                      {{ t(point.descriptionKey) }}
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -128,10 +119,10 @@
                     </div>
                   </div>
                   <h4 class="text-xl font-semibold text-gray-800 mb-2">
-                    Wellness Technology
+                    {{ t('wellness.cardTitle') }}
                   </h4>
                   <p class="text-sm text-gray-600">
-                    Advanced materials and innovative design for optimum health
+                    {{ t('wellness.cardSubtitle') }}
                   </p>
                 </div>
                 <!-- Floating Elements -->
@@ -181,7 +172,7 @@
               {{ stat.number }}
             </div>
             <div class="text-sm md:text-base text-gray-600 font-medium">
-              {{ stat.label }}
+              {{ t(stat.labelKey) }}
             </div>
           </div>
         </div>
@@ -191,44 +182,44 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 interface KeyPoint {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
 
 interface Stat {
   number: string;
-  label: string;
+  labelKey: string;
 }
 
 const keyPoints: KeyPoint[] = [
   {
-    title: 'Nipponflex Technology',
-    description:
-      'Genuine cutting-edge materials like FIR Bioceramic® (Far Infrared Energy), MFP Magnetic FIR Power® and Rabatan® for enhanced wellness benefits.',
+    titleKey: 'wellness.keyPoints.point1.title',
+    descriptionKey: 'wellness.keyPoints.point1.description',
   },
   {
-    title: 'Authorised Distribution',
-    description:
-      "Direct access to genuine Nipponflex products through Eduardo's authorised distributorship.",
+    titleKey: 'wellness.keyPoints.point2.title',
+    descriptionKey: 'wellness.keyPoints.point2.description',
   },
   {
-    title: 'Scientific Approach',
-    description:
-      'Research-backed innovations that combine traditional wellness wisdom with modern science.',
+    titleKey: 'wellness.keyPoints.point3.title',
+    descriptionKey: 'wellness.keyPoints.point3.description',
   },
   {
-    title: 'Sustainable Impact',
-    description:
-      'Eco-conscious manufacturing processes and materials for a healthier planet.',
+    titleKey: 'wellness.keyPoints.point4.title',
+    descriptionKey: 'wellness.keyPoints.point4.description',
   },
 ];
 
 const stats: Stat[] = [
-  { number: '30+', label: 'Nipponflex Products' },
-  { number: '100%', label: 'Authentic Guarantee' },
-  { number: 'UK', label: 'London Based' },
-  { number: '1', label: 'Authorised Distributor' },
+  { number: '30+', labelKey: 'wellness.stats.products' },
+  { number: '100%', labelKey: 'wellness.stats.guarantee' },
+  { number: 'UK', labelKey: 'wellness.stats.location' },
+  { number: '1', labelKey: 'wellness.stats.distributor' },
 ];
 </script>
 

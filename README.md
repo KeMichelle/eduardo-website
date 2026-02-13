@@ -1,230 +1,109 @@
-# EDUP Global Flex - Wellness Technology Website
+# EDUP Global Flex – Wellness Technology Website
 
-A modern, animated website for EDUP Global Flex built with Nuxt 3, TypeScript, and TailwindCSS. This website showcases wellness technology products with a focus on clean design, smooth animations, and responsive user experience.
+Production-ready marketing site for EDUP Global Flex (authorised Nipponflex distributor), built end‑to‑end by me with Nuxt 3, TypeScript, TailwindCSS and first‑class mobile support. This README is written for recruiters and fellow developers.
 
-## 🌟 Features
+## 🔍 Project Overview
 
-- **Modern Design**: Clean, professional design with Ecuadorian color palette
-- **Responsive Layout**: Fully responsive for mobile, tablet, and desktop
-- **Smooth Animations**: Custom CSS animations with TailwindCSS
-- **TypeScript**: Type-safe development with full TypeScript support
-- **SEO Optimized**: Meta tags, structured data, and performance optimized
-- **Contact Form**: Interactive contact form with validation
-- **Component Architecture**: Modular, reusable Vue 3 components
+- **Stack**: Nuxt 3 (Vue 3, file-based routing), TypeScript, TailwindCSS, Pinia, @nuxt/image, @vueuse/nuxt
+- **Domain**: Wellness technology products (Nipponflex eEnergy line)
+- **Focus**: High‑trust marketing site with clear legal disclaimers, bilingual content, and strong mobile UX
+- **Role**: Sole designer & developer (architecture, implementation, i18n, content integration)
 
-## 🎨 Color Palette
+## ✨ Key Features
 
-The website uses the Ecuadorian flag colors as the primary palette:
+- **Fully Responsive UI** – Mobile‑first layouts, tested on phones and tablets
+- **Bilingual i18n (EN / ES)** – Implemented with `@nuxtjs/i18n`, including:
+  - Localised navigation, hero content, and section copy
+  - Localised product names, categories, tags and warnings
+  - Locale‑aware routes for products and marketing pages
+- **Product Catalogue & Detail Views**
+  - Product listing with category tags and wellness focus (e.g. Women’s Wellness)
+  - SEO‑friendly dynamic product pages under `/products/[slug]`
+  - Localised specs, benefits and warnings
+  - Prominent health/legal disclaimer on every product detail page
+- **Modern Marketing Sections**
+  - Hero, wellness & technology sections with subtle motion
+  - Gallery component with improved touch/drag behaviour on mobile
+  - “Free health test” CTA section driven by i18n, not hard‑coded copy
+- **Legal & Compliance Pages**
+  - Custom Privacy Policy and Terms pages written for EDUP Global Flex’s role as a UK‑based authorised Nipponflex distributor
+  - Clear statement that Nipponflex eEnergy products are not intended to diagnose, treat, cure or prevent disease, and that results may vary
+- **Internationalisation UX**
+  - Desktop language selector in the header
+  - Dedicated mobile language switcher inside the mobile nav
 
-- **Yellow**: `#FFD500` (ecuador-yellow)
-- **Blue**: `#0033A0` (ecuador-blue)
-- **Red**: `#EF3340` (ecuador-red)
+## 🧱 Notable Implementation Details
 
-## 🏗️ Project Structure
+- **Nuxt 3 + TypeScript**
+  - `script setup` with typed props and computed state
+  - Simple, flat store usage via Pinia where needed
+- **Routing & Structure** (high level)
+  - `/` – Marketing homepage (hero, wellness sections, gallery, CTA, founder/about content)
+  - `/products` – Product overview using reusable `ProductCard` components
+  - `/products/[slug]` – Dynamic product pages with translated content and disclaimer
+  - `/technology` – Technology explanation and benefits
+  - `/contact` – Contact form and business details
+  - `/privacy` – Styled privacy policy page
+  - `/terms` – Styled terms of service/disclaimer page
+- **i18n Configuration**
+  - Central `i18n.config.ts` with `en` and `es` message trees
+  - Product text resolved by slug (`productsData[slug]`) for consistency
+  - Custom namespaces for health‑test copy and product tags (e.g. women’s wellness)
+- **Design System**
+  - Ecuadorian flag palette via Tailwind theme (`ecuador-yellow`, `ecuador-blue`, `ecuador-red`)
+  - Reusable cards, sections and gradients for a consistent look
 
-```
-eduardo-website/
-├── layouts/
-│   └── default.vue          # Main layout with Header/Footer
-├── pages/
-│   ├── index.vue            # Home page
-│   ├── products.vue         # Products showcase
-│   ├── technology.vue       # Technology overview
-│   ├── about.vue            # Company information
-│   └── contact.vue          # Contact form
-├── components/
-│   ├── Header.vue           # Navigation header
-│   ├── Footer.vue           # Site footer
-│   ├── ProductCard.vue      # Product display card
-│   ├── TechnologyCard.vue   # Technology feature card
-│   ├── HeroSection.vue      # Landing hero section
-│   ├── WellnessSection.vue  # Company intro section
-│   ├── GallerySection.vue   # Product gallery
-│   ├── AboutEduardo.vue     # Founder profile
-│   └── CTASection.vue       # Call-to-action section
-├── assets/
-│   ├── css/main.css         # Global styles & animations
-│   └── images/              # Image assets and placeholders
-└── public/                  # Static assets
-```
-
-## 🚀 Getting Started
+## 🖥️ Running the Project
 
 ### Prerequisites
 
 - Node.js 18+
-- npm, yarn, or pnpm
+- npm, pnpm or yarn
 
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd eduardo-website
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   # npm
-   npm install
-
-   # yarn
-   yarn install
-
-   # pnpm
-   pnpm install
-   ```
-
-3. **Start development server**
-
-   ```bash
-   # npm
-   npm run dev
-
-   # yarn
-   yarn dev
-
-   # pnpm
-   pnpm dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-## 📱 Pages Overview
-
-### Home Page (`/`)
-
-- Hero section with animated background
-- Company introduction and statistics
-- Product gallery with filtering
-- Founder profile section
-- Call-to-action with benefits
-
-### Products Page (`/products`)
-
-- Product grid with search and filters
-- Category-based organisation
-- Detailed product modals
-- Pagination support
-
-### Technology Page (`/technology`)
-
-- Technology showcase cards
-- Comparison tables
-- Research and development info
-- Interactive expandable content
-
-### About Page (`/about`)
-
-- Company story and milestones
-- Mission and vision statements
-- Detailed founder profile
-- Core values and achievements
-
-### Contact Page (`/contact`)
-
-- Interactive contact form with validation
-- Business hours and contact info
-- Success notifications
-- Quick action links
-
-## 🎨 Styling & Animations
-
-### TailwindCSS Configuration
-
-- Custom Ecuadorian color palette
-- Responsive breakpoints
-- Custom animations and transitions
-- Component-specific styles
-
-### Custom Animations
-
-- `fade-in-up`: Smooth entrance animations
-- `slide-in-left/right`: Directional slide effects
-- `float`: Floating elements
-- `bounce-subtle`: Gentle bouncing effects
-
-### Responsive Design
-
-- Mobile-first approach
-- Breakpoints: `sm` (640px), `md` (768px), `lg` (1024px), `xl` (1280px)
-- Optimized layouts for all screen sizes
-
-## 🔧 Development
-
-### Building for Production
+### Install & Develop
 
 ```bash
-# Build the application
-npm run build
+git clone <repository-url>
+cd eduardo-website
 
-# Preview production build locally
+npm install   # or pnpm install / yarn install
+npm run dev   # starts Nuxt on http://localhost:3000
+```
+
+### Build & Preview
+
+```bash
+npm run build
 npm run preview
 ```
 
-### Code Quality
-
-- **TypeScript**: Strict mode enabled for type safety
-- **ESLint**: Configured for Vue 3 and TypeScript
-- **Prettier**: Code formatting (if configured)
-
-### Performance Optimization
-
-- **Image Loading**: Lazy loading with error fallbacks
-- **Component Splitting**: Dynamic imports where beneficial
-- **CSS Optimization**: TailwindCSS purging unused styles
-- **SEO**: Meta tags and structured data
-
-## 📦 Deployment
-
-### Static Site Generation (SSG)
+### Static Generation
 
 ```bash
-# Generate static site
 npm run generate
-
-# Deploy the ./output/public directory
 ```
 
-### Server-Side Rendering (SSR)
+## 📌 What to Look At (for Recruiters / Devs)
 
-```bash
-# Build for SSR
-npm run build
+- **components/Header.vue** – Desktop + mobile navigation, language switchers, icon‑based menu
+- **components/GallerySection.vue** – Mobile‑friendly drag/scroll implementation for the product gallery
+- **components/ProductCard.vue** – Category & tag translation logic, card composition
+- **pages/products/[slug].vue** – Dynamic product routing, translated content, legal disclaimer block
+- **pages/privacy.vue / pages/terms.vue** – Custom‑written legal content styled to match the brand
+- **i18n/i18n.config.ts** – Structured EN/ES translations, product‑by‑slug model
 
-# Start production server
-npm run start
-```
+## 👤 About the Author
 
-### Popular Deployment Platforms
+This project was designed and developed entirely by me as a real client site. The goal was to demonstrate:
 
-- **Vercel**: `vercel --prod`
-- **Netlify**: Deploy `./output/public` folder
-- **AWS S3**: Upload static files to S3 bucket
-- **DigitalOcean**: Use App Platform or Droplets
+- Ability to own a Nuxt 3 project end‑to‑end
+- Practical front‑end architecture and component design
+- Careful handling of legal and compliance copy in a wellness/health‑adjacent context
+- Strong attention to mobile experience and localisation
 
-## 🤝 Contributing
+If you’d like more context on decisions or trade‑offs in this codebase, feel free to reach out.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 📫 Contact
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-For support, email info@edupglobalflex.com or create an issue in this repository.
-
-## 🙏 Acknowledgments
-
-- Built with [Nuxt 3](https://nuxt.com/)
-- Styled with [TailwindCSS](https://tailwindcss.com/)
-- Icons from [Heroicons](https://heroicons.com/)
-- Ecuadorian color palette inspiration
+- Email: info@edupglobalflex.com (business contact)
+- For technical questions about this repo, please mention the project name in the subject.

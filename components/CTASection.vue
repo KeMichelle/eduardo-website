@@ -38,8 +38,10 @@
           <h2
             class="text-4xl md:text-6xl font-display font-bold text-white mb-6"
           >
-            Ready for Personalised
-            <span class="text-ecuador-yellow">Wellbeing?</span>
+            {{ t('cta.title') }}
+            <span class="text-ecuador-yellow">{{
+              t('cta.titleHighlight')
+            }}</span>
           </h2>
           <div
             class="w-32 h-1 bg-gradient-to-r from-ecuador-yellow to-white mx-auto mb-8"
@@ -49,11 +51,7 @@
         <!-- Description -->
         <div class="animate-fade-in-up mb-12" style="animation-delay: 0.2s">
           <p class="text-xl md:text-2xl text-gray-100 leading-relaxed mb-8">
-            Transform your daily wellness routine with authentic Nipponflex
-            technologies. As your authorised UK distributor, Eduardo Penafiel
-            through EDUP Global Flex brings you genuine Nipponflex products -
-            from advanced FIR Bioceramic® materials to cutting-edge ion therapy
-            solutions.
+            {{ t('cta.description') }}
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -76,11 +74,10 @@
                 </svg>
               </div>
               <h3 class="text-lg font-semibold text-white mb-2">
-                Personalised Approach
+                {{ t('cta.cards.personalised.title') }}
               </h3>
               <p class="text-gray-300 text-sm">
-                Tailored Nipponflex solutions designed specifically for your
-                wellness needs.
+                {{ t('cta.cards.personalised.description') }}
               </p>
             </div>
             <div class="animate-slide-in-left" style="animation-delay: 550ms">
@@ -102,11 +99,10 @@
                 </svg>
               </div>
               <h3 class="text-lg font-semibold text-white mb-2">
-                Proven Technology
+                {{ t('cta.cards.proven.title') }}
               </h3>
               <p class="text-gray-300 text-sm">
-                Nipponflex cutting-edge materials and innovative designs backed
-                by scientific research.
+                {{ t('cta.cards.proven.description') }}
               </p>
             </div>
             <div class="animate-slide-in-left" style="animation-delay: 700ms">
@@ -128,11 +124,10 @@
                 </svg>
               </div>
               <h3 class="text-lg font-semibold text-white mb-2">
-                Quality Assurance
+                {{ t('cta.cards.quality.title') }}
               </h3>
               <p class="text-gray-300 text-sm">
-                Eduardo ensures every Nipponflex product meets the highest
-                wellness standards.
+                {{ t('cta.cards.quality.description') }}
               </p>
             </div>
           </div>
@@ -148,7 +143,7 @@
               to="/contact"
               class="group bg-ecuador-yellow text-ecuador-blue px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-3"
             >
-              <span>Contact Me Now</span>
+              <span>{{ t('cta.primaryButton') }}</span>
               <svg
                 class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"
@@ -169,7 +164,7 @@
               to="/products"
               class="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-ecuador-blue transition-all duration-300 flex items-center space-x-3"
             >
-              <span>Explore Products</span>
+              <span>{{ t('cta.secondaryButton') }}</span>
               <svg
                 class="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
                 fill="none"
@@ -215,7 +210,7 @@
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              <span>Download Product Catalog</span>
+              <span>{{ t('cta.downloadCatalog') }}</span>
             </a>
 
             <NuxtLink
@@ -235,7 +230,7 @@
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-              <span>Learn About Our Technology</span>
+              <span>{{ t('cta.learnTechnology') }}</span>
             </NuxtLink>
           </div>
         </div>
@@ -255,7 +250,7 @@
                 3
               </div>
               <div class="text-white/80 text-sm font-medium">
-                Core Technologies
+                {{ t('cta.trust.coreTechnologies') }}
               </div>
             </div>
             <div
@@ -267,7 +262,9 @@
               >
                 5+
               </div>
-              <div class="text-white/80 text-sm font-medium">Product Lines</div>
+              <div class="text-white/80 text-sm font-medium">
+                {{ t('cta.trust.productLines') }}
+              </div>
             </div>
             <div
               class="text-center animate-slide-in-right"
@@ -278,7 +275,9 @@
               >
                 UK
               </div>
-              <div class="text-white/80 text-sm font-medium">London Based</div>
+              <div class="text-white/80 text-sm font-medium">
+                {{ t('cta.trust.ukBased') }}
+              </div>
             </div>
             <div
               class="text-center animate-slide-in-right"
@@ -289,7 +288,9 @@
               >
                 100%
               </div>
-              <div class="text-white/80 text-sm font-medium">Quality Focus</div>
+              <div class="text-white/80 text-sm font-medium">
+                {{ t('cta.trust.qualityFocus') }}
+              </div>
             </div>
           </div>
         </div>
@@ -314,9 +315,9 @@
                 />
               </svg>
             </div>
-            <span class="text-white font-semibold"
-              >100% Satisfaction Guarantee • Free Consultation</span
-            >
+            <span class="text-white font-semibold">
+              {{ t('cta.guaranteeBadge') }}
+            </span>
           </div>
         </div>
       </div>
@@ -325,6 +326,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 interface Benefit {
   title: string;
   description: string;
@@ -352,7 +357,7 @@ const PersonalIcon = () =>
         'stroke-width': '2',
         d: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
       }),
-    ]
+    ],
   );
 
 const TechIcon = () =>
@@ -370,7 +375,7 @@ const TechIcon = () =>
         'stroke-width': '2',
         d: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
       }),
-    ]
+    ],
   );
 
 const ResultsIcon = () =>
@@ -388,7 +393,7 @@ const ResultsIcon = () =>
         'stroke-width': '2',
         d: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z',
       }),
-    ]
+    ],
   );
 
 const benefits: Benefit[] = [

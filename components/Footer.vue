@@ -26,33 +26,29 @@
               </div>
             </div>
             <div>
-              <h3 class="text-xl font-display font-bold">EDUP Global Flex</h3>
+              <h3 class="text-xl font-display font-bold">
+                {{ t('footer.companyName') }}
+              </h3>
               <p class="text-gray-400 text-sm">
-                Authorised Nipponflex Distributor
+                {{ t('footer.companyTagline') }}
               </p>
             </div>
           </div>
 
           <p class="text-gray-300 mb-6 max-w-md leading-relaxed">
-            Eduardo Penafiel's authorised Nipponflex distribution business in
-            the UK. Bringing you authentic Nipponflex wellness technologies and
-            products designed for personalised wellbeing directly from the
-            manufacturer.
+            {{ t('footer.companyDescription') }}
           </p>
         </div>
 
         <!-- Quick Links -->
         <div>
           <h4 class="text-lg font-semibold mb-6 text-ecuador-yellow">
-            Quick Links
+            {{ t('footer.quickLinks') }}
           </h4>
           <ul class="space-y-3">
             <li v-for="link in quickLinks" :key="link.to">
               <NuxtLink
-                v-if="
-                  link.name !== 'Download Catalogue' &&
-                  link.name !== 'Nipponflex Products'
-                "
+                v-if="link.type === 'internal'"
                 :to="link.to"
                 class="text-gray-300 hover:text-ecuador-yellow transition-colors duration-300 flex items-center group"
               >
@@ -62,7 +58,7 @@
                 {{ link.name }}
               </NuxtLink>
               <a
-                v-else-if="link.name === 'Download Catalogue'"
+                v-else-if="link.type === 'download'"
                 :href="link.to"
                 download="EDUP-GlobalFlex-Catalogue.pdf"
                 target="_blank"
@@ -105,7 +101,7 @@
         <!-- Contact Info -->
         <div>
           <h4 class="text-lg font-semibold mb-6 text-ecuador-yellow">
-            Contact Info
+            {{ t('footer.contactInfo') }}
           </h4>
           <ul class="space-y-4 text-gray-300">
             <li class="flex items-start space-x-3">
@@ -121,8 +117,10 @@
                 />
               </svg>
               <div>
-                <p class="font-medium">London Office</p>
-                <p class="text-sm text-gray-400">UK & International</p>
+                <p class="font-medium">{{ t('footer.locationTitle') }}</p>
+                <p class="text-sm text-gray-400">
+                  {{ t('footer.locationSubtitle') }}
+                </p>
               </div>
             </li>
 
@@ -140,7 +138,7 @@
                 />
               </svg>
               <div>
-                <p class="font-medium">Email</p>
+                <p class="font-medium">{{ t('footer.emailLabel') }}</p>
                 <a
                   href="mailto:eduardo.p.gflex@outlook.com"
                   class="text-sm text-gray-400 hover:text-ecuador-yellow transition-colors duration-300"
@@ -161,7 +159,7 @@
                 />
               </svg>
               <div>
-                <p class="font-medium">Phone</p>
+                <p class="font-medium">{{ t('footer.phoneLabel') }}</p>
                 <a
                   href="tel:+447305873174"
                   class="text-sm text-gray-400 hover:text-ecuador-yellow transition-colors duration-300"
@@ -182,25 +180,25 @@
           class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
         >
           <div class="text-sm text-gray-400">
-            © {{ currentYear }} EDUP Global Flex. All rights reserved.
+            {{ t('footer.copyright') }}
           </div>
 
           <div class="flex items-center space-x-6 text-sm text-gray-400">
             <a
               href="/privacy"
               class="hover:text-ecuador-yellow transition-colors duration-300"
-              >Privacy Policy</a
+              >{{ t('footer.privacyPolicy') }}</a
             >
             <a
               href="/terms"
               class="hover:text-ecuador-yellow transition-colors duration-300"
-              >Terms of Service</a
+              >{{ t('footer.terms') }}</a
             >
             <div class="flex items-center space-x-2">
               <span
                 class="w-2 h-2 bg-ecuador-yellow rounded-full animate-pulse"
               ></span>
-              <span>London Based</span>
+              <span>{{ t('footer.basedBadge') }}</span>
             </div>
           </div>
         </div>
@@ -210,22 +208,39 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 interface QuickLink {
   name: string;
   to: string;
+  type: 'internal' | 'download' | 'external';
 }
 
 const logoLoaded = ref(true);
-const currentYear = new Date().getFullYear();
 
-const quickLinks: QuickLink[] = [
-  { name: 'Home', to: '/' },
-  { name: 'Products', to: '/products' },
-  { name: 'Technology', to: '/technology' },
-  { name: 'Contact', to: '/contact' },
-  { name: 'Nipponflex Products', to: 'https://www.nipponflex.com/produtos' },
-  { name: 'Download Catalogue', to: '/assets/pdf/catalog.pdf' },
-];
+const quickLinks = computed<QuickLink[]>(() => [
+  { name: t('header.home'), to: localePath('/'), type: 'internal' },
+  { name: t('header.products'), to: localePath('/products'), type: 'internal' },
+  {
+    name: t('header.technology'),
+    to: localePath('/technology'),
+    type: 'internal',
+  },
+  { name: t('header.contact'), to: localePath('/contact'), type: 'internal' },
+  {
+    name: t('footer.nipponflexProducts'),
+    to: 'https://www.nipponflex.com/produtos',
+    type: 'external',
+  },
+  {
+    name: t('footer.downloadCatalogue'),
+    to: '/assets/pdf/catalog.pdf',
+    type: 'download',
+  },
+]);
 
 const handleImageError = () => {
   logoLoaded.value = false;
