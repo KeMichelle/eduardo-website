@@ -43,7 +43,7 @@
                 <ClientOnly>
                   <iframe
                     class="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/j11YLHORK48?si=6b_5QVGHd6WktJkj"
+                    :src="videoUrl"
                     :title="t('video.iframeTitle')"
                     allow="
                       accelerometer;
@@ -125,10 +125,17 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const localePath = useLocalePath();
+
+const videoUrl = computed(() =>
+  locale.value === 'es'
+    ? 'https://www.youtube.com/embed/uLD7IzmLoLU?si=gQY-pJx0FjWjKUBy'
+    : 'https://www.youtube.com/embed/j11YLHORK48?si=6b_5QVGHd6WktJkj',
+);
 </script>
 
 <style scoped>
