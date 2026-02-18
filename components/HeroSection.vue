@@ -105,7 +105,7 @@
             @click="scrollToNext"
             class="inline-flex flex-col items-center text-white/70 hover:text-white transition-colors duration-300 group"
           >
-            <span class="text-sm mb-2">Discover More</span>
+            <span class="text-sm mb-2">{{ t('hero.scrollLabel') }}</span>
             <svg
               class="w-6 h-6 animate-bounce group-hover:text-ecuador-yellow"
               fill="none"

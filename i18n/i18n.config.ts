@@ -20,6 +20,7 @@ export default defineI18nConfig(() => ({
           explore: 'Explore Products',
           downloadCatalog: 'Download Catalogue (PDF)',
         },
+        scrollLabel: 'Discover More',
       },
       footer: {
         quickLinks: 'Quick Links',
@@ -357,6 +358,7 @@ export default defineI18nConfig(() => ({
           explore: 'Explorar Productos',
           downloadCatalog: 'Descargar Catálogo (PDF)',
         },
+        scrollLabel: 'Descubra más',
       },
       footer: {
         quickLinks: 'Enlaces Rápidos',
@@ -455,7 +457,7 @@ export default defineI18nConfig(() => ({
         title: 'Galería de Productos',
         subtitle:
           'Descubra nuestras tecnologías innovadoras de bienestar  creadas con pasión en Brasil.',
-        ctaTitle: 'Es momento de transformar su bienestar. ¿Está listo?',
+        ctaTitle: 'Es momento de transformar su bienestar ¿Está listo?',
         viewAllProducts: 'Ver Todos los Productos',
         downloadCatalog: 'Descargar Catálogo',
         learnMore: 'Saber más',
@@ -472,7 +474,7 @@ export default defineI18nConfig(() => ({
           p2: 'Siguiendo la recomendación de un familiar, decidí probar la tecnología eEnergy de Nipponflex®. Con el uso constante, noté una clara mejoría en mi bienestar y movilidad en pocas semanas. Con el tiempo, esas mejoras transformaron mi vida.',
           p3: 'Hoy, vuelvo a vivir de forma activa y sin molestias. Esta experiencia me inspiró a compartir eEnergy con otras personas que buscan mejorar su bienestar.',
           highlight:
-            'No tiene por qué resignarse a vivir con molestias. A veces, probar algo nuevo puede abrir posibilidades inesperadas. Compruébelo por sí mismo.',
+            'No tiene por que resignarse a vivir con molestias. A veces, probar algo nuevo puede abrir posibilidades inesperadas. Compruébelo por sí mismo.',
           disclaimer:
             'Testimonio personal basado en la experiencia individual. Los resultados pueden variar. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.',
         },
@@ -556,15 +558,15 @@ export default defineI18nConfig(() => ({
         benefitsTitle: 'Beneficios',
         specsTitle: 'Especificaciones técnicas',
         warningsTitle: 'Información importante de seguridad',
-        generalDisclaimerTitle: 'Aviso importante de salud y legal',
+        generalDisclaimerTitle: 'Declaración importante',
         generalDisclaimerText:
-          'Los productos Nipponflex eEnergy no están destinados a diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Los resultados pueden variar de una persona a otra. La información proporcionada en este sitio web no sustituye el consejo médico profesional. Consulte siempre a su médico o profesional de la salud ante cualquier duda relacionada con una condición médica.',
+          'Los productos Nipponflex eEnergy no están destinados a diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Los resultados pueden variar de una persona a otra. La información proporcionada en este sitio web no sustituye el consejo médico profesional. Consulte siempre a su médico o profesional de la salud ante cualquier duda relacionada con cualquier condición médica.',
         relatedTitle: 'También le puede gustar',
         relatedViewDetails: 'Ver detalles',
         ctaReady: '¿Listo para experimentar',
         ctaDescription:
           'Contáctese con Eduardo Penafiel, su distribuidor autorizado de Nipponflex en el Reino Unido, para obtener más información sobre este producto auténtico de Nipponflex y cómo puede apoyar su bienestar.',
-        ctaContactNow: 'Contactar ahora con Eduardo Penafiel',
+        ctaContactNow: 'Contactarse ahora con Eduardo Penafiel',
         ctaDownloadFull: 'Descargar catálogo completo',
         notFoundTitle: 'Producto no encontrado',
         notFoundText: 'El producto "{slug}" no se pudo encontrar.',
