@@ -55,7 +55,7 @@ export default defineI18nConfig(() => ({
           point2: {
             title: 'Technology working quietly in the background',
             description:
-              'From FIR Bioceramic® to Rabatan® and ion technology, each innovation is built to work while you sleep or rest.',
+              'From FIR Bioceramic® to Rabatan® and other cutting-edge solutions, each innovation is built to work while you sleep or rest.',
           },
           point3: {
             title: 'Designed for real people and real homes',
@@ -82,7 +82,7 @@ export default defineI18nConfig(() => ({
         title: 'Ready for Personalised',
         titleHighlight: 'Wellbeing?',
         description:
-          'Transform your daily wellness routine with authentic Nipponflex technologies. As your authorised UK distributor, Eduardo through EDUP Global Flex brings you genuine Nipponflex products – from advanced FIR Bioceramic® materials to cutting-edge ion therapy solutions.',
+          'Transform your daily wellness routine with authentic Nipponflex technologies. As your authorised UK distributor, Eduardo through EDUP Global Flex brings you genuine Nipponflex products – from advanced FIR Bioceramic® materials to cutting-edge solutions.',
         cards: {
           personalised: {
             title: 'Personalised Approach',
@@ -304,15 +304,6 @@ export default defineI18nConfig(() => ({
         sectionTitle: 'Revolutionary Wellness Technologies',
         sectionIntro:
           'Nipponflex technologies work synergistically to provide comprehensive wellness benefits. Each technology has been carefully developed and tested to help support comfort, relaxation and recovery.',
-        comparisonTitle: 'Technology Benefits Comparison',
-        table: {
-          technology: 'Technology',
-          relaxation: 'Relaxation',
-          recovery: 'Recovery',
-          sleep: 'Sleep Quality',
-          energy: 'Energy Balance',
-          pain: 'Pain Relief',
-        },
         ctaTitle: 'Experience Nipponflex Technology',
         ctaText:
           "Ready to experience the benefits of Nipponflex's revolutionary wellness technologies? Explore the products or get in touch with Eduardo to learn more about the right solutions for you.",
@@ -343,6 +334,7 @@ export default defineI18nConfig(() => ({
           'Are you in good health but suspect something is missing?',
         lead: "A simple test can help confirm your suspicions. Nipponflex's eEnergy® technology is here to support your wellbeing.",
         ctaLabel: 'Contact Eduardo for your free test',
+        ctaButton: 'Book Your Free Test',
       },
       productTags: {
         womensWellness: "Women's Wellness",
@@ -385,7 +377,7 @@ export default defineI18nConfig(() => ({
         downloadCatalogue: 'Descargar catálogo',
       },
       wellness: {
-        title: 'Bienestar Hecho Simple',
+        title: 'Bienestar Sin Complicaciones',
         intro:
           'Descubra cómo las tecnologías auténticas de Nipponflex pueden apoyar su bienestar diario de forma sencilla y práctica.',
         subheading: 'Bienestar que encaja con su vida real',
@@ -400,10 +392,10 @@ export default defineI18nConfig(() => ({
           point2: {
             title: 'Tecnología que trabaja en segundo plano',
             description:
-              'Desde FIR Bioceramic® hasta Rabatan® y la tecnología de iones negativos, cada innovación está pensada para actuar mientras usted duerme o descansa.',
+              'Desde FIR Bioceramic® hasta Rabatan® y soluciones de vanguardia, cada innovación está pensada para actuar mientras usted duerme o descansa.',
           },
           point3: {
-            title: 'Diseñado para personas y hogares reales',
+            title: 'Creado para el día a día',
             description:
               'Colchones, almohadas y accesorios que se integran en su vida y en su hogar sin parecer clínicos ni complicados.',
           },
@@ -413,9 +405,9 @@ export default defineI18nConfig(() => ({
               'No elige solo. Eduardo le ayuda a entender qué opciones se ajustan mejor a su situación y objetivos.',
           },
         },
-        cardTitle: 'Bienestar sencillo, no abrumador',
+        cardTitle: 'Bienestar simplificado, no abrumador',
         cardSubtitle:
-          'Pequeños cambios en dónde y cómo descansa pueden marcar una gran diferencia con el tiempo.',
+          'Pequeños cambios en dónde y cómo descansas pueden marcar una gran diferencia con el tiempo.',
         stats: {
           products: 'Productos de bienestar especializados',
           guarantee: 'Enfoque centrado en su satisfacción',
@@ -427,7 +419,7 @@ export default defineI18nConfig(() => ({
         title: '¿Listo para un Bienestar',
         titleHighlight: 'Personalizado?',
         description:
-          'Transforme su rutina diaria de bienestar con tecnologías auténticas Nipponflex. Como su distribuidor autorizado en el Reino Unido, Eduardo a través de EDUP Global Flex le ofrece productos Nipponflex genuinos: desde materiales avanzados FIR Bioceramic® hasta soluciones de ionterapia de vanguardia.',
+          'Transforme su rutina diaria de bienestar con tecnologías auténticas Nipponflex. Como su distribuidor autorizado en el Reino Unido, Eduardo a través de EDUP Global Flex le ofrece productos Nipponflex genuinos: desde materiales avanzados FIR Bioceramic® hasta soluciones de vanguardia.',
         cards: {
           personalised: {
             title: 'Enfoque Personalizado',
@@ -463,7 +455,7 @@ export default defineI18nConfig(() => ({
         title: 'Galería de Productos',
         subtitle:
           'Descubra nuestras tecnologías innovadoras de bienestar  creadas con pasión en Brasil.',
-        ctaTitle: '¿Listo para transformar su camino de bienestar?',
+        ctaTitle: 'Es momento de transformar tu bienestar. ¿Estás listo?',
         viewAllProducts: 'Ver Todos los Productos',
         downloadCatalog: 'Descargar Catálogo',
         learnMore: 'Saber más',
@@ -571,7 +563,7 @@ export default defineI18nConfig(() => ({
         relatedViewDetails: 'Ver detalles',
         ctaReady: '¿Listo para experimentar',
         ctaDescription:
-          'Contacte con Eduardo Penafiel, su distribuidor autorizado de Nipponflex en el Reino Unido, para obtener más información sobre este producto auténtico de Nipponflex y cómo puede apoyar su bienestar.',
+          'Contáctese con Eduardo Penafiel, su distribuidor autorizado de Nipponflex en el Reino Unido, para obtener más información sobre este producto auténtico de Nipponflex y cómo puede apoyar su bienestar.',
         ctaContactNow: 'Contactar ahora con Eduardo Penafiel',
         ctaDownloadFull: 'Descargar catálogo completo',
         notFoundTitle: 'Producto no encontrado',
@@ -650,15 +642,6 @@ export default defineI18nConfig(() => ({
         sectionTitle: 'Tecnologías Revolucionarias de Bienestar',
         sectionIntro:
           'Las tecnologías de Nipponflex trabajan en sinergia para ofrecer beneficios integrales de bienestar. Cada tecnología ha sido cuidadosamente desarrollada y probada para ayudar a favorecer la comodidad, la relajación y la recuperación.',
-        comparisonTitle: 'Comparación de Beneficios Tecnológicos',
-        table: {
-          technology: 'Tecnología',
-          relaxation: 'Relajación',
-          recovery: 'Recuperación',
-          sleep: 'Calidad del sueño',
-          energy: 'Equilibrio energético',
-          pain: 'Alivio del dolor',
-        },
         ctaTitle: 'Experimente la Tecnología Nipponflex',
         ctaText:
           '¿Listo para experimentar los beneficios de las tecnologías revolucionarias de Nipponflex? Explore los productos o póngase en contacto con Eduardo para conocer las soluciones adecuadas para usted.',
@@ -688,7 +671,8 @@ export default defineI18nConfig(() => ({
         sectionTitle:
           '¿Está en buen estado de salud pero sospecha que falta algo?',
         lead: 'Una prueba sencilla puede ayudarle a confirmar sus sospechas. La tecnología eEnergy® de Nipponflex está aquí para apoyar su bienestar.',
-        ctaLabel: 'Contacte con Eduardo para su prueba gratuita',
+        ctaLabel: 'Contáctese con Eduardo para su prueba gratuita',
+        ctaButton: 'Reserva tu prueba gratuita',
       },
       productTags: {
         womensWellness: 'Bienestar femenino',

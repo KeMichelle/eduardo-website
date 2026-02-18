@@ -75,6 +75,7 @@ export default {
     description:
       'Answer a few simple questions to help us understand your wellness goals and receive personalized Nipponflex product recommendations tailored to your needs.',
     button: 'Start Health Test',
+    ctaButton: 'Book Your Free Test',
     questions: {
       sleepQuality: 'How would you rate your sleep quality?',
       energyLevels: 'How are your daily energy levels?',

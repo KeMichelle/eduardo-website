@@ -97,7 +97,7 @@
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span>Book Your Free Test</span>
+            <span>{{ t('healthTest.ctaButton') }}</span>
             <svg
               class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
               fill="none"

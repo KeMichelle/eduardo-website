@@ -75,6 +75,7 @@ export default {
     description:
       'Responde algunas preguntas simples para ayudarnos a entender tus objetivos de bienestar y recibe recomendaciones personalizadas de productos Nipponflex adaptadas a tus necesidades.',
     button: 'Iniciar Test de Salud',
+    ctaButton: 'Reserva tu prueba gratuita',
     questions: {
       sleepQuality: '¿Cómo calificarías la calidad de tu sueño?',
       energyLevels: '¿Cómo son tus niveles de energía diarios?',
