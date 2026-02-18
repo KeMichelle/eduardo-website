@@ -419,7 +419,7 @@ export default defineI18nConfig(() => ({
         title: '¿Listo para un Bienestar',
         titleHighlight: 'Personalizado?',
         description:
-          'Transforme su rutina diaria de bienestar con tecnologías auténticas Nipponflex. Como su distribuidor autorizado en el Reino Unido, Eduardo a través de EDUP Global Flex le ofrece productos Nipponflex genuinos: desde materiales avanzados FIR Bioceramic® hasta soluciones de vanguardia.',
+          'Transforme su rutina diaria de bienestar con tecnologías auténticas Nipponflex. Como su distribuidor autorizado en el Reino Unido, Eduardo a través de EDUP Global Flex le ofrece una amplia gama de productos Nipponflex genuinos.',
         cards: {
           personalised: {
             title: 'Enfoque Personalizado',
@@ -455,7 +455,7 @@ export default defineI18nConfig(() => ({
         title: 'Galería de Productos',
         subtitle:
           'Descubra nuestras tecnologías innovadoras de bienestar  creadas con pasión en Brasil.',
-        ctaTitle: 'Es momento de transformar tu bienestar. ¿Estás listo?',
+        ctaTitle: 'Es momento de transformar su bienestar. ¿Está listo?',
         viewAllProducts: 'Ver Todos los Productos',
         downloadCatalog: 'Descargar Catálogo',
         learnMore: 'Saber más',
@@ -472,15 +472,15 @@ export default defineI18nConfig(() => ({
           p2: 'Siguiendo la recomendación de un familiar, decidí probar la tecnología eEnergy de Nipponflex®. Con el uso constante, noté una clara mejoría en mi bienestar y movilidad en pocas semanas. Con el tiempo, esas mejoras transformaron mi vida.',
           p3: 'Hoy, vuelvo a vivir de forma activa y sin molestias. Esta experiencia me inspiró a compartir eEnergy con otras personas que buscan mejorar su bienestar.',
           highlight:
-            'No tienes por qué resignarte a vivir con molestias. A veces, probar algo nuevo puede abrir posibilidades inesperadas. Compruébalo por ti mismo.',
+            'No tiene por qué resignarse a vivir con molestias. A veces, probar algo nuevo puede abrir posibilidades inesperadas. Compruébelo por sí mismo.',
           disclaimer:
             'Testimonio personal basado en la experiencia individual. Los resultados pueden variar. Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.',
         },
         quote: {
-          text: 'Vívelo por ti mismo.',
+          text: 'Vívalo por sí mismo.',
           role: 'Asesor de Bienestar',
         },
-        connectButton: 'Conectar con Eduardo',
+        connectButton: 'Conéctese con Eduardo',
         additionalInfo: {
           experience: {
             title: 'Experiencia Autorizada',
@@ -667,12 +667,12 @@ export default defineI18nConfig(() => ({
         description:
           'Responde algunas preguntas simples para ayudarnos a entender tus objetivos de bienestar y recibe recomendaciones personalizadas de productos Nipponflex adaptadas a tus necesidades.',
         button: 'Iniciar Test de Salud',
-        badgeLabel: 'Test de salud gratuito disponible',
+        badgeLabel: 'Evaluación gratuita disponible',
         sectionTitle:
           '¿Está en buen estado de salud pero sospecha que falta algo?',
         lead: 'Una prueba sencilla puede ayudarle a confirmar sus sospechas. La tecnología eEnergy® de Nipponflex está aquí para apoyar su bienestar.',
-        ctaLabel: 'Contáctese con Eduardo para su prueba gratuita',
-        ctaButton: 'Reserva tu prueba gratuita',
+        ctaLabel: 'Contáctese con Eduardo para su consulta gratuita',
+        ctaButton: 'Reserve su consulta gratuita',
       },
       productTags: {
         womensWellness: 'Bienestar femenino',
