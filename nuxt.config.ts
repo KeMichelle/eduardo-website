@@ -46,7 +46,19 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    paymentAdminPassword: process.env.PAYMENT_ADMIN_PASSWORD || '',
+    paymentSessionSecret: process.env.PAYMENT_SESSION_SECRET || '',
+    paymentAdminSessionHours: process.env.PAYMENT_ADMIN_SESSION_HOURS || '8',
+    paymentAdminAllowedIps: process.env.PAYMENT_ADMIN_ALLOWED_IPS || '',
+    paymentStorageDriver: process.env.PAYMENT_STORAGE_DRIVER || '',
+    paymentStorageFile:
+      process.env.PAYMENT_STORAGE_FILE || '.data/payment-requests.json',
+    paypalClientId: process.env.PAYPAL_CLIENT_ID || '',
+    paypalClientSecret: process.env.PAYPAL_CLIENT_SECRET || '',
+    paypalBaseUrl:
+      process.env.PAYPAL_BASE_URL || 'https://api-m.sandbox.paypal.com',
     public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || '',
       emailjsServiceId: process.env.NUXT_PUBLIC_EMAILJS_SERVICE_ID || '',
       emailjsTemplateId: process.env.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
       emailjsPublicKey: process.env.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
